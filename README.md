@@ -1,77 +1,70 @@
-# SCOOP
-Scoop is your window to the heartbeat of campus life. Engage, explore, and uncover the latest campus insights in real-time. This is your space to share and discover news that truly matters.
+# Getting Started with Create React App
 
-## Tech Stack 
-* NodeJS
-* ExpressJS
-* MongoDB
-* React
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-## 🚀 Features
+In the project directory, you can run:
 
-1. **News Unleashed:**
-   - Scoop is your go-to platform for breaking campus news. Share the latest updates, events, and noteworthy happenings with the community. Your news, your voice.
+### `npm start`
 
-2. **Upvote Power**
-   - Every user has the ability to shape the narrative. Upvote the most relevant and impactful news, ensuring that the most significant stories rise to the top.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-3. **Verified Badge Prestige:**
-   - Become a recognized campus news authority. The user with the most upvoted news profile earns a prestigious verified badge, symbolizing their influence and commitment to delivering quality information.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-4. **Chronicle Rankings:**
-   - Scoop doesn’t just share news; it prioritizes the most impactful stories. The most upvoted news articles secure a prime position at the top, ensuring that the campus community stays informed with the best content.
+### `npm test`
 
-5. **Admin Dashboard:**
-   - An admin will have the authority to delete or edit news shared by regular user.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-6. **Community Informed**
-   - Engage in meaningful discussions around the latest news. Foster a sense of community by sharing opinions, insights, and reactions to the stories that matter most.
+### `npm run build`
 
-## Join The Scoop Revolution
-Scoop is a revolution in campus journalism. Together, let's elevate the way we share, consume, and engage with campus news. Your insights, your influence - let the Scoop revolution begin!
- 
-## Dependencies
-You need npm/yarn installed in your local machine in order to run this app.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Installation
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-  npm install 
-  npm run dev
-```
-## How To Setup 
-* Make sure your machine is having internet connection.
-* Fork the repository.
-* Open shell (which ever your OS support) on your PC.
-* Change drive to the location where you want your project to be copied.
-* Clone it to your local setup by using command git clone ```<repo link>```.
-* Once cloned, Run the following command in the root directory of the project ```npm install```.
-* After the process is completed, run the command ```npm run dev```.
-* The website will be live on ```localhost:3000```.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eject`
 
-## Claim an issue
-Comment on the issue. In case of no activity on the issue even after 2 days, the issue will be reassigned. If you have difficulty approaching the issue, feel free to ask on our discord channel.
-## Communication 
-Whether you are working on a new feature or facing a doubt please feel free to ask us on our [discord](https://discord.gg/D9999YTkS8) channel. We will be happy to help you out.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Guidlines 
-Please help us follow the best practice to make it easy for the reviewer as well as the contributor. We want to focus on the code quality more than on managing pull request ethics.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- People before code: If any of the following rules are violated, the pull-requests must not be rejected. This is to create an easy and joyful onboarding process for new programmers and first-time contributors.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- Single commit per pull request and name the commit as something meaningful, example: Adding <-your-name-> in students/mentors section.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- Reference the issue numbers in the commit message if it resolves an open issue. Follow the [PR Template](https://github.com/opencodeiiita/SaveMyForm-Frontend/blob/main/.github/pull_request_template.md) Issue: < ISSUE NUMBER >
+## Learn More
 
-- Provide the link to live gh-pages from your forked repository or relevant screenshot for easier review.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Pull Request older than 3 days with no response from the contributor shall be marked closed.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Do not make PR which is not related to any issues. You can create an issue and solve it once we approve them.
+### Code Splitting
 
-- Avoid duplicate PRs, if need be comment on the older PR with the PR number of the follow-up (new PR) and close the obsolete PR yourself.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- Be polite: Be polite to other community members.
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
