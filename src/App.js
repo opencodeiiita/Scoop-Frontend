@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import {theme} from './theme.js';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+;
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          SCOOP - Your Insights, Your Influence
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          
-        </a>
-      </header>
-    </div>
+    <> 
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+       <BrowserRouter>
+       <Routes>
+        <Route path="/" element={<Home></Home>}  />
+        <Route path="*" element={<NotFound></NotFound>} />
+       </Routes>
+       </BrowserRouter>
+       </CssBaseline>
+       </ThemeProvider>
+
+    </>
   );
 }
 
