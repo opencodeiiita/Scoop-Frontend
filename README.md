@@ -1,7 +1,6 @@
 # SCOOP
 Scoop is your window to the heartbeat of campus life. Engage, explore, and uncover the latest campus insights in real-time. This is your space to share and discover news that truly matters.
-FIGMA - https://www.figma.com/file/jAKJY9AhyIxhl1IloKacbY/Free-News-%26-Magazine-Figma-Template-%2F-All-pages-(Community)?type=design&node-id=17-11&mode=design&t=faD1LQWa0wLh0eHh-0
-
+[Figma](https://www.figma.com/file/jAKJY9AhyIxhl1IloKacbY/Free-News-%26-Magazine-Figma-Template-%2F-All-pages-(Community)?type=design&node-id=17-11&mode=design&t=faD1LQWa0wLh0eHh-0)
 ## Tech Stack 
 * NodeJS
 * ExpressJS
