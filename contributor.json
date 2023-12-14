@@ -3,5 +3,10 @@
         "name": "ExampleName",
         "githubid": "ExampleID",
         "college": "ExampleCLG"
+    },
+    {
+        "name": "Apoorv Mittal",
+        "githubid": "Apoorv012",
+        "college": "JIIT, Noida"
     }
 ]
