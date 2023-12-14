@@ -15,6 +15,11 @@
       "email": ""
     },
     {
+        "name": "Piyush Tiwari",
+        "githubid": "Piyush-Raj-Tiwari",
+        "email": "iit2022021@iiita.ac.in"
+    },
+    {
         "name": "Karan Deoli",
         "githubid": "Karansenpai",
         "email": ""
@@ -43,5 +48,6 @@
         "name": "Tejas Sharma",
         "Githubid": "Tej-as1",
         "email": "tsharma1704@gmail.com"
-    }
+    },
+    
 ]
