@@ -1,7 +1,37 @@
 [
     {
-        "name": "Aryan Yadav",
-        "githubid": "aryan0931",
-        "college": "aryan.yadav.mec22@itbhu.ac.in"
+      "name": "Aryan Yadav",
+      "githubid": "aryan0931",
+      "college": "aryan.yadav.mec22@itbhu.ac.in"
+    },
+    {
+      "name": "Kushal Bansal",
+      "Githubid": "kushal7201",
+      "email": "iit2022021@iiita.ac.in"
+    },
+    {
+      "name": "Pranav Bansal",
+      "githubid": "PranavBansal21",
+      "college": "Indian Institute of Information Technology, Allahabad"
+    },
+    {
+        "name": "Karan Deoli",
+        "githubid": "Karansenpai",
+        "college": "IIITA"
+    },
+    { 
+        "name": "Apoorv Mittal",
+        "githubid": "Apoorv012",
+        "college": "JIIT, Noida"
+    },
+    {
+        "name": "Atharva Chavan",
+        "Githubid": "atharva0192",
+        "email": "atharva0192@gmail.com"
+    },
+    {
+        "name": "Shaurya Jain",
+        "githubid": "ShauryaJain03",
+        "email": "jainshaurya.sj@gmail.com
     }
 ]
