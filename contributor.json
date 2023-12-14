@@ -3,5 +3,10 @@
         "name": "ExampleName",
         "githubid": "ExampleID",
         "college": "ExampleCLG"
+    },
+    {
+        "name": "Parimal Amrutkar",
+        "Githubid": "parimal-10",
+        "email": "amrutkar.parimal@gmail.com"
     }
 ]
