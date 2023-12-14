@@ -1,5 +1,11 @@
 [
     {
+        "name": "Diwakar Kashyap",
+        "githubid": "DIWAKARKASHYAP",
+        "college": "Ganjdundwara PG collage"
+    },
+    {
+
         "name": "Nitu Sherawat",
         "githubid": "Nitu-Sherawat",
         "email": ""
@@ -150,3 +156,4 @@
         "email": "iec2022073@iiita.ac.in"
     },   
 ]
+
