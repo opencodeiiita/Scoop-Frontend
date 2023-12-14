@@ -1,7 +1,12 @@
 [
-    {
-        "name": "ExampleName",
-        "githubid": "ExampleID",
-        "college": "ExampleCLG"
-    }
+  {
+    "name": "ExampleName",
+    "githubid": "ExampleID",
+    "college": "ExampleCLG"
+  },
+  {
+    "name": "Pranav Bansal",
+    "githubid": "PranavBansal21",
+    "college": "Indian Institute of Information Technology, Allahabad"
+  }
 ]
