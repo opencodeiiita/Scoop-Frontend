@@ -45,6 +45,11 @@
         "email": "tsharma1704@gmail.com"
     },
     {
+        "name": "Aditya Arya",
+        "Githubid": "arya-007",
+        "email": "arya7004544100@gmail.com"
+    },  
+    {
         "name": "Harshal Gainer",
         "Githubid": "Harshal5167",
         "email": "harshalgainer5167@gmail.com"
@@ -76,5 +81,5 @@
         "name": "Mansa Mahendru",
         "githubid": "Hannah2k23",
         "email": "mahendrumansa2004@gmail.com"
-    },
+    }
 ]
