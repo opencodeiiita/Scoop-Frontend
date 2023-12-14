@@ -44,11 +44,37 @@
         "Githubid": "Tej-as1",
         "email": "tsharma1704@gmail.com"
     },
-    {
+  
+     {
+
       "name": "Buddhi Sagar Panjiyar",
       "Githubid": "iam-buddhi",
       "email": "mailbuddhisagar@gmail.com"
-   }
+     },
 
     
+    {
+        "name": "Rohit Pandey",
+        "Githubid": "Rohit-110",
+        "email": "rohitpandeyrp01@gmail.com"
+    },
+
+        "name": "Ajay Kumar",
+        "githubid": "ajay484",
+        "email": "iit2022021@iiita.ac.in"
+    },
+    {
+
+        "name": "Rudresh Dabre",
+        "Githubid": "Rudreshdabre12",
+        "email": "rudresh.dabre@gmail.com"
+   },
+    {
+
+        "name": "Shubham Gupta",
+        "Githubid": "Jarviss77",
+        "email": "gupta.shubham2404@gmail.com"
+    }
+
+
 ]
