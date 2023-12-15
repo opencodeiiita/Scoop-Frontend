@@ -74,4 +74,4 @@ export default function Card1(props)
     </Card>
   )
 }
-//lorem ipsum
+//lorem ipsumm
