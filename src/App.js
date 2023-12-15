@@ -21,7 +21,7 @@ function App() {
        </BrowserRouter>
        </CssBaseline>
        </ThemeProvider> */}
-       <CategoryCarousel/>
+       
     </>
   );
 }
