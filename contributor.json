@@ -1,5 +1,10 @@
 [
     {
+        "name": "Vishal Kashyap",
+        "githubid": "Vishal649-bot",
+        "email": "akum5991@gmail.com"
+    },
+    {
         "name": "Diwakar Kashyap",
         "githubid": "DIWAKARKASHYAP",
         "college": "Ganjdundwara PG collage"
@@ -101,7 +106,7 @@
         "Githubid": "Rohit-110",
         "email": "rohitpandeyrp01@gmail.com"
     },
-
+    {
         "name": "Ajay Kumar",
         "githubid": "ajay484",
         "email": "iit2022021@iiita.ac.in"
@@ -154,6 +159,6 @@
          "name": "Deepanshu Kumar",
         "Githubid": "dk414",
         "email": "iec2022073@iiita.ac.in"
-    },   
+    }
 ]
 
