@@ -3,7 +3,7 @@ import {Box, Card, CardMedia, Typography } from '@mui/material';
 
 import '@fontsource/roboto/300.css';
 export default function Card1(props)
-{
+{ 
   return(
     <Card sx={{ 
       height:{
@@ -74,3 +74,4 @@ export default function Card1(props)
     </Card>
   )
 }
+//lorem ipsum
