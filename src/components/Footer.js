@@ -1,14 +1,12 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import TextField from "@mui/material/TextField";
 import MailIcon from "@mui/icons-material/Mail";
-import Button from "@mui/material/Button";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -149,11 +147,27 @@ const socialNetwork = {
   // left: "2%"
 };
 
-
 const comm = {
   marginLeft: "1.5rem",
   marginRight: "1.5rem",
-}
+};
+
+const Imagelist = () => {
+  return (
+    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+      {itemData.map((item) => (
+        <ImageListItem key={item.img}>
+          <img
+            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+            alt={item.title}
+            loading="lazy"
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
+  );
+};
 
 const InstaButton = () => {
   return (
@@ -196,6 +210,23 @@ const InstaButton = () => {
     </button>
   );
 };
+
+const part1 = {
+  height: "30rem",
+  flex: 2,
+  background: "#F5F5F5",
+  borderRadius: "0rem 3.125rem 3.125rem 0rem",
+};
+
+const part2 = {
+  height: "30rem",
+  flex: 1,
+};
+
+const part3 = {
+  height: "30rem",
+  flex: 1,
+};
 const Footer = () => {
   return (
     <div
@@ -206,163 +237,162 @@ const Footer = () => {
         width: "100%",
         minHeight: "30rem",
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
         padding: "2rem",
+        flexWrap: "wrap",
       }}
     >
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={5}>
+      <div style={part1}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div style={{
+            display: "flex",
+            flexDirection: "row",
+          }}>
+
+          
           <div
             style={{
-              background: "#F5F5F5",
-              borderRadius: "0rem 3.125rem 3.125rem 0rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                }}
-              >
-                {/* About */}
-                <div style={about}>
-                  <div style={headline}>
-                    <Pointer />
-                    <div style={heading}>Mega News</div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    euismod, diam id aliquam ultrices, nisl nunc porta neque, in
-                    pellentesque massa sem at tellus. Sed auctor, nisl quis
-                    tempor ornare, nisl nunc porta neque, in pellentesque massa
-                    sem at tellus. Sed auctor, nisl quis tempor ornare.
-                  </p>
-                </div>
+            {/* About */}
+            <div style={about}>
+              <div style={headline}>
+                <Pointer />
+                <div style={heading}>Mega News</div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                euismod, diam id aliquam ultrices, nisl nunc porta neque, in
+                pellentesque massa sem at tellus. Sed auctor, nisl quis tempor
+                ornare, nisl nunc porta neque, in pellentesque massa sem at
+                tellus. Sed auctor, nisl quis tempor ornare.
+              </p>
+            </div>
 
-                {/* Newsletter */}
-                <div style={newsletter}>
-                  <div style={headline}>
-                    <Pointer />
-                    <div style={heading}>Newsletter</div>
-                  </div>
-
-                  <div
-                    style={{
-                      width: "100%",
-                      display: "inline-flex",
-                      borderRadius: "0.75rem",
-                      background: "#FFFFFF",
-                      height: "3rem",
-                      alignItems: "center",
-                      gap: "1rem",
-                      padding: "0.5rem 0.75rem 0.5rem 0.5rem",
-                    }}
-                  >
-                    <Input
-                      placeholder="Enter your Email"
-                      inputProps={ariaLabel}
-                      style={{
-                        width: "100%",
-                        color: "rgba(62, 50, 50, 0.75)",
-                        flex: "1 0 0",
-                      }}
-                    />
-                    <div
-                      style={{
-                        display: "flex",
-                        height: "1.25rem",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <MailIcon />
-                    </div>
-                  </div>
-                </div>
+            {/* Newsletter */}
+            <div style={newsletter}>
+              <div style={headline}>
+                <Pointer />
+                <div style={heading}>Newsletter</div>
               </div>
 
-              {/* Categories */}
-              <div style={categorie}>
-                <div>
-                  <div style={headline}>
-                    <Pointer />
-                    <div style={heading}>Categories</div>
-                  </div>
-                  <List
-                    component="nav"
-                    aria-label="mailbox folders"
-                    style={{
-                      marginTop: "8px",
-                    }}
-                  >
-                    {categories.map((category, index) => (
-                      <ListItem key={index} style={{
-                         paddingBottom: "0.04px"
-                         
-                         }}>
-                        <ListItemText primary={category} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </div>
-
-                {/* Social Network */}
-                <div style={socialNetwork}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <Pointer />
-                    <div style={{ marginLeft: "8px" }}>Social Network</div>
-                  </div>
-                  <InstaButton />
+              <div
+                style={{
+                  width: "100%",
+                  display: "inline-flex",
+                  borderRadius: "0.75rem",
+                  background: "#FFFFFF",
+                  height: "3rem",
+                  alignItems: "center",
+                  gap: "1rem",
+                  padding: "0.5rem 0.75rem 0.5rem 0.5rem",
+                }}
+              >
+                <Input
+                  placeholder="Enter your Email"
+                  inputProps={ariaLabel}
+                  style={{
+                    width: "100%",
+                    color: "rgba(62, 50, 50, 0.75)",
+                    flex: "1 0 0",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    height: "1.25rem",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <MailIcon />
                 </div>
               </div>
             </div>
-            <div style={copyright}>
-              <div
-                style={{
-                  color: "rgba(62, 50, 50, 0.75)",
-                  flex: "1 0 0",
-                }}
-              >
-                Privacy Policy | Terms & Conditions
+            </div>
+            {/* Categories */}
+            <div style={categorie}>
+              <div>
+                <div style={headline}>
+                  <Pointer />
+                  <div style={heading}>Categories</div>
+                </div>
+                <List
+                  component="nav"
+                  aria-label="mailbox folders"
+                  style={{
+                    marginTop: "8px",
+                  }}
+                >
+                  {categories.map((category, index) => (
+                    <ListItem
+                      key={index}
+                      style={{
+                        paddingBottom: "0.04px",
+                      }}
+                    >
+                      <ListItemText primary={category} />
+                    </ListItem>
+                  ))}
+                </List>
               </div>
-              <div
-                style={{
-                  flexShrink: 0,
-                  color: "rgba(62, 50, 50, 0.75)",
-                }}
-              >
-                © 2022 All rights reserved.
+              {/* Social Network */}
+              <div style={socialNetwork}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Pointer />
+                  <div style={{ marginLeft: "8px" }}>Social Network</div>
+                </div>
+                <InstaButton />
               </div>
             </div>
           </div>
 
-          {/* Copyright */}
-        </Grid>
-
-        {/* New Comments */}
-        <Grid item xs={12} md={3}>
-          <div style={comm}>
-            <div style={headline}>
-              <Pointer />
-              <div style={heading}>New Comments</div>
+          <div style={copyright}>
+            <div
+              style={{
+                color: "rgba(62, 50, 50, 0.75)",
+                flex: "1 0 0",
+              }}
+            >
+              Privacy Policy | Terms & Conditions
             </div>
+            <div
+              style={{
+                flexShrink: 0,
+                color: "rgba(62, 50, 50, 0.75)",
+              }}
+            >
+              © 2022 All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
 
-            <div style ={{
+      <div style={part2}>
+        <div style={comm}>
+          {" "}
+          <div style={headline}>
+            <Pointer />
+            <div style={heading}>New Comments</div>{" "}
+          </div>{" "}
+          <div
+            style={{
               display: "flex",
               flexDirection: "column",
               marginTop: "1.2rem",
               padding: "1.5rem",
               paddingLeft: "0rem",
-            }
-            }>
-
+            }}
+          >
             {comments.map((comment, index) => (
               <Card
                 key={index}
@@ -385,36 +415,52 @@ const Footer = () => {
                 </CardContent>
               </Card>
             ))}
-            </div>
           </div>
-        </Grid>
-
-        {/* Follow on Instagram */}
-        <Grid item xs={12} md={3}>
-          <div>
-            <div style={headline}>
-              <Pointer />
-              <div style={heading}>Follow on Instagram</div>
-            </div>
-            <ImageList
-              sx={{ width: "100%", height: 450 }}
-              cols={3}
-              rowHeight={164}
+        </div>
+      </div>
+      <div style={part3}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: 20,
+            display: "flex",
+          }}
+        >
+          <div
+            style={{
+              justifyContent: "flex-start",
+              alignItems: "center",
+              gap: 6,
+              display: "flex",
+            }}
+          >
+            <div
+              style={{
+                width: 4,
+                height: 10,
+                background: "#F81539",
+                borderRadius: 12,
+              }}
+            />
+            <div
+              style={{
+                color: "#3E3232",
+                fontSize: 20,
+                fontFamily: "Roboto",
+                fontWeight: "500",
+                textTransform: "capitalize",
+                wordWrap: "break-word",
+              }}
             >
-              {itemData.map((item, index) => (
-                <ImageListItem key={index}>
-                  <img
-                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
+              Follow on Instagram
+            </div>
           </div>
-        </Grid>
-      </Grid>
+          <Imagelist />
+        </div>
+      </div>
     </div>
   );
 };
