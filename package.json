@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
     "@mui/x-data-grid": "^6.0.2",
@@ -18,14 +19,16 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-charts": "^4.0.0",
+    "react-multi-carousel": "^2.8.4",
     "react-pro-sidebar": "^1.0.0",
-    
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "react-toastify": "^9.1.1",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.0"
   },
@@ -53,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
   }
 }
