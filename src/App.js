@@ -11,7 +11,7 @@ function App() {
  
   return (
     <> 
-{/*     <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline>
        <BrowserRouter>
        <Routes>
@@ -20,8 +20,8 @@ function App() {
        </Routes>
        </BrowserRouter>
        </CssBaseline>
-       </ThemeProvider> */}
-       
+       </ThemeProvider>
+       <CategoryCarousel/>
     </>
   );
 }
