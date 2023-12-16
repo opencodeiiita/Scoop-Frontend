@@ -44,9 +44,6 @@ export default class Carousell extends Component {
       infinite: true,
       centerPadding: "60px",
       slidesToShow: 3,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
       cssEase: "linear",
       
       width:752,
