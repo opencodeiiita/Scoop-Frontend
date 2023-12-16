@@ -1,5 +1,11 @@
 [
     {
+        "name": "Vishal Kashyap",
+        "githubid": "Vishal649-bot",
+        "email": "akum5991@gmail.com"
+    },
+    {
+
 
         "name": "ExampleName",
         "githubid": "ExampleID",
@@ -111,7 +117,7 @@
         "Githubid": "Rohit-110",
         "email": "rohitpandeyrp01@gmail.com"
     },
-
+    {
         "name": "Ajay Kumar",
         "githubid": "ajay484",
         "email": "iit2022021@iiita.ac.in"
@@ -169,6 +175,9 @@
          "name": "Deepanshu Kumar",
         "Githubid": "dk414",
         "email": "iec2022073@iiita.ac.in"
+
+    
+
     },   
     {
         "name": "Sahul Kumar",
@@ -208,6 +217,7 @@
         "githubid": "prateek2pathak",
         "college": "IIIT allahabad"
     }
+
 
 ]
 
