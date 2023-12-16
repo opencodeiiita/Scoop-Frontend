@@ -136,7 +136,7 @@ const responsive = {
     items: 1,
   },
 };
-const CategoryCarousel = () => {
+const PopularPost = () => {
   return (
     <>
       <div className="head-div">
@@ -283,4 +283,4 @@ const CategoryCarousel = () => {
   );
 };
 
-export default CategoryCarousel;
+export default PopularPost;
