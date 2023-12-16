@@ -169,7 +169,12 @@
          "name": "Deepanshu Kumar",
         "Githubid": "dk414",
         "email": "iec2022073@iiita.ac.in"
-    },
+    },   
+    {
+        "name": "Sahul Kumar",
+        "githubid": "InncoentSinner08",
+        "email": "innocentsinner08114@gmail.com"
+    }, 
     {
 
         "name": "Tanisha Prakash",
@@ -203,6 +208,7 @@
         "githubid": "prateek2pathak",
         "college": "IIIT allahabad"
     }
+
 ]
 
 
