@@ -99,20 +99,20 @@ const heading = {
 };
 
 const about = {
-  position: "relative",
-  top: "2.5%",
-  right: "24%",
-  bottom: "15.1%",
-  left: "12.8%",
+  // position: "relative",
+  // top: "2.5%",
+  // right: "24%",
+  // bottom: "15.1%",
+  // left: "12.8%",
 };
 
 const newsletter = {
-  position: "relative",
-  top: "17.1%",
-  right: "21.6%",
-  bottom: "7.44%",
-  left: "12.8%",
-  margin: 0.75,
+  // position: "relative",
+  // top: "17.1%",
+  // right: "21.6%",
+  // bottom: "7.44%",
+  // left: "12.8%",
+  // margin: 0.75,
 };
 
 const copyright = {
@@ -130,27 +130,31 @@ const copyright = {
 };
 
 const categorie = {
-  position: "relative",
-  top: "2.5%",
-  right: "7.75%",
-  bottom: "15.1%",
-  left: "44.8%",
+  // position: "relative",
+  // top: "2.5%",
+  // right: "7.75%",
+  // bottom: "15.1%",
+  // left: "44.8%",
 };
 
 const socialNetwork = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  margin: "0.75%",
-  position: "relative",
-  top: "17.1%",
-  right: "3.06%",
-  bottom: "7.94%",
-  left: "2%"
-    
-
-
+  // display: "flex",
+  // flexDirection: "column",
+  // alignItems: "center",
+  // margin: "0.75%",
+  // position: "relative",
+  // top: "17.1%",
+  // right: "3.06%",
+  // bottom: "7.94%",
+  // left: "2%"
 };
+
+
+const comm = {
+  marginLeft: "1.5rem",
+  marginRight: "1.5rem",
+}
+
 const InstaButton = () => {
   return (
     <button
@@ -294,14 +298,16 @@ const Footer = () => {
                   <List
                     component="nav"
                     aria-label="mailbox folders"
-                    style={{ marginTop: "8px" }}
+                    style={{
+                      marginTop: "8px",
+                    }}
                   >
                     {categories.map((category, index) => (
-                      <ListItem key={index} style={{ paddingBottom: "0.94px" }}>
-                        <ListItemText
-                          primary={category}
-                          style={{ lineHeight: "0.2" }}
-                        />
+                      <ListItem key={index} style={{
+                         paddingBottom: "0.04px"
+                         
+                         }}>
+                        <ListItemText primary={category} />
                       </ListItem>
                     ))}
                   </List>
@@ -342,11 +348,20 @@ const Footer = () => {
 
         {/* New Comments */}
         <Grid item xs={12} md={3}>
-          <div>
+          <div style={comm}>
             <div style={headline}>
               <Pointer />
               <div style={heading}>New Comments</div>
             </div>
+
+            <div style ={{
+              display: "flex",
+              flexDirection: "column",
+              marginTop: "1.2rem",
+              padding: "1.5rem",
+              paddingLeft: "0rem",
+            }
+            }>
 
             {comments.map((comment, index) => (
               <Card
@@ -370,6 +385,7 @@ const Footer = () => {
                 </CardContent>
               </Card>
             ))}
+            </div>
           </div>
         </Grid>
 
