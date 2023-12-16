@@ -228,6 +228,10 @@ const part3 = {
   flex: 1,
 };
 const Footer = () => {
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isTablet = useMediaQuery("(min-width: 601px) and (max-width: 1400px)");
+  console.log(isTablet);
+  if(!isMobile){
   return (
     <div
       style={{
@@ -243,81 +247,81 @@ const Footer = () => {
         flexWrap: "wrap",
       }}
     >
-      <div style={part1}>
+      <div style={isTablet ? { ...part1, display: "flex" } : part1}>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
           }}
         >
-          <div style={{
-            display: "flex",
-            flexDirection: "row",
-          }}>
-
-          
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
+              flexDirection: "row",
             }}
           >
-            {/* About */}
-            <div style={about}>
-              <div style={headline}>
-                <Pointer />
-                <div style={heading}>Mega News</div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              }}
+            >
+              {/* About */}
+              <div style={about}>
+                <div style={headline}>
+                  <Pointer />
+                  <div style={heading}>Mega News</div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  euismod, diam id aliquam ultrices, nisl nunc porta neque, in
+                  pellentesque massa sem at tellus. Sed auctor, nisl quis tempor
+                  ornare, nisl nunc porta neque, in pellentesque massa sem at
+                  tellus. Sed auctor, nisl quis tempor ornare.
+                </p>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                euismod, diam id aliquam ultrices, nisl nunc porta neque, in
-                pellentesque massa sem at tellus. Sed auctor, nisl quis tempor
-                ornare, nisl nunc porta neque, in pellentesque massa sem at
-                tellus. Sed auctor, nisl quis tempor ornare.
-              </p>
-            </div>
 
-            {/* Newsletter */}
-            <div style={newsletter}>
-              <div style={headline}>
-                <Pointer />
-                <div style={heading}>Newsletter</div>
-              </div>
+              {/* Newsletter */}
+              <div style={newsletter}>
+                <div style={headline}>
+                  <Pointer />
+                  <div style={heading}>Newsletter</div>
+                </div>
 
-              <div
-                style={{
-                  width: "100%",
-                  display: "inline-flex",
-                  borderRadius: "0.75rem",
-                  background: "#FFFFFF",
-                  height: "3rem",
-                  alignItems: "center",
-                  gap: "1rem",
-                  padding: "0.5rem 0.75rem 0.5rem 0.5rem",
-                }}
-              >
-                <Input
-                  placeholder="Enter your Email"
-                  inputProps={ariaLabel}
-                  style={{
-                    width: "100%",
-                    color: "rgba(62, 50, 50, 0.75)",
-                    flex: "1 0 0",
-                  }}
-                />
                 <div
                   style={{
-                    display: "flex",
-                    height: "1.25rem",
-                    justifyContent: "center",
+                    width: "100%",
+                    display: "inline-flex",
+                    borderRadius: "0.75rem",
+                    background: "#FFFFFF",
+                    height: "3rem",
                     alignItems: "center",
+                    gap: "1rem",
+                    padding: "0.5rem 0.75rem 0.5rem 0.5rem",
                   }}
                 >
-                  <MailIcon />
+                  <Input
+                    placeholder="Enter your Email"
+                    inputProps={ariaLabel}
+                    style={{
+                      width: "100%",
+                      color: "rgba(62, 50, 50, 0.75)",
+                      flex: "1 0 0",
+                    }}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "1.25rem",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <MailIcon />
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
             {/* Categories */}
             <div style={categorie}>
@@ -376,93 +380,180 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      <div style={part2}>
-        <div style={comm}>
-          {" "}
-          <div style={headline}>
-            <Pointer />
-            <div style={heading}>New Comments</div>{" "}
-          </div>{" "}
+      {!isTablet && (
+        <div style={part2}>
+          <div style={comm}>
+            {" "}
+            <div style={headline}>
+              <Pointer />
+              <div style={heading}>New Comments</div>{" "}
+            </div>{" "}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "1.2rem",
+                padding: "1.5rem",
+                paddingLeft: "0rem",
+              }}
+            >
+              {comments.map((comment, index) => (
+                <Card
+                  key={index}
+                  style={{
+                    marginBottom: "1rem",
+                    borderRadius: "0.75rem",
+                    background: "#F5F5F5",
+                    width: "22.5rem",
+                  }}
+                >
+                  <CardContent>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      gutterBottom
+                    >
+                      {comment.username}
+                    </Typography>
+                    <Typography variant="body2">{comment.comment}</Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      ;
+      {!isTablet && (
+        <div style={part3}>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              marginTop: "1.2rem",
-              padding: "1.5rem",
-              paddingLeft: "0rem",
-            }}
-          >
-            {comments.map((comment, index) => (
-              <Card
-                key={index}
-                style={{
-                  marginBottom: "1rem",
-                  borderRadius: "0.75rem",
-                  background: "#F5F5F5",
-                  width: "22.5rem",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    {comment.username}
-                  </Typography>
-                  <Typography variant="body2">{comment.comment}</Typography>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div style={part3}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            gap: 20,
-            display: "flex",
-          }}
-        >
-          <div
-            style={{
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: 6,
+              justifyContent: "center",
+              alignItems: "flex-start",
+              gap: 20,
               display: "flex",
             }}
           >
             <div
               style={{
-                width: 4,
-                height: 10,
-                background: "#F81539",
-                borderRadius: 12,
-              }}
-            />
-            <div
-              style={{
-                color: "#3E3232",
-                fontSize: 20,
-                fontFamily: "Roboto",
-                fontWeight: "500",
-                textTransform: "capitalize",
-                wordWrap: "break-word",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                gap: 6,
+                display: "flex",
               }}
             >
-              Follow on Instagram
+              <div
+                style={{
+                  width: 4,
+                  height: 10,
+                  background: "#F81539",
+                  borderRadius: 12,
+                }}
+              />
+              <div
+                style={{
+                  color: "#3E3232",
+                  fontSize: 20,
+                  fontFamily: "Roboto",
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                  wordWrap: "break-word",
+                }}
+              >
+                Follow on Instagram
+              </div>
             </div>
+            <Imagelist />
           </div>
-          <Imagelist />
+        </div>
+      )}
+      ;
+    </div>
+  );
+  }
+  else{
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 0,
+        background: "#FAFAFA",
+        width: "100%",
+        minHeight: "30rem",
+        display: "flex",
+        flexDirection: "column",
+        padding: "4rem",
+        gap: "1rem",
+        flexWrap: "wrap",
+      }}
+    >
+      <div style={about}>
+        <div style={headline}>
+          <Pointer />
+          <div style={heading}>Mega News</div>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
+          diam id aliquam ultrices, nisl nunc porta neque, in pellentesque massa
+          sem at tellus. Sed auctor, nisl quis tempor ornare, nisl nunc porta
+          neque, in pellentesque massa sem at tellus. Sed auctor, nisl quis
+          tempor ornare.
+        </p>
+      </div>
+
+      <div style={newsletter}>
+        <div style={headline}>
+          <Pointer />
+          <div style={heading}>Newsletter</div>
+        </div>
+
+        <div
+          style={{
+            width: "100%",
+            display: "inline-flex",
+            borderRadius: "0.75rem",
+            background: "#FFFFFF",
+            height: "3rem",
+            alignItems: "center",
+            gap: "1rem",
+            padding: "0.5rem 0.75rem 0.5rem 0.5rem",
+          }}
+        >
+          <Input
+            placeholder="Enter your Email"
+            inputProps={ariaLabel}
+            style={{
+              width: "100%",
+              color: "rgba(62, 50, 50, 0.75)",
+              flex: "1 0 0",
+            }}
+          />
+          <div
+            style={{
+              display: "flex",
+              height: "1.25rem",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <MailIcon />
+          </div>
+        </div>
+        <br />
+        <br />
+        <div style={socialNetwork}>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <Pointer />
+            <div style={{ marginLeft: "8px" }}>Social Network</div>
+          </div>
+          <InstaButton />
         </div>
       </div>
     </div>
   );
+}
 };
 
 export default Footer;
