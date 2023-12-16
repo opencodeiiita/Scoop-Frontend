@@ -222,9 +222,12 @@
         "name": "Prateek Pathak",
         "githubid": "prateek2pathak",
         "college": "IIIT allahabad"
-    }
-
-
+    },
+     {
+        "name": "Poonam Gate",
+        "githubid": "PoonamGate",
+        "email": "gatepoonam871@gmail.com"
+    },
 ]
 
 
