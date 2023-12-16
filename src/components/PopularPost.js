@@ -156,7 +156,7 @@ const CategoryCarousel = () => {
       </div>
       <Carousel
         additionalTransfrom={0}
-        arrows={false}
+        arrows={true}
         className="car"
         renderButtonGroupOutside={false}
         autoPlay={false}
