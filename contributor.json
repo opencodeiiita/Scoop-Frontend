@@ -1,11 +1,17 @@
 [
     {
+
+        "name": "ExampleName",
+        "githubid": "ExampleID",
+        "college": "ExampleCLG"
+    },
+    {
+
         "name": "Diwakar Kashyap",
         "githubid": "DIWAKARKASHYAP",
         "college": "Ganjdundwara PG collage"
     },
     {
-
         "name": "Nitu Sherawat",
         "githubid": "Nitu-Sherawat",
         "email": ""
@@ -61,6 +67,10 @@
         "email": "tsharma1704@gmail.com"
     },
     {
+        "name": "Parimal Amrutkar",
+        "Githubid": "parimal-10",
+        "email": "amrutkar.parimal@gmail.com"
+    },
         "name": "Ayush Sahu",
         "Githubid": "Murdock9803",
         "email": "ayushsahu9803@gmail.com"
@@ -185,6 +195,7 @@
         "name": "Sarthak Verma",
         "githubid": "sarthakvermaa",
         "email": "verma.sarthak151@gmail.com"
+
     }
 ]
 
