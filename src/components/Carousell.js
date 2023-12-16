@@ -52,6 +52,9 @@ export default class Carousell extends Component {
           breakpoint: 1536,
           settings: {
             
+            autoplay: true,
+            speed: 2000,
+            autoplaySpeed: 2000,  
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
