@@ -199,18 +199,21 @@ const InstaButton = () => {
 };
 
 const part1 = {
-  padding: "2rem 2rem 0rem 0",
-  margin: "2rem 2rem 0rem 0",
+
+  padding: "1.5rem 2rem 0rem 0",
+  marginRight: "2rem",
   flex: 2,
   background: "#F5F5F5",
   borderRadius: "0rem 3.125rem 3.125rem 0rem",
 };
 
 const part2 = {
+  padding: "2rem 2rem 0rem 0",
   flex: 1,
 };
 
 const part3 = {
+  paddingTop: "1.8rem",
   flex: 1,
 };
 const Footer = () => {
@@ -221,8 +224,6 @@ const Footer = () => {
     return (
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
           background: "#FAFAFA",
           width: "100%",
           display: "flex",
@@ -325,7 +326,7 @@ const Footer = () => {
                       marginTop: "8px",
                     }}
                   >
-                    {categories.map((category, index) => (
+                    {categories.slice(0,4).map((category, index) => (
                       <ListItem
                         key={index}
                         style={{
@@ -467,8 +468,6 @@ const Footer = () => {
     return (
       <div
         style={{
-          position: "absolute",
-          bottom: 0,
           background: "#FAFAFA",
           width: "100%",
           display: "flex",
