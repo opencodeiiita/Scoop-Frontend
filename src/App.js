@@ -6,7 +6,7 @@ import {theme} from './theme.js';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import CategoryCarousel from './components/PopularPost.js';
-;
+import Footer from './components/Footer.js';
 function App() {
  
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<Home></Home>}  />
         <Route path="*" element={<NotFound></NotFound>} />
        </Routes>
+       <Footer/>
        </BrowserRouter>
        </CssBaseline>
        </ThemeProvider>
