@@ -8,10 +8,10 @@ export default function Card1(props)
     <Card sx={{ 
       height:{
         xs:4,
-        sm:452,
-        md:452,
-        lg:452,
-        xl:452
+        sm:300,
+        md:300,
+        lg:300,
+        xl:300
       },
       borderRadius: '15px',
       marginX: '1.5rem'
@@ -20,7 +20,7 @@ export default function Card1(props)
      <CardMedia
         sx={{ borderRadius: '15px' }}
         component="img"
-        height="452"
+        height="300"
         src={props.img}
         alt="Driving Tips"
       />
