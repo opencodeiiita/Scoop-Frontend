@@ -96,6 +96,15 @@ const heading = {
   textTransform: "capitalize",
 };
 
+const para = {
+  color: "rgba(62, 50, 50, 0.75)",
+  textAlign: "justify",
+  fontFamily: "Roboto",
+  fontSize: "0.875rem",
+  fontStyle: "normal",
+  fontWeight: 400,
+  lineHeight: "1.25",
+}
 const about = {
   padding: "1rem 3rem 2rem 2rem",
   margin: "1rem 2rem 0rem 2rem",
@@ -208,17 +217,19 @@ const part1 = {
 };
 
 const part2 = {
-  padding: "2rem 2rem 0rem 0",
+  paddingTop: "1.8rem",
+  marginTop: "3rem",
   flex: 1,
 };
 
 const part3 = {
+  marginTop: "3rem",
   paddingTop: "1.8rem",
   flex: 1,
 };
 const Footer = () => {
   const isMobile = useMediaQuery("(max-width: 700px)");
-  const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1400px)");
+  const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1450px)");
   console.log(isTablet);
   if (!isMobile) {
     return (
@@ -259,7 +270,7 @@ const Footer = () => {
                     <Pointer />
                     <div style={heading}>Mega News</div>
                   </div>
-                  <p>
+                  <p style={para}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu
@@ -333,7 +344,12 @@ const Footer = () => {
                           paddingBottom: "0.04px",
                         }}
                       >
-                        <ListItemText primary={category} />
+                        <ListItemText 
+                         primary={category} 
+                         style={{
+                          fontSize: "0.875rem",
+                          fontStyle: "normal",
+                         }}/>
                       </ListItem>
                     ))}
                   </List>
@@ -400,10 +416,26 @@ const Footer = () => {
                         variant="body2"
                         color="text.secondary"
                         gutterBottom
+                        style={{
+                          fontFamily: "Roboto",
+                          fontSize: "1rem",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "normal",
+                          textTransform: "capitalize",
+                          alignSelf: "stretch",
+                        }}
                       >
                         {comment.username}
                       </Typography>
-                      <Typography variant="body2">{comment.comment}</Typography>
+                      <Typography variant="body2" style={{
+                        fontFamily: "Roboto",
+                        fontSize: "0.75rem",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                        textTransform: "capitalize",
+                      }}>{comment.comment}</Typography>
                     </CardContent>
                   </Card>
                 ))}
