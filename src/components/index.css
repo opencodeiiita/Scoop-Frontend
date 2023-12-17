@@ -1,0 +1,16 @@
+.car{
+    height: 330px;
+}
+.head-div{
+    margin-left:2%;
+    margin-bottom :1%;
+}
+.rect{
+  width: 3px; 
+  height: 10px;
+  background-color:#F81539;
+  display:inline-block;
+  transform: translateX(13px);
+  margin-bottom: 1.2px;
+  border-radius: 2px;
+}
