@@ -1,11 +1,29 @@
 [
     {
+
+
+      "name": "Aryan Yadav",
+      "githubid": "aryan0931",
+      "email":"aryan.yadav.mec22@itbhu.ac.in"
+    },
+  {
+        "name": "Vishal Kashyap",
+        "githubid": "Vishal649-bot",
+        "email": "akum5991@gmail.com"
+    },
+    {
+
+
+        "name": "ExampleName",
+        "githubid": "ExampleID",
+        "college": "ExampleCLG"
+    },
+    {
         "name": "Diwakar Kashyap",
         "githubid": "DIWAKARKASHYAP",
         "college": "Ganjdundwara PG collage"
     },
     {
-
         "name": "Nitu Sherawat",
         "githubid": "Nitu-Sherawat",
         "email": ""
@@ -61,6 +79,10 @@
         "email": "tsharma1704@gmail.com"
     },
     {
+        "name": "Parimal Amrutkar",
+        "Githubid": "parimal-10",
+        "email": "amrutkar.parimal@gmail.com"
+    },
         "name": "Ayush Sahu",
         "Githubid": "Murdock9803",
         "email": "ayushsahu9803@gmail.com"
@@ -101,7 +123,7 @@
         "Githubid": "Rohit-110",
         "email": "rohitpandeyrp01@gmail.com"
     },
-
+    {
         "name": "Ajay Kumar",
         "githubid": "ajay484",
         "email": "iit2022021@iiita.ac.in"
@@ -159,19 +181,84 @@
          "name": "Deepanshu Kumar",
         "Githubid": "dk414",
         "email": "iec2022073@iiita.ac.in"
-    },
+
+    
+
+    },   
+    {
+        "name": "Sahul Kumar",
+        "githubid": "InncoentSinner08",
+        "email": "innocentsinner08114@gmail.com"
+    }, 
     {
 
         "name": "Tanisha Prakash",
         "githubid": "ashinat24",
         "email": "tanishaprakash2412@gmail.com"
-    }
-    ,
+    },
+     {
+         "name": "Swati Shah",
+        "Githubid": "shahswati098",
+        "email": "iec2022040@iiita.ac.in"
+    },
+    {
+        "name": "Deepanshi Choudhary",
+        "githubid": "Deepanshiiiii",
+        "email":"iec2022013@iiita.ac.in"
+    },
+    {
+
+        "name": "Ankita Singh",
+        "githubid": "saanjh24",
+        "email": "ankitasinghckw@gmail.com"
+    },
+    {
+        "name": "Jay Sharma",
+        "Githubid": "Jaysharma100",
+        "email": "jaysharma100125@gmail.com"
+    },
+    {
+
+        "name": "Nishant Prashant Kale",
+        "githubid": "nishantkale22",
+        "email": "kalenishant03@gmail.com"
+    },
+    
+
+    {
+
+
+        "name": "TNavaneetha Krishnan R",
+        "githubid": "rnavaneeth992",
+        "email": "r.navaneeth992@gmail.com"
+    },
+    {
+        "name": "Prakhar Shukla",
+        "githubid": "tonyStark-Jr",
+        "email": "prakharshukla165@gmail.com"
+
+    },
+    
     {
 
         "name": "Sarthak Verma",
         "githubid": "sarthakvermaa",
         "email": "verma.sarthak151@gmail.com"
-    }
+
+    },
+
+    {
+        "name": "Prateek Pathak",
+        "githubid": "prateek2pathak",
+        "college": "IIIT allahabad"
+    },
+     {
+        "name": "Poonam Gate",
+        "githubid": "PoonamGate",
+        "email": "gatepoonam871@gmail.com"
+    },
+
 ]
+
+
 
