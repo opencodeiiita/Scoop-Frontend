@@ -6,6 +6,7 @@ import {theme} from './theme.js';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import CategoryCarousel from './components/PopularPost.js';
+import Signup from './pages/Signup.jsx';
 ;
 function App() {
  
@@ -17,6 +18,7 @@ function App() {
        <Routes>
         <Route path="/" element={<Home></Home>}  />
         <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/signup" element={<Signup />} />
        </Routes>
        </BrowserRouter>
        </CssBaseline>
