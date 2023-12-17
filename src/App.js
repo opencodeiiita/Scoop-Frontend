@@ -5,6 +5,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import {theme} from './theme.js';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 function App() {
  
@@ -21,7 +22,7 @@ function App() {
        </BrowserRouter>
        </CssBaseline>
        </ThemeProvider>
-
+    
     </>
   );
 }
