@@ -117,9 +117,8 @@ const newsletter = {
 
 const copyright = {
   margin: "1rem 1rem 1rem 1rem",
-  padding: "0.5rem 0.75rem 0.5rem 12.8rem",
+  padding: "0.5rem 0.75rem 0.5rem 2.8rem",
   display: "flex",
-  alignItems: "center",
   gap: "1rem",
   width: "98%",
   borderRadius: "0rem 0.75rem 0.75rem 0rem",
@@ -127,8 +126,8 @@ const copyright = {
 };
 
 const category = {
-  paddingBottom: "0.5rem",
-  marginBottom: "0.5rem",
+  padding: "1rem 3rem 2rem 2rem",
+  margin: "1rem 2rem 0rem 2rem",
 };
 
 const socialNetwork = {
@@ -142,8 +141,6 @@ const socialNetwork = {
 const comm = {
   position: "relative",
   top: "-1.8rem",
-  paddingBottom: "0.5rem",
-  marginBottom: "0.5rem",
 };
 
 const Imagelist = () => {
@@ -223,8 +220,8 @@ const part2 = {
 };
 
 const part3 = {
-  marginTop: "3rem",
-  paddingTop: "1.8rem",
+  paddingTop: "3rem",
+  marginTop: "rem",
   flex: 1,
 };
 const Footer = () => {
@@ -337,19 +334,25 @@ const Footer = () => {
                       marginTop: "8px",
                     }}
                   >
-                    {categories.slice(0,4).map((category, index) => (
+                    {categories.slice(0,5).map((category, index) => (
                       <ListItem
                         key={index}
                         style={{
                           paddingBottom: "0.04px",
                         }}
                       >
-                        <ListItemText 
-                         primary={category} 
-                         style={{
-                          fontSize: "0.875rem",
+                      <Typography style={
+                        {
+                          fontFamily: "Roboto",
+                          fontSize: "0.75rem",
                           fontStyle: "normal",
-                         }}/>
+                          fontWeight: 400,
+                          lineHeight: "normal",
+                          textTransform: "capitalize",
+                          color: "#3E3232"
+
+                        }
+                      }>{category}</Typography>
                       </ListItem>
                     ))}
                   </List>
@@ -370,6 +373,7 @@ const Footer = () => {
                 style={{
                   color: "rgba(62, 50, 50, 0.75)",
                   flex: "1 0 0",
+                  
                 }}
               >
                 Privacy Policy | Terms & Conditions
@@ -448,10 +452,9 @@ const Footer = () => {
           <div style={part3}>
             <div
               style={{
-                position: "relative",
-                top: "0.5rem",
-                marginRight: "3rem",
-                paddingRight: "3rem",
+                
+                marginTop: "2rem",
+                paddingTop: "3rem",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -474,6 +477,7 @@ const Footer = () => {
                     height: 10,
                     background: "#F81539",
                     borderRadius: 12,
+
                   }}
                 />
                 <div
