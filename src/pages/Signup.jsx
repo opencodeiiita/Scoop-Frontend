@@ -16,7 +16,7 @@ const Stepper=()=>
 const Heading=({text})=>
 {
     return (
-        <h1 className='text-3xl font-sans font-bold'>{text}</h1>
+        <h1 className='text-3xl font-sans font-bold text-center'>{text}</h1>
     )
 }
 
@@ -31,9 +31,9 @@ const InputField=({id,placeholder,value,changeHandler,type,label,invalidMessage}
 {
     return (
         <aside className='relative  w-full h-1/5'>
-        <input className='peer w-full rounded-md border p-2 pl-4 pt-4 bg-gray-50 border-transparent  placeholder-transparent focus:outline-none
+        <input className='peer w-full rounded-md border p-2 pl-4 pt-4 bg-gray-50 border-transparent  placeholder-transparent 
          focus:invalid:border-fuchsia-400 focus:invalid:ring-fuchsia-400  placeholder-shown:border-fuchsia-400 placeholder-shown:ring-fuchsia-400
-         placeholder-shown:bg-fuchsia-100 focus:bg-gray-50'
+         placeholder-shown:bg-fuchsia-100 focus:bg-gray-50 focus:invalid:outline-none'
         id={id}
         placeholder={placeholder}
         value={value}
@@ -77,7 +77,7 @@ const Email=({email,setInput,changeCurrentInputField})=>
         setInput(prev=>({...prev,email:e.target.value}));
     }
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-2/5 pb-10'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
             <Heading text={"What's your email?"} />
             <SubHeading text={"Don't worry we won't tell anyone"} />
             <InputField
@@ -98,6 +98,60 @@ const Email=({email,setInput,changeCurrentInputField})=>
     )
 }
 
+const Name=({name,setInput,changeCurrentInputField})=>
+{
+    const changeHandler = (e) =>
+    {
+        setInput(prev=>({...prev,name:e.target.value}));
+    }
+    return (
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+            <Heading text="What should we at Scoop call you?" />
+            <SubHeading text="Enter you name" />
+            <InputField
+             id="name"
+             placeholder="NAME"
+             value={name}
+             changeHandler={changeHandler}
+             type="text"
+             label="NAME"
+             invalidMessage="You must enter a valid name"
+            />
+            <footer className='flex flex-col grow justify-end items-center space-y-6'>
+            <Button isDisabled={name===""} changeCurrentInputField={changeCurrentInputField}/>
+            <span className='text-sm text-transparent'>.</span>
+            </footer>
+        </div>
+    )
+}
+
+const Username=({username,setInput,changeCurrentInputField})=>
+{
+    const changeHandler = (e) =>
+    {
+        setInput(prev=>({...prev,username:e.target.value}));
+    }
+    return (
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+            <Heading text={"Choose a username"} />
+            <SubHeading text="Used for sign in to our website" />
+            <InputField
+             id="username"
+             placeholder="USERNAME"
+             value={username}
+             changeHandler={changeHandler}
+             type="text"
+             label="USERNAME"
+             invalidMessage="You must enter a valid username"
+            />
+            <footer className='flex flex-col grow justify-end items-center space-y-6'>
+            <Button isDisabled={username===""} changeCurrentInputField={changeCurrentInputField}/>
+            <span className='text-sm text-transparent'>.</span>
+            </footer>
+        </div>
+    )
+}
+
 const Tabs=({tab,input,setInput,changeCurrentInputField})=>
 {
     switch(tab)
@@ -105,13 +159,18 @@ const Tabs=({tab,input,setInput,changeCurrentInputField})=>
         case "email":
             return <Email email={input.email} setInput={setInput} changeCurrentInputField={changeCurrentInputField}/>
 
+        case "name":
+            return <Name name={input.name} setInput={setInput} changeCurrentInputField={changeCurrentInputField}/>    
+
+        case "username":
+            return <Username username={input.username} setInput={setInput} changeCurrentInputField={changeCurrentInputField} />
         default:
             return <h1>Error loading tabs</h1>    
     }
 }
 
 const Signup = () => {
-    const [input,setInput] = useState({email:""});
+    const [input,setInput] = useState({email:"",name:"",username:""});
     const [currentInputField,setCurrentInputField]= useState({input:"email",next:{input:"name",next:{input:"username",next:{input:"password"}}}});
 
     const changeCurrentInputField=()=>
