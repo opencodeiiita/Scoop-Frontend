@@ -27,7 +27,7 @@ const SubHeading=({text})=>
     )
 }
 
-const InputField=({id,placeholder,value,changeHandler,type,label,invalidMessage})=>
+const InputField=({id,placeholder,value,changeHandler,type,label,invalidMessage,title,enableMinLength,enablePattern})=>
 {
     return (
         <aside className='relative  w-full h-1/5'>
@@ -39,6 +39,9 @@ const InputField=({id,placeholder,value,changeHandler,type,label,invalidMessage}
         value={value}
         onChange={changeHandler}
         type={type}
+        title={title}
+        minLength={enableMinLength!==undefined && enableMinLength?"8":"1"}
+        pattern={enablePattern?"^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$":".*"}
         />
         <label htmlFor='email' className='absolute -top-1 left-2 pt-2 cursor-text bg-transparent px-1 text-xs font-bold text-gray-700 transition-all
         peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:font-semibold peer-focus:-top-1 peer-focus:text-xs 
@@ -152,6 +155,56 @@ const Username=({username,setInput,changeCurrentInputField})=>
     )
 }
 
+const Password=({password,setInput,changeCurrentInputField})=>
+{
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const changeHandler = (e) =>
+    {
+        setInput(prev=>({...prev,password:e.target.value}));
+    }
+
+    const confirmPasswordChangeHandler = (e) =>
+    {
+        setConfirmPassword(e.target.value);
+    }
+
+    const isDisabled=()=> password.length<8 || confirmPassword.length<8 || password!==confirmPassword
+
+    return (
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+            <Heading text="Choose a password" />
+            <SubHeading text="Make sure it's a good one" />
+            <InputField
+             id="password"
+             placeholder="PASSWORD"
+             value={password}
+             changeHandler={changeHandler}
+             type="password"
+             label="PASSWORD"
+             invalidMessage="You must enter a valid password"
+             enableMinLength={true}
+             enablePattern={true}
+            />
+            <InputField
+             id="confirmPassword"
+             placeholder="CONFIRM PASSWORD"
+             value={confirmPassword}
+             changeHandler={confirmPasswordChangeHandler}
+             type="password"
+             label="CONFIRM PASSWORD"
+             invalidMessage="You must enter a valid password"
+             enableMinLength={true}
+             enablePattern={true}
+            />
+
+            <footer className='flex flex-col grow justify-end items-center space-y-6'>
+                <Button isDisabled={isDisabled()} changeCurrentInputField={changeCurrentInputField}/>
+                <span className='text-sm text-transparent'>.</span>
+            </footer>
+        </div>
+    )
+}
+
 const Tabs=({tab,input,setInput,changeCurrentInputField})=>
 {
     switch(tab)
@@ -164,13 +217,16 @@ const Tabs=({tab,input,setInput,changeCurrentInputField})=>
 
         case "username":
             return <Username username={input.username} setInput={setInput} changeCurrentInputField={changeCurrentInputField} />
+
+        case "password":
+            return <Password password={input.password} setInput={setInput} changeCurrentInputField={changeCurrentInputField} />
         default:
-            return <h1>Error loading tabs</h1>    
+            return <h1>Error loading tabs, please reload</h1>    
     }
 }
 
 const Signup = () => {
-    const [input,setInput] = useState({email:"",name:"",username:""});
+    const [input,setInput] = useState({email:"",name:"",username:"",password:""});
     const [currentInputField,setCurrentInputField]= useState({input:"email",next:{input:"name",next:{input:"username",next:{input:"password"}}}});
 
     const changeCurrentInputField=()=>
@@ -180,6 +236,7 @@ const Signup = () => {
             setCurrentInputField(prev=>prev.next);
         }
         // Enter actual function to register user here
+        else
         console.log(input);
     }
 
