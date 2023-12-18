@@ -293,7 +293,10 @@ const AccountManagementPage = () => {
                 >
                   Account Details
                 </h1>
-                <p>
+                <p style={{
+                     fontFamily: font,
+                     color: "#949495"
+                  }}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Quisquam
                 </p>
@@ -354,7 +357,10 @@ const AccountManagementPage = () => {
             >
               <div style={innerLeft}>
                 <h1 style={H1}>Personal Information</h1>
-                <p>
+                <p style={{
+                     fontFamily: font,
+                     color: "#949495"
+                  }}>
                   This Information is private and will not be shared with others
                 </p>
               </div>
