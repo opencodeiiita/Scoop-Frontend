@@ -14,13 +14,16 @@ const Stepper=()=>
 
 const Email=({email,setInput})=>
 {
-
+    const validateEmail = (text) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(text);
+      };
     const changeHandler = (e) =>
     {
         setInput(prev=>({...prev,email:e.target.value}));
     }
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-2/5'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-2/5 pb-10'>
             <h1 className='text-3xl font-sans font-bold'>What's your email?</h1>
             <p className='text-gray-400 font-bold text-xl tracking-wider'>Don't worry we won't tell anyone</p>
             <aside className='relative  w-full'>
@@ -43,18 +46,31 @@ const Email=({email,setInput})=>
                     <small className='ml-1 font-medium '>You must enter a valid email</small>
                 </span>
             </aside>
+
+            <section>
+                <h1 className='text-sm font-bold uppercase'>You can also create an account with</h1>
+            </section>
+
+            <footer className='flex flex-col grow justify-end items-center space-y-6'>
+                <button className='p-5 disabled:cursor-not-allowed border rounded-3xl disabled:border-gray-300 disabled:text-gray-400 bg-red-600 text-white disabled:bg-transparent' disabled={validateEmail(email)?false:true}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+                </button>
+                <h1 className='text-sm font-bold uppercase hover:underline hover:cursor-pointer'>already have an account?</h1>
+            </footer>
         </div>
     )
 }
 
 const Signup = () => {
-    const [input,setInput] = useState({email:""})
+    const [input,setInput] = useState({email:""});
   return (
     <div className="relative flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)] bg-cover bg-center  w-screen h-screen">Signup
         <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] absolute font-black'>CREATE AN ACCOUNT</h1>
         <main className='mx-10  bg-white h-[80%] rounded-lg shadow-md w-5/12 flex flex-col items-center'>
             <Stepper />
-            <Email input={input.email} setInput={setInput}/>
+            <Email email={input.email} setInput={setInput}/>
         </main>
     </div>
   )
