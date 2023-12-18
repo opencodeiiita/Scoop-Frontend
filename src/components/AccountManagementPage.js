@@ -6,7 +6,7 @@ import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import "./font.css";
 
 const font = "FF_MARK_FONT";
-
+const font1 = "FF_MARK_FONT_BOLD";
 const account = {
   position: "absolute",
   display: "flex",
@@ -24,9 +24,6 @@ const section1 = {
   color: "red",
 };
 
-const section2 = {
-  color: "white",
-};
 const left = {
   padding: "2rem",
   flex: 1,
@@ -34,7 +31,7 @@ const left = {
 
 const right = {
   width: "100%",
-  flex: 2,
+  flex: 4,
 };
 
 const container = {
@@ -65,7 +62,8 @@ const innerRight = {
 
 const H1 = {
   color: "#EBEAEA",
-  fontFamily: font,
+  fontFamily: font1,
+  fontSize: "2.5rem",
 };
 
 const H2 = {
@@ -109,24 +107,26 @@ const AccountManagementPage = () => {
               {<FaceRetouchingNaturalIcon style={section1} />}
               <span
                 style={{
+                  fontFamily: font1,
                   padding: "1rem",
                   position: "relative",
                   top: "-0.2rem",
                 }}
               >
-                Account Details
+                ACCOUNT DETAILS
               </span>
             </h3>
             <h3 style={H3}>
               {<AssignmentIndIcon />}
               <span
                 style={{
+                  fontFamily: font1,
                   padding: "1rem",
                   position: "relative",
                   top: "-0.2rem",
                 }}
               >
-                Account Activity
+                ACCOUNT ACTIVITY
               </span>
             </h3>
           </div>
@@ -144,7 +144,10 @@ const AccountManagementPage = () => {
               >
                 <div style={innerLeft}>
                   <h1 style={H1}>Account Details</h1>
-                  <p>
+                  <p style={{
+                     fontFamily: font,
+                     color: "#949495"
+                  }}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quisquam
                   </p>
@@ -165,7 +168,7 @@ const AccountManagementPage = () => {
                     InputLabelProps={{
                       style: {
                         color: "#999999",
-                        fontFamily: font,
+                        fontFamily: font1,
                         borderRadius: "8px",
                         fontWeight: "bold",
                         fontSize: "14px",
@@ -185,7 +188,7 @@ const AccountManagementPage = () => {
                     InputLabelProps={{
                       style: {
                         color: "#999999",
-                        fontFamily: font,
+                        fontFamily: font1,
                         fontWeight: "bold",
                         borderRadius: "8px",
                         fontWeight: "bold",
@@ -206,7 +209,10 @@ const AccountManagementPage = () => {
               >
                 <div style={innerLeft}>
                   <h1 style={H1}>Personal Information</h1>
-                  <p>
+                  <p style={{
+                     fontFamily: font,
+                     color: "#949495"
+                  }}>
                     This Information is private and will not be shared with
                     others
                   </p>
@@ -230,7 +236,7 @@ const AccountManagementPage = () => {
                     InputLabelProps={{
                       style: {
                         color: "#CF51DA",
-                        fontFamily: font,
+                        fontFamily: font1,
                         fontWeight: "bold",
                         borderRadius: "8px",
                         fontSize: "14px",
@@ -277,7 +283,16 @@ const AccountManagementPage = () => {
               }}
             >
               <div style={innerLeft}>
-                <h1 style={H1}>Account Details</h1>
+                <h1
+                  style={{
+                    fontFamily: font1,
+                    padding: "1rem",
+                    position: "relative",
+                    top: "-0.2rem",
+                  }}
+                >
+                  Account Details
+                </h1>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Quisquam
@@ -299,7 +314,7 @@ const AccountManagementPage = () => {
                   InputLabelProps={{
                     style: {
                       color: "#999999",
-                      fontFamily: font,
+                      fontFamily: font1,
                       borderRadius: "8px",
                       fontWeight: "bold",
                       fontSize: "14px",
@@ -319,7 +334,7 @@ const AccountManagementPage = () => {
                   InputLabelProps={{
                     style: {
                       color: "#999999",
-                      fontFamily: font,
+                      fontFamily: font1,
                       fontWeight: "bold",
                       borderRadius: "8px",
                       fontWeight: "bold",
@@ -362,7 +377,7 @@ const AccountManagementPage = () => {
                   InputLabelProps={{
                     style: {
                       color: "#CF51DA",
-                      fontFamily: font,
+                      fontFamily: font1,
                       fontWeight: "bold",
                       borderRadius: "8px",
                       fontSize: "14px",
