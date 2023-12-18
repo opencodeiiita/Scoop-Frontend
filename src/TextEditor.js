@@ -1,4 +1,5 @@
 // TextEditor.js (I have Used Jodit)
+/* eslint-disable no-undef */ 
 
 import React, { useRef, useEffect } from 'react';
 import Jodit from 'jodit';
