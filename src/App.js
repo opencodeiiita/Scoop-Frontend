@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 import Navbar from './components/Navbar.js';
+import ComposeScoopPage from './ComposeScoopPage';
 function App() {
  
   return (
