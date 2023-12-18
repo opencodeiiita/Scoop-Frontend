@@ -31,10 +31,10 @@ const Navbar = () => {
 
   return (
       <React.Fragment>
-          <AppBar sx={{ background: "#063970" }}>
+          <AppBar sx={{ background: "#000000" }}>
               <Toolbar>
                 {isMatchPhone ? (
-                    null
+                    <DrawerComp />
                 ) : (
                     isMatch ? (
                         <>
