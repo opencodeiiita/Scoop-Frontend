@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 
 // Components
-const Stepper=()=>
+const Stepper=({currentInputField})=>
 {
     return (
-        <div className=' flex justify-between w-1/3 mt-5 mb-16'>
-            <aside className='bg-red-500   h-1 flex-grow mx-2 hover:cursor-pointer'> </aside>
-            <aside className='bg-gray-200  h-1 flex-grow mx-2 hover:cursor-pointer'> </aside>
-            <aside className='bg-gray-200  h-1 flex-grow mx-2 hover:cursor-pointer'> </aside>
-            <aside className='bg-gray-200  h-1 flex-grow mx-2 hover:cursor-pointer'> </aside>
+        <div className=' flex justify-between w-1/3 mt-5'>
+            <aside className={`${currentInputField.input==="email"?"bg-red-500":"bg-gray-200"}   h-1 flex-grow mx-2 hover:cursor-pointer`}> </aside>
+            <aside className={`${currentInputField.input==="name"?"bg-red-500":"bg-gray-200"}  h-1 flex-grow mx-2 hover:cursor-pointer`}> </aside>
+            <aside className={`${currentInputField.input==="username"?"bg-red-500":"bg-gray-200"}  h-1 flex-grow mx-2 hover:cursor-pointer`}> </aside>
+            <aside className={`${currentInputField.input==="password"?"bg-red-500":"bg-gray-200"}  h-1 flex-grow mx-2 hover:cursor-pointer`}> </aside>
         </div>
     )
 }
@@ -65,6 +65,33 @@ const Button=({isDisabled,changeCurrentInputField})=>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
         </button>
+    )
+}
+
+const PasswordChecker=({check,text})=>
+{
+    if(check)
+    return (
+        <aside className='w-full flex justify-start items-center space-x-2'>
+            <span className='p-1 bg-green-400 text-white rounded-md border-transparent'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" dataslot="icon" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+            </span>
+            <p className='grow text-sm text-green-400 font-semibold '>{text}</p>
+        </aside>
+    )
+    else 
+    return (
+        <aside className='w-full flex justify-start items-center space-x-2'>
+            <span className='p-1 bg-gray-300 text-white rounded-md border-transparent'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" dataslot="icon" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </span>
+            <p className='grow text-sm text-gray-400 font-semibold'>{text}</p>
+        </aside>
+
     )
 }
 
@@ -167,11 +194,12 @@ const Password=({password,setInput,changeCurrentInputField})=>
     {
         setConfirmPassword(e.target.value);
     }
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
 
     const isDisabled=()=> password.length<8 || confirmPassword.length<8 || password!==confirmPassword
 
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-6 items-center w-1/2 pb-10 justify-center'>
             <Heading text="Choose a password" />
             <SubHeading text="Make sure it's a good one" />
             <InputField
@@ -185,6 +213,13 @@ const Password=({password,setInput,changeCurrentInputField})=>
              enableMinLength={true}
              enablePattern={true}
             />
+            
+            <section className='flex flex-col space-y-3'>
+            <PasswordChecker check={password.length>=8} text="Password is at least 8 characters long"/>
+            <PasswordChecker check={passwordRegex.test(password)} text="Password includes two of the following: letter, number, or symbol"/>
+            <PasswordChecker check={password===confirmPassword && password.length>=8} text="Password is equal to confirm password" />
+            </section>
+
             <InputField
              id="confirmPassword"
              placeholder="CONFIRM PASSWORD"
@@ -243,8 +278,8 @@ const Signup = () => {
   return (
     <div className="relative flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)] bg-cover bg-center  w-screen h-screen">
         <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] absolute font-black'>CREATE AN ACCOUNT</h1>
-        <main className='mx-10  bg-white h-[80%] rounded-lg shadow-md w-5/12 flex flex-col items-center'>
-            <Stepper />
+        <main className='mx-10  bg-white min-h-[80%] max-h-fit rounded-lg shadow-md w-5/12 flex flex-col items-center space-y-14'>
+            <Stepper currentInputField={currentInputField}/>
             <Tabs tab={currentInputField.input} input={input} setInput={setInput} changeCurrentInputField={changeCurrentInputField}/>
         </main>
     </div>
