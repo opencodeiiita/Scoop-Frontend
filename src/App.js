@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 import Navbar from './components/Navbar.js';
+import AccountManagementPage from './components/AccountManagementPage.js';
 function App() {
  
   return (
@@ -19,9 +20,10 @@ function App() {
         
         <Route path="/" element={<Home></Home>}  />
         <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/account" element={<AccountManagementPage/>} />
         
        </Routes>
-       <Footer></Footer>
+       {/* <Footer></Footer> */}
        </BrowserRouter>
        </CssBaseline>
        </ThemeProvider>
