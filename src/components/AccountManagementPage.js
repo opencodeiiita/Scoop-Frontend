@@ -3,22 +3,30 @@ import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
-
 import "./font.css";
 
 const font = "FF_MARK_FONT";
 
 const account = {
+  position: "absolute",
   display: "flex",
   flexDirection: "row",
   backgroundColor: "#0D0D0D",
-  height: "100vh",
   color: "white",
+  width: "100%",
+  height: "100%",
 };
 
 // #0D0D0D
 // #312F2F
 
+const section1 = {
+  color: "red",
+};
+
+const section2 = {
+  color: "white",
+};
 const left = {
   padding: "2rem",
   flex: 1,
@@ -26,10 +34,11 @@ const left = {
 
 const right = {
   width: "100%",
-  flex: 3,
+  flex: 2,
 };
 
 const container = {
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   gap: "1.5rem",
@@ -70,11 +79,11 @@ const H3 = {
 };
 
 const AccountManagementPage = () => {
-  const isMobile = useMediaQuery("(max-width: 700px)");
+  const isMobile = useMediaQuery("(max-width: 920px)");
 
   if (!isMobile) {
     return (
-      <div id="accountManagementPage" style={account}>
+      <div style={account}>
         <div style={left}>
           <div
             style={{
@@ -97,7 +106,7 @@ const AccountManagementPage = () => {
                 color: "#EBEAEA",
               }}
             >
-              {<FaceRetouchingNaturalIcon />}
+              {<FaceRetouchingNaturalIcon style={section1} />}
               <span
                 style={{
                   padding: "1rem",
@@ -128,7 +137,7 @@ const AccountManagementPage = () => {
               <div
                 style={{
                   display: "flex",
-                  fiexDirection: "row",
+                  flexDirection: "row",
                   width: "95%",
                   height: "40vh",
                 }}
@@ -190,7 +199,7 @@ const AccountManagementPage = () => {
               <div
                 style={{
                   display: "flex",
-                  fiexDirection: "row",
+                  flexDirection: "row",
                   width: "95%",
                   height: "45vh",
                 }}
@@ -237,11 +246,137 @@ const AccountManagementPage = () => {
         </div>
       </div>
     );
-  }
-  else{
-   return <div>
-      Mobile h be
-   </div>
+  } else {
+    return (
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#0D0D0D",
+          color: "white",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            padding: "1rem",
+            textAlign: "center",
+          }}
+        >
+          <h1 style={H1}>Account Management</h1>
+        </div>
+
+        <section id="section1">
+          <div style={container}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "50vh",
+              }}
+            >
+              <div style={innerLeft}>
+                <h1 style={H1}>Account Details</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Quisquam
+                </p>
+              </div>
+
+              <div style={{ ...innerRight, flexDirection: "column" }}>
+                <TextField
+                  label="NAME"
+                  InputProps={{
+                    style: {
+                      color: "#F2F2F2",
+                      fontFamily: font,
+                      background: "#333131",
+                      borderRadius: "8px",
+                      fontWeight: "bold",
+                    },
+                  }}
+                  InputLabelProps={{
+                    style: {
+                      color: "#999999",
+                      fontFamily: font,
+                      borderRadius: "8px",
+                      fontWeight: "bold",
+                      fontSize: "14px",
+                    },
+                  }}
+                />
+                <TextField
+                  label="USERNAME"
+                  InputProps={{
+                    style: {
+                      color: "#F2F2F2",
+                      fontFamily: font,
+                      background: "#333131",
+                      borderRadius: "8px",
+                    },
+                  }}
+                  InputLabelProps={{
+                    style: {
+                      color: "#999999",
+                      fontFamily: font,
+                      fontWeight: "bold",
+                      borderRadius: "8px",
+                      fontWeight: "bold",
+                      fontSize: "14px",
+                    },
+                  }}
+                />
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                height: "50vh",
+              }}
+            >
+              <div style={innerLeft}>
+                <h1 style={H1}>Personal Information</h1>
+                <p>
+                  This Information is private and will not be shared with others
+                </p>
+              </div>
+              <div style={innerRight}>
+                <TextField
+                  id="filled-basic"
+                  label="EMAIL ADDRESS"
+                  variant="filled"
+                  style={{
+                    width: "400px",
+                  }}
+                  InputProps={{
+                    style: {
+                      color: "#F2F2F2",
+                      fontFamily: font,
+                      background: "#452647",
+                      borderRadius: "8px",
+                    },
+                  }}
+                  InputLabelProps={{
+                    style: {
+                      color: "#CF51DA",
+                      fontFamily: font,
+                      fontWeight: "bold",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                    },
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section2"></section>
+      </div>
+    );
   }
 };
 
