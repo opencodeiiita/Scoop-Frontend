@@ -1,0 +1,45 @@
+
+.scoop-form-container {
+    max-width: 630px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #2e3d47, #d0b7da); /* Adjust colors as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scoop-form-label {
+    color: #fff; 
+  }
+  
+  .scoop-form-input1{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #fff; 
+    border-radius: 5px;
+  }
+  
+  .scoop-form-input2{
+    width: 95%;
+    height:5rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #fff; 
+    border-radius: 5px;
+  }
+  
+  .scoop-form-button {
+    padding: 10px;
+    background-color: #fff; 
+    color: #3498db; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .scoop-form-button:hover {
+    background-color: #76a7c7; /* Hover background color */
+    color: #fff; /* Hover text color */
+  }
+  
