@@ -10,7 +10,7 @@ import { Box } from '@mui/material'
 const Home = () => {
    
 
-  return (<Box sx={{ bgcolor: 'black', width: '100vw' }}>
+  return (<Box sx={{ bgcolor: 'black' }}>
  
  
   <Carousell />
