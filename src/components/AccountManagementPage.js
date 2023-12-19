@@ -52,7 +52,7 @@ const innerLeft = {
 
 const innerRight = {
   background: "#282627",
-  flex: 2,
+  flex: 3,
   display: "flex",
   flexDirection: "row",
   borderRadius: "2px",
@@ -156,6 +156,11 @@ const AccountManagementPage = () => {
                 <div style={innerRight}>
                   <TextField
                     label="NAME"
+                    style={
+                      {
+                        width: "30%",
+                      }
+                    }
                     InputProps={{
                       style: {
                         color: "#F2F2F2",
@@ -177,6 +182,11 @@ const AccountManagementPage = () => {
                   />
                   <TextField
                     label="USERNAME"
+                    style={
+                      {
+                        width: "30%",
+                      }
+                    }
                     InputProps={{
                       style: {
                         color: "#F2F2F2",
@@ -223,7 +233,7 @@ const AccountManagementPage = () => {
                     label="EMAIL ADDRESS"
                     variant="filled"
                     style={{
-                      width: "400px",
+                      width: "60%",
                     }}
                     InputProps={{
                       style: {
@@ -279,7 +289,6 @@ const AccountManagementPage = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "50vh",
               }}
             >
               <div style={innerLeft}>
@@ -305,6 +314,9 @@ const AccountManagementPage = () => {
               <div style={{ ...innerRight, flexDirection: "column" }}>
                 <TextField
                   label="NAME"
+                  style={{
+                    width: "80%"
+                  }}
                   InputProps={{
                     style: {
                       color: "#F2F2F2",
@@ -326,6 +338,9 @@ const AccountManagementPage = () => {
                 />
                 <TextField
                   label="USERNAME"
+                  style={{
+                    width: "80%"
+                  }}
                   InputProps={{
                     style: {
                       color: "#F2F2F2",
@@ -370,7 +385,7 @@ const AccountManagementPage = () => {
                   label="EMAIL ADDRESS"
                   variant="filled"
                   style={{
-                    width: "400px",
+                    width: "80%",
                   }}
                   InputProps={{
                     style: {
