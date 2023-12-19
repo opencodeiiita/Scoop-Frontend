@@ -1,71 +1,77 @@
 // ScoopForm.js
-
 import React from 'react';
-import {useState} from "react";
-import {useRef} from "react";
-import { useEffect } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import './ScoopForm.css'; // Import the CSS file
 import JoditEditor from 'jodit-react';
+import "./ScoopForm.css"
 
-const ScoopForm = () => {    
-
-const editor=useRef(null)
-const [content,setcontent]=useState('');
-
-  const initialValues = {
-    headline: '',
-    location: '',
-    content: '',
-  };
-
-  const validationSchema = Yup.object().shape({
-    headline: Yup.string().required('Headline is required'),
-    location: Yup.string().required('Location is required'),
-    content: Yup.string().required('Content is required'),
+const ScoopForm = ({ onSubmit }) => {
+  const formik = useFormik({
+    initialValues: {
+      headline: '',
+      location: '',
+      content: '', // Assuming you have a text editor for content
+    },
+    validationSchema: Yup.object({
+      headline: Yup.string().required('Headline is required'),
+      location: Yup.string().required('Location is required'),
+      content: Yup.string().required('Content is required'),
+    }),
+    onSubmit: (values, { resetForm }) => {
+      onSubmit(values);
+      resetForm(); 
+    },
   });
 
-  const handleSubmit = (values) => {
-    // Handle form submission
-    console.log(values);
-  };
-
   return (
-    <div className="scoop-form-container">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <label className="scoop-form-label" htmlFor="headline">
-            Headline:
-          </label>
-          <Field className="scoop-form-input1" type="text" id="headline" name="headline" />
-          
+    <form onSubmit={formik.handleSubmit} id="container">
+      <div>
+        <label htmlFor="headline">Headline</label>
+        <input
+          type="text"
+          id="headline"
+          name="headline"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.headline}
+        />
+        {formik.touched.headline && formik.errors.headline ? (
+          <div>{formik.errors.headline}</div>
+        ) : null}
+      </div>
 
-          <label className="scoop-form-label" htmlFor="location">
-            Location:
-          </label>
-            
-          <Field className="scoop-form-input1" type="text" id="headline" name="headline" />
-             
-          <label className="scoop-form-label" htmlFor="headline">
-            News Content:
-          </label>
-          <JoditEditor
-          ref={editor}
-          value={content}
-          onchange={newContent=>setcontent(newContent)}>            
-          </JoditEditor>         
-          <br></br>
-          <button className="scoop-form-button" type="submit">
-            Submit
-          </button>
-        </Form>
-      </Formik>
-    </div>
+      <div>
+        <label htmlFor="location">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.location}
+        />
+        {formik.touched.location && formik.errors.location ? (
+          <div>{formik.errors.location}</div>
+        ) : null}
+      </div>
+
+      <div>
+        <label htmlFor="content">Content</label>
+        <JoditEditor
+          id="content"
+          name="content"
+          value={formik.values.content}
+          onChange={(value) => formik.setFieldValue('content', value)}
+          onBlur={formik.handleBlur}
+        />
+        {formik.touched.content && formik.errors.content ? (
+          <div>{formik.errors.content}</div>
+        ) : null}
+      </div>
+
+      <br />
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
