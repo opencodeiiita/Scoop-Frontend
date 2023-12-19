@@ -83,7 +83,7 @@ export default class Carousell extends Component {
     return  (
        <Box
        sx={{
-        display: { xs: 'none', sm: 'block', paddingTop: '20px', paddingBottom: '20px' }
+        display: { xs: 'none', sm: 'block', paddingTop: "5%", width: "95%" }
        }}
        >    
        
