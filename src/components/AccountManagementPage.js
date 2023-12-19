@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import { useState, useEffect } from "react";
 import "./font.css";
 
 const font = "FF_MARK_FONT";
@@ -79,6 +80,19 @@ const H3 = {
 const AccountManagementPage = () => {
   const isMobile = useMediaQuery("(max-width: 920px)");
 
+  const [isNameOrUsernameChanged, setIsNameOrUsernameChanged] = useState(false);
+  const [isEmailDisabled, setIsEmailDisabled] = useState(false);
+  const handleNameOrUsernameChange = () => {
+    setIsNameOrUsernameChanged(true);
+    setIsEmailDisabled(true);
+  };
+
+  const handleSubmit = () => {
+    console.log("Form submitted!");
+    setIsNameOrUsernameChanged(false);
+    setIsEmailDisabled(false);
+  };
+
   if (!isMobile) {
     return (
       <div style={account}>
@@ -144,23 +158,34 @@ const AccountManagementPage = () => {
               >
                 <div style={innerLeft}>
                   <h1 style={H1}>Account Details</h1>
-                  <p style={{
-                     fontFamily: font,
-                     color: "#949495"
-                  }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quisquam
+                  <p
+                    style={{
+                      fontFamily: font,
+                      color: "#949495",
+                    }}
+                  >
+                    {isNameOrUsernameChanged && (
+                      <div>
+                        <p style={H3}>Username or name is changing</p>
+                        <button onClick={handleSubmit}>Submit</button>
+                      </div>
+                    )}
+                    {!isNameOrUsernameChanged && (
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quisquam
+                      </p>
+                    )}
                   </p>
                 </div>
 
                 <div style={innerRight}>
                   <TextField
+                    onChange={handleNameOrUsernameChange}
                     label="NAME"
-                    style={
-                      {
-                        width: "30%",
-                      }
-                    }
+                    style={{
+                      width: "30%",
+                    }}
                     InputProps={{
                       style: {
                         color: "#F2F2F2",
@@ -181,12 +206,11 @@ const AccountManagementPage = () => {
                     }}
                   />
                   <TextField
+                    onChange={handleNameOrUsernameChange}
                     label="USERNAME"
-                    style={
-                      {
-                        width: "30%",
-                      }
-                    }
+                    style={{
+                      width: "30%",
+                    }}
                     InputProps={{
                       style: {
                         color: "#F2F2F2",
@@ -219,10 +243,12 @@ const AccountManagementPage = () => {
               >
                 <div style={innerLeft}>
                   <h1 style={H1}>Personal Information</h1>
-                  <p style={{
-                     fontFamily: font,
-                     color: "#949495"
-                  }}>
+                  <p
+                    style={{
+                      fontFamily: font,
+                      color: "#949495",
+                    }}
+                  >
                     This Information is private and will not be shared with
                     others
                   </p>
@@ -252,6 +278,7 @@ const AccountManagementPage = () => {
                         fontSize: "14px",
                       },
                     }}
+                    disabled={isEmailDisabled}
                   />
                 </div>
               </div>
@@ -302,20 +329,33 @@ const AccountManagementPage = () => {
                 >
                   Account Details
                 </h1>
-                <p style={{
-                     fontFamily: font,
-                     color: "#949495"
-                  }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam
+                <p
+                  style={{
+                    fontFamily: font,
+                    color: "#949495",
+                  }}
+                >
+                  {isNameOrUsernameChanged && (
+                    <div>
+                      <p style={H3}>Username or name is changing</p>
+                      <button onClick={handleSubmit}>Submit</button>
+                    </div>
+                  )}
+                  {!isNameOrUsernameChanged && (
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quisquam
+                    </p>
+                  )}
                 </p>
               </div>
 
               <div style={{ ...innerRight, flexDirection: "column" }}>
                 <TextField
                   label="NAME"
+                  onChange={handleNameOrUsernameChange}
                   style={{
-                    width: "80%"
+                    width: "80%",
                   }}
                   InputProps={{
                     style: {
@@ -338,8 +378,9 @@ const AccountManagementPage = () => {
                 />
                 <TextField
                   label="USERNAME"
+                  onChange={handleNameOrUsernameChange}
                   style={{
-                    width: "80%"
+                    width: "80%",
                   }}
                   InputProps={{
                     style: {
@@ -372,10 +413,12 @@ const AccountManagementPage = () => {
             >
               <div style={innerLeft}>
                 <h1 style={H1}>Personal Information</h1>
-                <p style={{
-                     fontFamily: font,
-                     color: "#949495"
-                  }}>
+                <p
+                  style={{
+                    fontFamily: font,
+                    color: "#949495",
+                  }}
+                >
                   This Information is private and will not be shared with others
                 </p>
               </div>
@@ -404,6 +447,7 @@ const AccountManagementPage = () => {
                       fontSize: "14px",
                     },
                   }}
+                  disabled={isEmailDisabled}
                 />
               </div>
             </div>
