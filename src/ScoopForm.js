@@ -42,15 +42,17 @@ const [content,setcontent]=useState('');
           <label className="scoop-form-label" htmlFor="headline">
             Headline:
           </label>
-          <JoditEditor
-          ref={editor}
-          value={content}
-          onchange={newContent=>setcontent(newContent)}>            
-          </JoditEditor>
+          <Field className="scoop-form-input1" type="text" id="headline" name="headline" />
           
 
           <label className="scoop-form-label" htmlFor="location">
             Location:
+          </label>
+            
+          <Field className="scoop-form-input1" type="text" id="headline" name="headline" />
+             
+          <label className="scoop-form-label" htmlFor="headline">
+            News Content:
           </label>
           <JoditEditor
           ref={editor}
