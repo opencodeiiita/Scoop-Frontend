@@ -1,5 +1,5 @@
 
-.scoop-form-container {
+#container {
     max-width: 630px;
     margin: 0 auto;
     padding: 20px;
@@ -8,21 +8,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .scoop-form-label {
+  #label {
     color: #fff; 
   }
   
-  .scoop-form-input1{
-    width: 95%;
+  #headline{
+    width: 96.5%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #fff; 
     border-radius: 5px;
   }
   
-  .scoop-form-input2{
+  #location{
     width: 95%;
-    height:5rem;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #fff; 
