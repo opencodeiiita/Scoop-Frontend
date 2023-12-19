@@ -15,3 +15,8 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "FF";
+  src: url('../public/FontFont_FF.Mark.Pro.Black.otf');
+}

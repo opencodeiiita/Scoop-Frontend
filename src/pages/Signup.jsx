@@ -16,14 +16,14 @@ const Stepper=({currentInputField})=>
 const Heading=({text})=>
 {
     return (
-        <h1 className='text-3xl font-sans font-bold text-center'>{text}</h1>
+        <h1 className='text-3xl font-FF font-bold text-center'>{text}</h1>
     )
 }
 
 const SubHeading=({text})=>
 {
     return (
-        <p className='text-gray-400 font-bold text-xl tracking-wider'>{text}</p>
+        <p className='text-gray-400 font-FF font-bold text-xl tracking-wider'>{text}</p>
     )
 }
 
@@ -276,7 +276,7 @@ const Signup = () => {
     }
 
   return (
-    <div className="relative flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)] bg-cover bg-center  w-screen h-screen">
+    <div className="relative font-FF flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)] bg-cover bg-center  w-screen h-screen">
         <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] absolute font-black'>CREATE AN ACCOUNT</h1>
         <main className='mx-10  bg-white min-h-[80%] max-h-fit rounded-lg shadow-md w-5/12 flex flex-col items-center space-y-14'>
             <Stepper currentInputField={currentInputField}/>
