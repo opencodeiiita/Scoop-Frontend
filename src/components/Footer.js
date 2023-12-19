@@ -233,7 +233,7 @@ const Footer = () => {
       <div
         style={{
           background: "black",
-          width: "100%",
+          width: "100vw",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
@@ -241,7 +241,7 @@ const Footer = () => {
           flexWrap: "wrap",
         }}
       >
-        <div style={isTablet ? { ...part1, display: "flex" } : part1}>
+        <div style={isTablet ? { ...part1 } : part1}>
           <div
             style={{
               display: "flex",
@@ -252,6 +252,7 @@ const Footer = () => {
               style={{
                 display: "flex",
                 flexDirection: "row",
+                flex: 1,
               }}
             >
               <div
@@ -259,6 +260,7 @@ const Footer = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: "1rem",
+                  flex: 1,
                 }}
               >
                 {/* About */}
