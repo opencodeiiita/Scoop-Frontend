@@ -9,7 +9,7 @@ import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 import Navbar from './components/Navbar.js';
 import ComposeScoopPage from './ComposeScoopPage.js';
-import Signinform from '/pages/SignInForm.js'
+import Signinform from './pages/SignInForm.js'
 
 function App() {
  
