@@ -145,7 +145,7 @@ const PopularPost = () => {
           sx={{
             fontWeight: "bold",
             fontSize: 18,
-            color: "#3E3232",
+            color: "white",
             marginLeft: 2,
             marginTop: 2,
             display: "inline-block",
@@ -179,6 +179,7 @@ const PopularPost = () => {
                 borderRadius: 3,
                 marginLeft: 4,
                 marginRight: 4,
+                bgcolor: "black"
               }}
             >
               <CardMedia
@@ -199,7 +200,7 @@ const PopularPost = () => {
                   fontWeight={"bold"}
                   fontSize={12}
                   sx={{
-                    color: "#3E3232",
+                    color: "white",
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -212,7 +213,7 @@ const PopularPost = () => {
                   variant="body2"
                   fontSize={12}
                   sx={{
-                    color: "#3E3232",
+                    color: "white",
                     opacity: 0.75,
                     textOverflow: "ellipsis",
                   }}
@@ -233,7 +234,7 @@ const PopularPost = () => {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  backgroundColor: "#F5F5F5",
+                  backgroundColor: "#31304D",
                   boxShadow: "none",
                 }}
               >
@@ -249,7 +250,7 @@ const PopularPost = () => {
                       marginBottom: 0.1,
                       fontSize: 12,
                       fontWeight: 550,
-                      color: "#3E3232",
+                      color: "white",
                     }}
                   >
                     {userArray[index].lastName
@@ -260,7 +261,7 @@ const PopularPost = () => {
                   </Typography>
                   <Typography
                     fontSize={11}
-                    color={"#3E3232"}
+                    color={"white"}
                     sx={{ opacity: 0.75 }}
                   >
                     July 14 , 2022
