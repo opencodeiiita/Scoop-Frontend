@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
 
 @tailwind base;
 @tailwind components;
@@ -21,3 +25,8 @@ code {
   src: url('../public/FontFont_FF.Mark.Pro.Black.otf');
 }
 
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+*::-webkit-scrollbar {
+  display: none;
+}
