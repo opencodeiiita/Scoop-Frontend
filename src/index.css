@@ -16,6 +16,16 @@ code {
   scrollbar-width: none;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "FF";
+  src: url('../public/FontFont_FF.Mark.Pro.Black.otf');
+}
+
+
 /* Hide scrollbar for Chrome, Safari, and Edge */
 *::-webkit-scrollbar {
   display: none;
