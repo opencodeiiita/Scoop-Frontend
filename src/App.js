@@ -9,6 +9,10 @@ import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 import Navbar from './components/Navbar.js';
 import ComposeScoopPage from './ComposeScoopPage.js';
+import AccountManagementPage from './components/AccountManagementPage.js';
+import ComposeScoopPage from './ComposeScoopPage.js'
+import Signup from './pages/Signup.jsx';
+
 
 import{
   Grid,
@@ -138,14 +142,15 @@ function App() {
    <ThemeProvider theme={theme}>
      <CssBaseline>
       <BrowserRouter>
-      <Navbar />
+      
       <Routes>
        
-       <Route path="/" element={<Home></Home>} />
+       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
        <Route path="*" element={<NotFound></NotFound>} />
        
+        <Route path="/signup" element={<Signup />} />
+          <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
-      <Footer></Footer>
       </BrowserRouter>
       </CssBaseline>
       </ThemeProvider>
@@ -154,4 +159,4 @@ function App() {
  );
 }
 
-export default App;
+
