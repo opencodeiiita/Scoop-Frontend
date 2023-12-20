@@ -16,14 +16,14 @@ const Stepper=({currentInputField})=>
 const Heading=({text})=>
 {
     return (
-        <h1 className='text-3xl font-FF font-bold text-center'>{text}</h1>
+        <h1 className='text-3xl font-FF font-bold text-center max-sm:text-xl'>{text}</h1>
     )
 }
 
 const SubHeading=({text})=>
 {
     return (
-        <p className='text-gray-400 font-FF font-bold text-xl tracking-wider'>{text}</p>
+        <p className='text-gray-400 font-FF font-bold text-xl tracking-wider max-sm:text-base'>{text}</p>
     )
 }
 
@@ -78,7 +78,7 @@ const PasswordChecker=({check,text})=>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
                 </svg>
             </span>
-            <p className='grow text-sm text-green-400 font-semibold '>{text}</p>
+            <p className='grow text-sm text-green-400 font-semibold max-sm:text-xs'>{text}</p>
         </aside>
     )
     else 
@@ -89,7 +89,7 @@ const PasswordChecker=({check,text})=>
                 <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
             </span>
-            <p className='grow text-sm text-gray-400 font-semibold'>{text}</p>
+            <p className='grow text-sm text-gray-400 font-semibold max-sm:text-xs'>{text}</p>
         </aside>
 
     )
@@ -107,7 +107,7 @@ const Email=({email,setInput,changeCurrentInputField})=>
         setInput(prev=>({...prev,email:e.target.value}));
     }
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10 max-lg:w-11/12'>
             <Heading text={"What's your email?"} />
             <SubHeading text={"Don't worry we won't tell anyone"} />
             <InputField
@@ -135,7 +135,7 @@ const Name=({name,setInput,changeCurrentInputField})=>
         setInput(prev=>({...prev,name:e.target.value}));
     }
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10 max-lg:w-11/12'>
             <Heading text="What should we at Scoop call you?" />
             <SubHeading text="Enter you name" />
             <InputField
@@ -162,7 +162,7 @@ const Username=({username,setInput,changeCurrentInputField})=>
         setInput(prev=>({...prev,username:e.target.value}));
     }
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-8 items-center w-1/2 pb-10 max-lg:w-11/12'>
             <Heading text={"Choose a username"} />
             <SubHeading text="Used for sign in to our website" />
             <InputField
@@ -199,7 +199,7 @@ const Password=({password,setInput,changeCurrentInputField})=>
     const isDisabled=()=> password.length<8 || confirmPassword.length<8 || password!==confirmPassword
 
     return (
-        <div className='bg-transparent flex-grow flex flex-col space-y-6 items-center w-1/2 pb-10 justify-center'>
+        <div className='bg-transparent flex-grow flex flex-col space-y-6 items-center w-1/2 pb-10 justify-center max-lg:w-11/12'>
             <Heading text="Choose a password" />
             <SubHeading text="Make sure it's a good one" />
             <InputField
@@ -276,9 +276,10 @@ const Signup = () => {
     }
 
   return (
-    <div className="relative font-FF flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)] bg-cover bg-center  w-screen h-screen">
-        <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] absolute font-black'>CREATE AN ACCOUNT</h1>
-        <main className='mx-10  bg-white min-h-[80%] max-h-fit rounded-lg shadow-md w-5/12 flex flex-col items-center space-y-14'>
+    <div className="relative font-FF flex justify-end items-center bg-[url(https://github.blog/wp-content/uploads/2020/12/102573561-8e872300-40a3-11eb-9feb-b480aeae0564.png)]
+     bg-cover bg-center  w-screen h-screen max-sm:flex-col max-sm:bg-cover max-sm:bg-top">
+        <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] max-sm:max-w-full max-sm:text-2xl max-sm:-mt-5 sm:absolute font-black max-lg:left-5 max-lg:text-5xl max-lg:bottom-1/2'>CREATE AN ACCOUNT</h1>
+        <main className='mx-10  bg-white min-h-[80%] max-h-fit rounded-lg shadow-md w-5/12 flex flex-col items-center space-y-14 max-xl:w-1/2 max-sm:w-11/12 max-sm:my-10'>
             <Stepper currentInputField={currentInputField}/>
             <Tabs tab={currentInputField.input} input={input} setInput={setInput} changeCurrentInputField={changeCurrentInputField}/>
         </main>
