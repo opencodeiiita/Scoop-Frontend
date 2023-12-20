@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: 'FF_MARK_FONT';
+    src: url('../../public/fonts/FontFont_FF.Mark.Pro.otf') format('truetype');
+    /* Add other font-face properties if needed */
+}
+
+
+@font-face {
+    font-family: 'FF_MARK_FONT_BOLD';
+    src: url('../../public/fonts/FontFont_FF.Mark.Pro.Bold.otf') format('truetype');
+    /* Add other font-face properties if needed */
+}
