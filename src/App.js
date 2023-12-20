@@ -9,6 +9,7 @@ import CategoryCarousel from './components/PopularPost.js';
 import Footer from './components/Footer.js';
 import Navbar from './components/Navbar.js';
 import AccountManagementPage from './components/AccountManagementPage.js';
+import ComposeScoopPage from './ComposeScoopPage.js';
 function App() {
  
   return (
