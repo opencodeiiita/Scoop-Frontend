@@ -5,6 +5,7 @@ import FaceRetouchingNaturalIcon from "@mui/icons-material/FaceRetouchingNatural
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import { useState, useEffect } from "react";
 import "./font.css";
+import Button from "@mui/material/Button";
 
 const font = "FF_MARK_FONT";
 const font1 = "FF_MARK_FONT_BOLD";
@@ -164,18 +165,10 @@ const AccountManagementPage = () => {
                       color: "#949495",
                     }}
                   >
-                    {isNameOrUsernameChanged && (
-                      <div>
-                        <p style={H3}>Username or name is changing</p>
-                        <button onClick={handleSubmit}>Submit</button>
-                      </div>
-                    )}
-                    {!isNameOrUsernameChanged && (
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quisquam
-                      </p>
-                    )}
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quisquam
+                    </p>
                   </p>
                 </div>
 
@@ -230,6 +223,18 @@ const AccountManagementPage = () => {
                       },
                     }}
                   />
+                  {isNameOrUsernameChanged && (
+                    <div>
+                      <p style={H3}>Username or name is changing</p>
+                      <Button style={{
+                        background: "#452647",
+                        fontFamily: font1,
+                        color: "#F2F2F2",
+                      }}onClick={handleSubmit} variant="contained">
+                        Submit
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -335,18 +340,10 @@ const AccountManagementPage = () => {
                     color: "#949495",
                   }}
                 >
-                  {isNameOrUsernameChanged && (
-                    <div>
-                      <p style={H3}>Username or name is changing</p>
-                      <button onClick={handleSubmit}>Submit</button>
-                    </div>
-                  )}
-                  {!isNameOrUsernameChanged && (
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quisquam
-                    </p>
-                  )}
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quisquam
+                  </p>
                 </p>
               </div>
 
@@ -401,6 +398,18 @@ const AccountManagementPage = () => {
                     },
                   }}
                 />
+                {isNameOrUsernameChanged && (
+                    <div>
+                      <p style={H3}>Username or name is changing</p>
+                      <Button style={{
+                        background: "#452647",
+                        fontFamily: font1,
+                        color: "#F2F2F2",
+                      }}onClick={handleSubmit} variant="contained">
+                        Submit
+                      </Button>
+                    </div>
+                  )}
               </div>
             </div>
 
