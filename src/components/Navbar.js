@@ -21,7 +21,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DrawerComp from "./Drawer";
-
+import "./font.css";
 const Navbar = () => {
     const [value, setValue] = useState();
     const [search, setSearch] = useState("");
@@ -78,7 +78,7 @@ const Navbar = () => {
                                     margin: "10px auto",
                                     marginRight: "10px",
                                     color: "white",
-                                    backgroundColor: "white",
+                                    backgroundColor: "#2b2a29",
                                     borderRadius: "10px",
                                 }}
                                 value={search}
@@ -102,14 +102,15 @@ const Navbar = () => {
                         </>
                     ) : (
                         <>
-                            <Typography sx={{ fontSize: "2rem" }}>Scoop Logo</Typography>
+                            <Typography sx={{ fontSize: "2rem", fontFamily: 'FF_MARK_FONT' }}>Scoop</Typography>
                             <Button
                                 onClick={handleMenuOpen}
                                 sx={{
                                     color: "#999999",
                                     textTransform: "none",
                                     fontSize: "1.05rem",
-                                    marginLeft: "40px"
+                                    marginLeft: "40px", 
+                                    fontFamily: 'FF_MARK_FONT'
                                 }}
                             >
                                 Categories <ArrowDropDownIcon />
@@ -130,14 +131,14 @@ const Navbar = () => {
                                 </MenuItem>
                             </Menu>
                             <Tabs
-                                sx={{ marginLeft: "10px" }}
+                                sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT' }}
                                 indicatorColor="secondary"
                                 textColor="inherit"
                                 value={value}
                                 onChange={(e, value) => setValue(value)}
                             >
-                                <Tab label="Contact Us" />
-                                <Tab label="About Us" />
+                                <Tab sx = {{fontFamily: 'FF_MARK_FONT'}}label="Contact Us" />
+                                <Tab sx={{fontFamily: 'FF_MARK_FONT'}} label="About Us" />
                             </Tabs>
                             <TextField
                                 id="search-bar"
@@ -150,7 +151,7 @@ const Navbar = () => {
                                     margin: "10px auto",
                                     marginRight: "10px",
                                     color: "white",
-                                    backgroundColor: "white",
+                                    backgroundColor: "#2b2a29",
                                     borderRadius: "10px",
                                 }}
                                 value={search}
@@ -168,23 +169,16 @@ const Navbar = () => {
                                             <SearchIcon style={{ fill: "black" }} />
                                         </InputAdornment>
                                     ),
+                                   style: { color: 'white' },
                                 }}
                             />
-                            <Avatar sx={{ marginLeft: "10px" }}>P</Avatar>
+                            <Avatar sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT'     }}>P</Avatar>
                         </>
                     )}
 
 
-                    <Typography sx={{ marginLeft: "5px", color: "white" }}>Behzad</Typography>
-                    <Button
-                        sx={{
-                            marginLeft: "10px",
-                            marginRight: 0,
-                            backgroundColor: "transparent",
-                        }}
-                        variant="contained"
-                        startIcon={<BookmarksIcon />}
-                    ></Button>
+                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>Behzad</Typography>
+                   
                 </Toolbar>
             </AppBar>
         </React.Fragment>
