@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.c s";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from "./theme.js";
@@ -8,9 +8,9 @@ import NotFound from "./pages/NotFound";
 import CategoryCarousel from "./components/CategoryCarousel";
 import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
+import ComposeScoopPage from "./ComposeScoopPage.js";
 import Signinform from "./pages/SignInForm.js";
 import AccountManagementPage from "./components/AccountManagementPage.js";
-import ComposeScoopPage from "./ComposeScoopPage.js";
 import Signup from "./pages/Signup.jsx";
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <Navbar />
                     <CategoryCarousel />
+                    <Navbar />
                     <Home />
                     <Footer />
                   </>
