@@ -49,7 +49,7 @@ export default class Carousell extends Component {
       autoplaySpeed: 2000,
       cssEase: "linear",
       
-      width:752,
+      height: 300,
       responsive: [
         {
           breakpoint: 1536,
