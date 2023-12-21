@@ -16,7 +16,7 @@ export default function Card1(props)
       borderRadius: '15px',
       marginX: '1.5rem'
       }}>    
-     <Box sx={{ position: 'relative',borderRadius: '15px' }}>
+     <Box sx={{ position: 'relative',borderRadius: '15px', height: '300' }}>
      <CardMedia
         sx={{ borderRadius: '15px' }}
         component="img"
@@ -28,7 +28,7 @@ export default function Card1(props)
         sx={{
           position: 'absolute',
           
-          bottom: '5%',
+          bottom: '60%',
           left: 0,
           right:0,
           mx: 'auto',
