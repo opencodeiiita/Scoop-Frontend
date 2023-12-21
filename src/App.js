@@ -26,7 +26,9 @@ function App() {
        
        <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
        <Route path="*" element={<NotFound></NotFound>} />
+
        <Route path="/signin" element={<Signinform></Signinform>}/>
+
        
         <Route path="/signup" element={<Signup />} />
           <Route path="/account" element={<AccountManagementPage/>} />
