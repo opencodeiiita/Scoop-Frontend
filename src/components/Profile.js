@@ -9,7 +9,7 @@ const Profile = () => {
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
-        <body>
+        <body style={{backgroundColor:"#080404"}}>
           <div className="container">
             <div className="container1">
               <div className="circle"></div>
@@ -30,8 +30,8 @@ const Profile = () => {
               </div>
             </div>
             <div className="container2">
-              <div className="circle3">
-                <div id="om-text-1"><font size="1" color="#ffffff"> &nbsp;&nbsp;Find a Scoop</font></div>
+              <div>
+                    <input id="con2-in" type='text' placeholder='Find the scoop'></input>
               </div>
               <br />
               <div className="container2-hr"><hr /></div>
