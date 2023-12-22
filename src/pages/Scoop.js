@@ -8,10 +8,24 @@ const news = {
     //hardcode any other data if needed
 }
 
+const CommentCard=({pfp,username,time,comment})=>
+{
+  return (
+    <li className='bg-white pt-7 pb-6 pl-20 pr-6 rounded-lg space-y-4'>
+    <section className='flex justify-start items-center space-x-4'>
+      <img src={pfp} className='w-8 h-8 rounded-full'/>
+      <h3 className='text-base font-semibold text-Dark_Blue font-FF'>{username}</h3>
+      <p className='text-base text-Grayish_Blue'>{time}</p>
+    </section>
+    <p className='text-Grayish_Blue max-w-[618px]'>{comment}</p>
+  </li>
+  )
+}
+
 const Scoop = () => {
 
   return (
-    <div className='font-FF flex justify-center items-center'>
+    <div className='font-FF flex justify-center items-center bg-[#DBD9D6]'>
       <div className='w-[80vw]'>
       <span className='bg-red-500 text-white font-semibold tracking-widest text-xs pl-1 py-0.5 pr-10'>SCOOP</span>
       <h1 className='text-[43px] leading-[48px] text-text max-w-4xl font-extrabold mb-4 relative'>{news?.headline}
@@ -54,7 +68,12 @@ const Scoop = () => {
         <h3 className='text-base font-extrabold'>Om Buddhadev</h3>
         </section>
       </header>
-      <main className='space-y-7' dangerouslySetInnerHTML={{ __html: news.content }}></main>
+      <main className='space-y-7 mb-6' dangerouslySetInnerHTML={{ __html: news.content }}></main>
+      <span className='bg-red-600 text-white font-medium tracking-widest text-xs px-3 pt-1 pb-0.5'>COMMENTS</span>
+      <ul className='mt-2'>
+        <CommentCard pfp={"https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg"} username={"amyrobson"} time={"1 month ago"} 
+        comment={"Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You’ve nailed the design and the responsiveness at various breakpoints works really well."}/>
+      </ul>
       </div>
     </div>
     
