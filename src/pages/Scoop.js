@@ -22,6 +22,17 @@ const CommentCard=({pfp,username,time,comment})=>
   )
 }
 
+const NewComment=({pfp})=>
+{
+  return (
+    <li className='bg-white p-6 flex justify-between rounded-lg space-x-4 mt-9'>
+      <img src={pfp} className='w-10 h-10 rounded-full'/>
+      <textarea className='grow px-6 border rounded-lg resize-none h-24' placeholder='Add a comment...'/>
+      <button className='bg-[#5357B6] self-start border rounded-lg py-3 px-7 font-medium'>SEND</button>
+    </li>
+  )
+}
+
 const Scoop = () => {
 
   return (
@@ -70,10 +81,13 @@ const Scoop = () => {
       </header>
       <main className='space-y-7 mb-6' dangerouslySetInnerHTML={{ __html: news.content }}></main>
       <span className='bg-red-600 text-white font-medium tracking-widest text-xs px-3 pt-1 pb-0.5'>COMMENTS</span>
-      <ul className='mt-2'>
+      <ul className='mt-2 space-y-5'>
         <CommentCard pfp={"https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg"} username={"amyrobson"} time={"1 month ago"} 
         comment={"Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You’ve nailed the design and the responsiveness at various breakpoints works really well."}/>
+        <CommentCard pfp={"https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg"} username={"maxblagun"} time={"2 weeks ago"} 
+        comment={"Woah, your project looks awesome! How long have you been coding for? I’m still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!"}/>
       </ul>
+      <NewComment pfp={"https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg"} />
       </div>
     </div>
     
