@@ -9,7 +9,9 @@ module.exports = {
         'FF': ['FF Mark Pro Black', 'sans-serif'],
       },
       colors:{
-        text:"#2B2A29"
+        text:"#2B2A29",
+        Dark_Blue:"#334253",
+        Grayish_Blue:"#67727E"
       }
     },
   },
