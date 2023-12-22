@@ -9,7 +9,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 const containerStyle = {
   display: "flex",
   flexDirection: "column",
-  height: "100vh",
 };
 
 const headerStyle = {
@@ -19,11 +18,13 @@ const headerStyle = {
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
-  height: "30%",
+  height: "25vh",
 };
 
 const headerH1Style = {
   color: "#F9F9F9",
+  fontSize: "280%",
+  fontWeight: "800",
   fontFamily: "Inter",
   marginTop: "auto",
 };
@@ -34,8 +35,8 @@ const headerDivStyle = {
 };
 
 const cardSectionStyle = {
-    background: "linear-gradient(to bottom, #ff0000 30%, #00ff00 30%, #00ff00 100%)",
-  height: "80%",
+    background: "linear-gradient(to bottom, #DBD9D6  30%,  #E7E6E3 30%,  #E7E6E3 100%)",
+    minHeight: "80vh",
 };
 
 const cardContainerStyle = {
@@ -48,34 +49,44 @@ const cardContainerStyle = {
 
 const cardArray = [
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/27ad4df5feacc03a238282e526a95172fe5d1db9",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/3ce43c2e78660dbad4289d6cfae951eda89a87f1",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/97823aab7573f3adf4e1bcc3dfa1bf4a9f8fe3dc",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/07dea8cc8dac7adb50612d9fe5b1d0cf44194e49",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/ff7aa8a53259b9a8046edb6d5768d3d4049f7ccd",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
   {
-    img: "https://s3-alpha-sig.figma.com/img/27ad/4df5/feacc03a238282e526a95172fe5d1db9?Expires=1704067200&Signature=ir5Zx5nti~4ovDYEtS~KpPBLIUo7~EAo6ROJg6AKJy22QymKME4firk2K2Pr2zV1b~H0lzkDs6mIj9ArLNrpBjRnuA9sOsDRjogw75sHCiFv7MGI-O731HQ591uI7N7dMcQNUEp2HaUgQjzZlO-BFUWhXY4s-AVoY9Fz4i6xJxqJcg-36e-juL0A-FbhLBZGa6lL0F5XDFynzKOj~WVVQjra52lqyUbL0tm52Hkf7Q8~y9TZo6mAdhA79IGJAeqKUmG1oC3e5U2katOpmlcHtWad83XM6czn-KfWkjoQYbfTw0BvAot6bULYuTS~aAMu6M9s1DN8mA8Ct4ZeLTRdMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-    title: "A view to Worlds",
-    body: "Lizards are a widespread group of squamate reptiles, with over 6,000 ",
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/841e7e329ddd86fd95df9fd2f8748f697ce24af1",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
+  },
+  {
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/4f112e4c57c08893e8353ce5a90dcca41ff0692e",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
+  },
+  {
+    img: "https://www.figma.com/file/I0q9Bcuro7zNKxoSbbLZqu/image/a499f4528374b48353e7f053b6fbe6cc5a8f7266",
+    title: "TFT Vegas Open: Everything You Need to Know",
+    body: "How to Watch, Format Explainer, Drops, Trophy Reveal and more!",
   },
 ];
 
@@ -86,14 +97,14 @@ export const Allnews = () => {
   return (
     <div style={containerStyle}>
       <header style={headerStyle}>
-        <h1 style={headerH1Style}>List of Scoops</h1>
+        <h1 style={headerH1Style}>LIST OF SCOOPS</h1>
         <div style={headerDivStyle}></div>
       </header>
       <section style={cardSectionStyle}>
         <div
           style={{
             ...cardContainerStyle,
-            padding: isFull ? "5rem 14rem" : "2rem",
+            padding: isFull ? "6rem 14rem 5rem 16rem" : "2rem",
           }}
         >
           {cardArray.map((card, index) => (
@@ -122,7 +133,11 @@ export const Allnews = () => {
                       color: "#E7E6E3",
                       fontFamily: "Mark Pro",
                       fontWeight: "bold",
+                      fontStyle: "normal",
+                      lineHeight: "0.93rem",
+                      letterSpacing: "0.082rem",
                       textTransform: "uppercase",
+                      marginTop: "0.5rem",
                     }}
                   >
                     News
@@ -134,15 +149,28 @@ export const Allnews = () => {
                     style={{
                       fontFamily: "Mark Pro",
                       color: "#2B2A29",
+                      fontSize: "1.75rem",
+                      fontStyle: "normal",
+                      fontWeight: "700",
+                      lineHeight: "2.37rem",
+                      letterSpacing: "0.0175rem",
+                      marginTop: "0.5rem",
+                      marginBottom: "0.5rem",
+
                     }}
                   >
                     {card.title}
                   </Typography>
                   <Typography
-                    variant="body2"
                     style={{
                       color: "#656462",
                       fontFamily: "Mark Pro",
+                      fontSize: "1.125rem",
+                      fontWeight: 400,
+                      lineHeight: "1.87rem",
+                      letterSpacing: "-0.01125rem",
+                      marginTop: "0.5rem",
+                      marginBottom: "0.5rem",
                     }}
                   >
                     {card.body}
