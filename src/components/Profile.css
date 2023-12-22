@@ -63,8 +63,11 @@ body{
     width: 40%;
     margin-top: -0.2%;
 }
+
 input{
     max-width: 80%;
     border: #ffffff;
     border-radius: 15px 15px 15px 15px;
+    background-color: #1d1d1d;
+    color:white
 }
