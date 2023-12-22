@@ -12,6 +12,7 @@ import Signinform from './pages/SignInForm.js'
 import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
 import Signup from './pages/Signup.jsx';
+import LatestNews from './components/LatestNews.js';
 
 function App() {
  
@@ -28,10 +29,10 @@ function App() {
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
     
-
+        <Route path="/news" element={<LatestNews />} />
        
         <Route path="/signup" element={<Signup />} />
-          <Route path="/account" element={<AccountManagementPage/>} />
+        <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
       </BrowserRouter>
       </CssBaseline>
