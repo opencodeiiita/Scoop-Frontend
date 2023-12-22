@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       fontFamily: {
         'FF': ['FF Mark Pro Black', 'sans-serif'],
+      },
+      colors:{
+        text:"#2B2A29"
       }
     },
   },
