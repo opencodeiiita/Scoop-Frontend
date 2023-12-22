@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Carousell from '../components/Carousell'
 import PopularPost from '../components/PopularPost'
 import { Box } from '@mui/material'
+import LatestNews from '../components/LatestNews'
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
  
   <Carousell />
   <PopularPost></PopularPost>
+  <LatestNews />
  </Box>
     
   )

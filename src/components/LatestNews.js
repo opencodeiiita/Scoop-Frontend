@@ -1,13 +1,26 @@
 import React from "react";
+import "./index.css";
+import { Typography } from "@mui/material";
 
 const LatestNews = () => {
   return (
-    <div className="bg-black h-screen p-10">
+    <div className="bg-black p-10">
       <div className="flex flex-col">
-        <div className="flex justify-between items-center p-6">
-          <h2 className="text-4xl family font-[inter] text-white font-bold uppercase">
-            Latest News
-          </h2>
+        <div className="flex justify-between items-center ">
+          <div>
+        <div className="rect"></div>
+        <Typography
+          sx={{
+            fontWeight: "bold",
+            fontSize: 18,
+            color: "white",
+            marginLeft: 2,
+            marginTop: 2,
+            display: "inline-block",
+          }}
+        >
+         Latest Scoop
+        </Typography></div>
           <div>
             <button
               className="text-white px-3 py-1 text-xs rounded-md font-[inter] font-medium uppercase"
@@ -18,7 +31,7 @@ const LatestNews = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row justify-between">
             <div>
               <img
                 src="/news-1.png"
@@ -34,7 +47,7 @@ const LatestNews = () => {
               </div>
             </div>
             <div className="overflow-scroll">
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[40vw]">
+              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
                 <div className="p-8">
                   <h1 className="font-bold">Heading</h1>
                   <h4 className="flex items-center">
@@ -49,7 +62,7 @@ const LatestNews = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[40vw]">
+              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
                 <div className="p-8">
                   <h1 className="font-bold">Heading</h1>
                   <h4 className="flex items-center">
@@ -64,7 +77,7 @@ const LatestNews = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[40vw]">
+              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
                 <div className="p-8">
                   <h1 className="font-bold">Heading</h1>
                   <h4 className="flex items-center">

@@ -21,16 +21,17 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
+      <Navbar />
       <BrowserRouter>
       
       <Routes>
        
-       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
+       <Route path="/" element={<><Home /><Footer /></>} />
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
     
-        <Route path="/news" element={<LatestNews />} />
+       
        
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<AccountManagementPage/>} />

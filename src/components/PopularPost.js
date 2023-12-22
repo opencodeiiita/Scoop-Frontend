@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Avatar, dividerClasses } from "@mui/material";
+import { Avatar, dividerClasses, Box } from "@mui/material";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -138,8 +138,8 @@ const responsive = {
 };
 const PopularPost = () => {
   return (
-    <>
-      <div className="head-div">
+    <Box sx={{paddingTop: {xs: "50px", md:"20px"}}}>
+      <div className="head-div" >
         <div className="rect"></div>
         <Typography
           sx={{
@@ -280,7 +280,7 @@ const PopularPost = () => {
           </div>
         ))}
       </Carousel>
-    </>
+    </Box>
   );
 };
 
