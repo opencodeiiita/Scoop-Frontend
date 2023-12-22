@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /* Hide scrollbar for Firefox */
@@ -22,11 +22,18 @@ code {
 
 @font-face {
   font-family: "FF";
-  src: url('../public/FontFont_FF.Mark.Pro.Black.otf');
+  src: url("../public/FontFont_FF.Mark.Pro.Black.otf");
 }
-
 
 /* Hide scrollbar for Chrome, Safari, and Edge */
 *::-webkit-scrollbar {
   display: none;
+}
+.flip-element {
+  -moz-transform: scaleX(-1); /* Gecko */
+  -o-transform: scaleX(-1); /* Opera */
+  -webkit-transform: scaleX(-1); /* Webkit */
+  transform: scaleX(-1); /* Standard */
+
+  filter: FlipH; /* IE 6/7/8 */
 }
