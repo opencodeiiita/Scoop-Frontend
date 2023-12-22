@@ -1,5 +1,6 @@
 body{
-    background-color: #080404;
+    background-color: #080404;    
+    overflow-x: hidden;
 }
 .circle{
     background-color: grey;
@@ -41,13 +42,6 @@ body{
     margin-left: 8%;
 
 }
-.circle3{
-    border: 0.01rem solid#ffffff ;
-    border-radius: 5%;
-    height: 1.3rem;
-    width: 25rem;
-    background-color: #1d1d1d;
-}
 .container1{
    width: 15rem;
 
@@ -68,4 +62,9 @@ body{
     color: white;
     width: 40%;
     margin-top: -0.2%;
+}
+input{
+    max-width: 80%;
+    border: #ffffff;
+    border-radius: 15px 15px 15px 15px;
 }
