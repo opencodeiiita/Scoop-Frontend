@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -12,6 +13,7 @@ import Signinform from './pages/SignInForm.js'
 import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
 import Signup from './pages/Signup.jsx';
+import LatestNews from './components/LatestNews.js';
 import Scoop from './pages/Scoop.js';
 
 function App() {
@@ -20,11 +22,12 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
+      <Navbar />
       <BrowserRouter>
       
       <Routes>
        
-       <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
+       <Route path="/" element={<><Home /><Footer /></>} />
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
@@ -32,15 +35,13 @@ function App() {
        <Route path='/scoop' element={<Scoop />} />
        
         <Route path="/signup" element={<Signup />} />
-          <Route path="/account" element={<AccountManagementPage/>} />
+        <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
       </BrowserRouter>
       </CssBaseline>
       </ThemeProvider>
-   
-   </>
- );
+    </>
+  );
 }
-
 
 export default App;
