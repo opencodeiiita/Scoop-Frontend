@@ -19,7 +19,7 @@ const scoops=[
 const CommentCard=({pfp,username,time,comment})=>
 {
   return (
-    <li className='bg-white pt-7 pb-6 pl-20 pr-6 rounded-lg space-y-4'>
+    <li className='bg-white pt-7 pb-6 pl-20 pr-6 rounded-lg space-y-4 max-lg:px-3'>
     <section className='flex justify-start items-center space-x-4'>
       <img src={pfp} className='w-8 h-8 rounded-full'/>
       <h3 className='text-base font-semibold text-Dark_Blue font-FF'>{username}</h3>
@@ -33,10 +33,10 @@ const CommentCard=({pfp,username,time,comment})=>
 const NewComment=({pfp})=>
 {
   return (
-    <li className='bg-white p-6 flex justify-between rounded-lg space-x-4 mt-9'>
+    <li className='bg-white p-6 flex justify-between rounded-lg space-x-4 mt-9 max-sm:p-2'>
       <img src={pfp} className='w-10 h-10 rounded-full'/>
       <textarea className='grow px-6 border rounded-lg resize-none h-24' placeholder='Add a comment...'/>
-      <button className='bg-[#5357B6] self-start border rounded-lg py-3 px-7 font-medium'>SEND</button>
+      <button className='bg-[#5357B6] self-start border rounded-lg py-3 px-7 max-sm:px-2 max-sm:py-2 font-medium'>SEND</button>
     </li>
   )
 }
@@ -58,11 +58,11 @@ const ScoopCard=({label,img,date,text})=>
 const Scoop = () => {
 
   return (
-    <div className='font-FF flex justify-center items-center bg-[#DBD9D6] pt-16 pl-80 pr-64 max-sm:px-6'>
-      <div className=' flex space-x-32 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-10'>
+    <div className='font-FF flex justify-center items-center bg-[#DBD9D6] pt-16 pl-80 pr-64 max-lg:px-6'>
+      <div className=' flex space-x-32 max-md:flex-col max-md:space-x-0 max-md:space-y-10'>
         <section className='mt-9 grow'>
           <span className='bg-red-500 text-white font-semibold tracking-widest text-xs pl-1 py-0.5 pr-10'>SCOOP</span>
-          <h1 className='text-[43px] leading-[48px] text-text max-w-4xl font-extrabold mb-4 relative'>{news?.headline}
+          <h1 className='text-[43px] leading-[48px] max-sm:text-3xl text-text max-w-4xl font-extrabold mb-4 relative'>{news?.headline}
             <button className='font-FF text-xs p-0 py-0.5 tracking-widest font-bold px-5 bg-green-600 absolute bottom-2 ml-5'>UPVOTE</button>
           </h1>
 
@@ -79,12 +79,12 @@ const Scoop = () => {
                   </clipPath>
                 </defs>
               </svg>
-              <h1 className='text font-extrabold text-base mb-0 mr-5 ml-2'>Dec 8, 2023 / {news?.location}</h1>
+              <h1 className='max-sm:text-xs font-extrabold text-base mb-0 mr-5 ml-2'>Dec 8, 2023 / {news?.location}</h1>
 
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M4.5 0V2H14.1L0 16.1L1.4 17.5L15.5 3.4V13H17.5V0H4.5Z" fill="#D1363A"/>
               </svg>
-              <h1 className='text font-extrabold text-base mb-0 ml-2'>{news?.tags.join(", ")}</h1>
+              <h1 className='max-sm:text-xs font-extrabold text-base mb-0 ml-2'>{news?.tags.join(", ")}</h1>
           </section>
             <section className='flex justify-start space-x-1 items-center'>
               {/* Enter actual profile img here instead of svg */}
@@ -99,7 +99,7 @@ const Scoop = () => {
                 </linearGradient>
                 </defs>
               </svg>
-              <h3 className='text-base font-extrabold'>Om Buddhadev</h3>
+              <h3 className='text-base max-sm:text-sm font-extrabold'>Om Buddhadev</h3>
               </section>
           </header>
           <main className='space-y-7 mb-6' dangerouslySetInnerHTML={{ __html: news.content }}></main>
@@ -114,7 +114,7 @@ const Scoop = () => {
         </section>
 
         <section className=''>
-          <h1 className='text-text w-full text-[40px] font-FF font-extrabold font-'>Latest Scoop</h1>
+          <h1 className='text-text w-full text-[40px] font-FF font-extrabold max-sm:text-center'>Latest Scoop</h1>
           <ul className='space-y-9'>
             {scoops?.map((scoop,index)=>(
               <ScoopCard key={index} label={scoop.label} 
