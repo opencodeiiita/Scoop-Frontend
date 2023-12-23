@@ -35,8 +35,9 @@ const headerDivStyle = {
 };
 
 const cardSectionStyle = {
-    background: "linear-gradient(to bottom, #DBD9D6  30%,  #E7E6E3 30%,  #E7E6E3 100%)",
-    minHeight: "80vh",
+  background:
+    "linear-gradient(to bottom, #DBD9D6  30%,  #E7E6E3 30%,  #E7E6E3 100%)",
+  minHeight: "80vh",
 };
 
 const cardContainerStyle = {
@@ -98,7 +99,38 @@ export const Allnews = () => {
     <div style={containerStyle}>
       <header style={headerStyle}>
         <h1 style={headerH1Style}>LIST OF SCOOPS</h1>
-        <div style={headerDivStyle}></div>
+        <div style={headerDivStyle}>
+          <div style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "1.5rem",
+            padding: "0.5rem",
+          }}>
+            <label style={{
+              position: "relative",
+              top: "0.1rem",
+              color: "#656462",
+              fontFamily: "Mark Pro",
+              fontSize: "140%",
+              fontStyle: "normal",
+              fontWeight: "700",
+              letterSpacing: "0.0175rem"
+
+            }}>Sort by</label>
+            <select style={{
+               background: "transparent",
+               color: "#E7E6E3",
+               fontFamily: "Mark Pro",
+               fontSize: "140%",
+               fontStyle: "normal",
+               fontWeight: "700",
+               lineHeight: "2.375rem",
+            }}>
+              <option>Date</option>
+              <option>Upvotes</option>
+            </select>
+          </div>
+        </div>
       </header>
       <section style={cardSectionStyle}>
         <div
@@ -156,7 +188,6 @@ export const Allnews = () => {
                       letterSpacing: "0.0175rem",
                       marginTop: "0.5rem",
                       marginBottom: "0.5rem",
-
                     }}
                   >
                     {card.title}
