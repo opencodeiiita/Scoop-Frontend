@@ -1,5 +1,4 @@
 
-
 import React from 'react'
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -14,6 +13,9 @@ import Signinform from './pages/SignInForm.js'
 import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
 import Signup from './pages/Signup.jsx';
+import Profile from './components/Profile.js'
+
+
 import LatestNews from './components/LatestNews.js';
 import { Allnews } from './pages/Allnews.js';
 
