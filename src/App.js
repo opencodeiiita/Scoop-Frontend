@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -16,6 +17,7 @@ import Profile from './components/Profile.js'
 
 
 import LatestNews from './components/LatestNews.js';
+import { Allnews } from './pages/Allnews.js';
 
 function App() {
  
@@ -23,7 +25,7 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
-      <Navbar />
+      {/* <Navbar /> */}
       <BrowserRouter>
       
       <Routes>
@@ -32,7 +34,7 @@ function App() {
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
-    
+       <Route path="/allnews" element={<Allnews/>} />
        
        
         <Route path="/signup" element={<Signup />} />
@@ -40,6 +42,7 @@ function App() {
       </Routes>
       </BrowserRouter>
       </CssBaseline>
+
       </ThemeProvider>
     </>
   );
