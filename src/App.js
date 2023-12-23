@@ -15,7 +15,7 @@ import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
 import Signup from './pages/Signup.jsx';
 import LatestNews from './components/LatestNews.js';
-import  Allnews  from "./pages/Allnews.js";
+import { Allnews } from './pages/Allnews.js';
 
 function App() {
  
@@ -23,7 +23,7 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
-      <Navbar />
+      {/* <Navbar /> */}
       <BrowserRouter>
       
       <Routes>
