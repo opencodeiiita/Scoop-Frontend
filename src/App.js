@@ -13,8 +13,15 @@ import Signinform from './pages/SignInForm.js'
 import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
 import Signup from './pages/Signup.jsx';
+import Profile from './components/Profile.js'
+
+
 import LatestNews from './components/LatestNews.js';
+
 import Scoop from './pages/Scoop.js';
+
+import { Allnews } from './pages/Allnews.js';
+
 
 function App() {
  
@@ -22,7 +29,7 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
-      <Navbar />
+      {/* <Navbar /> */}
       <BrowserRouter>
       
       <Routes>
@@ -31,14 +38,20 @@ function App() {
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
+
     
        <Route path='/scoop' element={<Scoop />} />
+
+       <Route path="/allnews" element={<Allnews/>} />
+       
+
        
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
       </BrowserRouter>
       </CssBaseline>
+
       </ThemeProvider>
     </>
   );
