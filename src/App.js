@@ -12,7 +12,7 @@ import Navbar from './components/Navbar.js';
 import Signinform from './pages/SignInForm.js'
 import AccountManagementPage from './components/AccountManagementPage.js';
 import ComposeScoopPage from './ComposeScoopPage.js'
-import Signup from './pages/Signup.jsx';
+import Signup from './pages/Signup.js';
 import LatestNews from './components/LatestNews.js';
 
 function App() {
@@ -30,9 +30,6 @@ function App() {
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
-    
-       
-       
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
