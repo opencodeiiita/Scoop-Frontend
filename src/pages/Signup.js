@@ -276,8 +276,7 @@ const Signup = () => {
         // Enter actual function to register user here
         else {
             const [firstName, lastName] = input.name.split(" ");
-            const completeUser = { ...input, FirstName: firstName, LastName: lastName };
-            console.log(completeUser);
+            const completeUser = { FirstName: firstName, LastName: lastName, UserName: input.username, Email: input.email, Password: input.password };
             dispatch(signupAsync(completeUser));
         }
         
