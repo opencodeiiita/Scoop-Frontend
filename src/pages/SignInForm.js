@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import arrowImage from "../components/arrowicon.png";
 import { useDispatch } from "react-redux";
+import "./signinform_style.css";
+import { signinAsync } from "../redux/authSlice";
 
 const Signinform = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,8 @@ const Signinform = () => {
   });
 
   const [signInError, setSignInError] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -42,13 +46,14 @@ const Signinform = () => {
 
   const handleSignIn = () => {
     setSignInError(true);
-    if (formData.email === "abc@gmail.com" || formData.password === "abcxyz") {
+    try {
+      const input = {UserName: formData.email, Password: formData.password};
+      dispatch(signinAsync(input));
       setSignInError(false);
-      console.log("Signing in...");
-      //sign in logic
-    } else {
+    } catch (error) {
+      console.log(error);
       setSignInError(true);
-    }
+    };
   };
 
   return (
