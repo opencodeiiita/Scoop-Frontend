@@ -17,7 +17,11 @@ import Profile from './components/Profile.js'
 
 
 import LatestNews from './components/LatestNews.js';
+
+import Scoop from './pages/Scoop.js';
+
 import { Allnews } from './pages/Allnews.js';
+
 
 function App() {
  
@@ -34,8 +38,13 @@ function App() {
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
+
+    
+       <Route path='/scoop' element={<Scoop />} />
+
        <Route path="/allnews" element={<Allnews/>} />
        
+
        
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<AccountManagementPage/>} />
