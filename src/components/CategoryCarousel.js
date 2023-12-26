@@ -131,8 +131,8 @@ const categories = [
 
 const CategoryCarousel = () => {
   return (
-    <div className="bg-[#F5F5F5] mt-[64px] h-[68px] p-[10px] relative">
-      <div className="z-[1] absolute h-full top-0 w-[170px] left-[9px] bg-gradient-to-r from-[#F5F5F5] via-[#F5F5F562] to-[#F5F5F500]"></div>
+    <div className="bg-[#000000] mt-[64px] h-[68px] p-[10px] relative">
+      <div className="z-[1] absolute h-full top-0 w-[170px] left-[9px] bg-gradient-to-r from-[#000000] via-[#F5F5F562] to-[#F5F5F500]"></div>
       <Slider {...settings}>
         {categories.map((item) => (
           <div>

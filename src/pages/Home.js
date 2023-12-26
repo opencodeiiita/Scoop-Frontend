@@ -6,14 +6,14 @@ import Carousell from '../components/Carousell'
 import PopularPost from '../components/PopularPost'
 import { Box } from '@mui/material'
 import LatestNews from '../components/LatestNews'
-
+import CategoryCarousel from "../components/CategoryCarousel";
 
 const Home = () => {
    
 
   return (<Box sx={{ bgcolor: 'black', width: '100vw' }}>
  
- 
+ <CategoryCarousel />
   <Carousell />
   <PopularPost></PopularPost>
   <LatestNews />
