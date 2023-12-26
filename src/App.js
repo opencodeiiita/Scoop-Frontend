@@ -31,7 +31,7 @@ function App() {
    <> 
    <ThemeProvider theme={theme}>
      <CssBaseline>
-      {/* <Navbar /> */}
+       <Navbar /> 
       <BrowserRouter>
       
       <Routes>
