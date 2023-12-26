@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { signupAsync } from '../redux/authSlice'
 
 // Components
 const Stepper=({currentInputField})=>
@@ -263,16 +265,21 @@ const Tabs=({tab,input,setInput,changeCurrentInputField})=>
 const Signup = () => {
     const [input,setInput] = useState({email:"",name:"",username:"",password:""});
     const [currentInputField,setCurrentInputField]= useState({input:"email",next:{input:"name",next:{input:"username",next:{input:"password"}}}});
+    const dispatch = useDispatch();
 
-    const changeCurrentInputField=()=>
+    const changeCurrentInputField= ()=>
     {
         if(currentInputField.next)
         {
             setCurrentInputField(prev=>prev.next);
         }
         // Enter actual function to register user here
-        else
-        console.log(input);
+        else {
+            const [firstName, lastName] = input.name.split(" ");
+            const completeUser = { FirstName: firstName, LastName: lastName, UserName: input.username, Email: input.email, Password: input.password };
+            dispatch(signupAsync(completeUser));
+        }
+        
     }
 
   return (
@@ -281,7 +288,7 @@ const Signup = () => {
         <h1 className='text-white text-7xl max-w-sm bottom-1/3 left-[10%] max-sm:max-w-full max-sm:text-2xl max-sm:-mt-5 sm:absolute font-black max-lg:left-5 max-lg:text-5xl max-lg:bottom-1/2'>CREATE AN ACCOUNT</h1>
         <main className='mx-10  bg-white min-h-[80%] max-h-fit rounded-lg shadow-md w-5/12 flex flex-col items-center space-y-14 max-xl:w-1/2 max-sm:w-11/12 max-sm:my-10'>
             <Stepper currentInputField={currentInputField}/>
-            <Tabs tab={currentInputField.input} input={input} setInput={setInput} changeCurrentInputField={changeCurrentInputField}/>
+            <Tabs tab={currentInputField.input} input={input} setInput={setInput} changeCurrentInputField={changeCurrentInputField} dispatch={dispatch}/>
         </main>
     </div>
   )
