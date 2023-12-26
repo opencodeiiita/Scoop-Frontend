@@ -27,6 +27,7 @@ export const signupAsync = createAsyncThunk(
             dispatch(signupSuccess(response.data));
         } catch (error) {
             console.log(error);
+            return Promise.reject(error); 
         };
     }
 );
@@ -41,6 +42,7 @@ export const signinAsync = createAsyncThunk(
             dispatch(signinSuccess(response.data));
         } catch (error) {
             console.log(error);
+            return Promise.reject(error); 
         };
     }
 );
@@ -86,7 +88,8 @@ const authSlice = createSlice({
             .addCase(signupAsync.rejected, (state, action) => {
                 state.signup.loading = false;
                 state.signup.success = false;
-                state.signup.error = action.payload;
+                state.signup.error = action.error;
+              // console.log(action.error);
             })
             .addCase(signinAsync.pending, (state) => {
                 state.signin.loading = true;
@@ -99,7 +102,7 @@ const authSlice = createSlice({
             .addCase(signinAsync.rejected, (state, action) => {
                 state.signin.loading = false;
                 state.signin.success = false;
-                state.signin.error = action.payload;
+                state.signin.error = action.error;
             });
     }
 });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import arrowImage from "../components/arrowicon.png";
 import { useDispatch } from "react-redux";
-import "./signinform_style.css";
+//import "./signinform_style.css";
 import { signinAsync } from "../redux/authSlice";
 
 const Signinform = () => {
@@ -57,6 +57,7 @@ const Signinform = () => {
   };
 
   return (
+    <body className="boody">
     <div className="signinbox">
       <h1 className="signin">Sign In</h1>
 
@@ -119,6 +120,7 @@ const Signinform = () => {
         <p className="belowcant">Create Account</p>
       </div>
     </div>
+    </body>
   );
 };
 
