@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import arrowImage from "../components/arrowicon.png";
 import { useDispatch } from "react-redux";
-//import "./signinform_style.css";
+import "./signinform_style.css";
 import { signinAsync } from "../redux/authSlice";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Signinform = () => {
   const [formData, setFormData] = useState({
@@ -50,14 +52,18 @@ const Signinform = () => {
       const input = {UserName: formData.email, Password: formData.password};
       dispatch(signinAsync(input));
       setSignInError(false);
+      navigate("/");
     } catch (error) {
       console.log(error);
       setSignInError(true);
     };
   };
 
+  const navigate = useNavigate();
+
   return (
     <body className="boody">
+      <Navbar />
     <div className="signinbox">
       <h1 className="signin">Sign In</h1>
 

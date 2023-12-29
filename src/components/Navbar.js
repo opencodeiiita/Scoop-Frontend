@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     AppBar,
     Button,
@@ -22,10 +22,36 @@ import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DrawerComp from "./Drawer";
 import "./font.css";
+import { useSelector } from "react-redux";
+
+const selectUserLoggedInStatus = (state) => [
+    state.auth.user.isLoggedIn,
+    state.auth.user.isLoggedIn ? state.auth.user.data.UserName : "",
+];
+
 const Navbar = () => {
     const [value, setValue] = useState();
     const [search, setSearch] = useState("");
     const [anchorEl, setAnchorEl] = useState(null); // Added missing state
+
+
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [userName, setUserName] = useState("");
+
+
+    // useEffect(() => {
+    //     const [_login, _userName] = useSelector(selectUserLoggedInStatus);
+    //     setIsLoggedIn(_login);
+    //     setUserName(_userName);
+
+    // }, [selectUserLoggedInStatus])
+
+    const [isLoggedIn, userName] = useSelector(selectUserLoggedInStatus);
+
+    useEffect(() => {
+        console.log("isLoggedIn: ", isLoggedIn);
+        console.log("userName: ", userName);
+    }, [selectUserLoggedInStatus]);
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -177,7 +203,12 @@ const Navbar = () => {
                     )}
 
 
-                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>Behzad</Typography>
+                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
+                        {/* {
+                            isLoggedIn ? userName : 'Login'
+                        } */}
+                        Login
+                    </Typography>
                    
                 </Toolbar>
             </AppBar>
