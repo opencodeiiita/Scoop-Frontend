@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { signupAsync } from '../redux/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 // Components
 const Stepper=({currentInputField})=>
@@ -33,7 +34,7 @@ const InputField=({id,placeholder,value,changeHandler,type,label,invalidMessage,
 {
     return (
         <aside className='relative  w-full h-1/5'>
-        <input className='peer w-full rounded-md border p-2 pl-4 pt-4 bg-gray-50 border-transparent  placeholder-transparent 
+        <input className='text-black peer w-full rounded-md border p-2 pl-4 pt-4 bg-gray-50 border-transparent  placeholder-transparent 
          focus:invalid:border-fuchsia-400 focus:invalid:ring-fuchsia-400  placeholder-shown:border-fuchsia-400 placeholder-shown:ring-fuchsia-400
          placeholder-shown:bg-fuchsia-100 focus:bg-gray-50 focus:invalid:outline-none'
         id={id}
@@ -266,6 +267,7 @@ const Signup = () => {
     const [input,setInput] = useState({email:"",name:"",username:"",password:""});
     const [currentInputField,setCurrentInputField]= useState({input:"email",next:{input:"name",next:{input:"username",next:{input:"password"}}}});
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const changeCurrentInputField= ()=>
     {
@@ -278,6 +280,7 @@ const Signup = () => {
             const [firstName, lastName] = input.name.split(" ");
             const completeUser = { FirstName: firstName, LastName: lastName, UserName: input.username, Email: input.email, Password: input.password };
             dispatch(signupAsync(completeUser));
+            navigate("/");
         }
         
     }
