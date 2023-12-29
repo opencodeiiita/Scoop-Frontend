@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import arrowImage from "../components/arrowicon.png";
 import { useDispatch } from "react-redux";
-//import "./signinform_style.css";
+import "./signinform_style.css";
 import { signinAsync } from "../redux/authSlice";
 
 const Signinform = () => {
