@@ -72,6 +72,10 @@ const Navbar = () => {
         handleMenuClose();
     };
 
+    const ProfileImage = () => {
+        return (<img className="w-10 mx-5 rounded-full" src={useSelector(selectUserLoggedInStatus).auth.user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
+    }
+
     return (
         <React.Fragment>
             <AppBar sx={{ background: "#000000" }}>
@@ -195,16 +199,16 @@ const Navbar = () => {
                                    style: { color: 'white' },
                                 }}
                             />
-                            <Avatar sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT'     }}>P</Avatar>
+                            {/* {<Avatar sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT'     }}>P</Avatar> */}
+                            <ProfileImage />
                         </>
                     )}
 
 
                     <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
                         {
-                            useSelector(selectUserLoggedInStatus).auth.user.isLoggedin?"OM": "Login"
+                            useSelector(selectUserLoggedInStatus).auth.user.data?.UserName || "Login"
                         }
-                       
                     </Typography>
                    
                 </Toolbar>

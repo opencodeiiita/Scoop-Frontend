@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { signupAsync } from '../redux/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 // Components
 const Stepper=({currentInputField})=>
@@ -266,6 +267,7 @@ const Signup = () => {
     const [input,setInput] = useState({email:"",name:"",username:"",password:""});
     const [currentInputField,setCurrentInputField]= useState({input:"email",next:{input:"name",next:{input:"username",next:{input:"password"}}}});
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const changeCurrentInputField= ()=>
     {
@@ -278,6 +280,7 @@ const Signup = () => {
             const [firstName, lastName] = input.name.split(" ");
             const completeUser = { FirstName: firstName, LastName: lastName, UserName: input.username, Email: input.email, Password: input.password };
             dispatch(signupAsync(completeUser));
+            navigate("/");
         }
         
     }
