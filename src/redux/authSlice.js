@@ -6,6 +6,7 @@ const initialState = {
     user: {
         isLoggedin: false,
         token: null,
+        data: null,
     },
     signup: {
         loading: false,
@@ -32,6 +33,24 @@ export const signupAsync = createAsyncThunk(
     }
 );
 
+// Source: https://stackoverflow.com/a/38552302/8096928
+// Help: Github ID: @revosw
+export function parseJwt(token) {
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split("")
+        .map(function (c) {
+          return `%${`00${c.charCodeAt(0).toString(16)}`.slice(-2)}`;
+        })
+        .join("")
+    );
+  
+    return JSON.parse(jsonPayload);
+}
+
 export const signinAsync = createAsyncThunk(
     "auth/signinAsync",
     async (userData, { dispatch }) => {
@@ -54,6 +73,7 @@ const authSlice = createSlice({
         signupSuccess: (state, action) => {
             state.user.isLoggedin = true;
             state.user.token = action.payload.token;
+            state.user.data = parseJwt(action.payload.token);
         },
         signupReset: (state) => {
             state.signup.loading = false;
@@ -61,11 +81,13 @@ const authSlice = createSlice({
             state.signup.error = null;
             state.user.isLoggedin = false;
             state.user.token = null;
+            state.user.data = null;
         },
         
         signinSuccess: (state, action) => {
             state.user.isLoggedin = true;
             state.user.token = action.payload.token;
+            state.user.data = parseJwt(action.payload.token);
         },
         signinReset: (state) => {
             state.signin.loading = false;
@@ -73,12 +95,15 @@ const authSlice = createSlice({
             state.signin.error = null;
             state.user.isLoggedin = false;
             state.user.token = null;
+            state.user.data = null;
         },
     },
     extraReducers: (builder) => {
         builder
             .addCase(signupAsync.pending, (state) => {
                 state.signup.loading = true;
+                state.signup.success = false;
+                state.signup.error = null;
             })
             .addCase(signupAsync.fulfilled, (state) => {
                 state.signup.loading = false;
@@ -89,10 +114,11 @@ const authSlice = createSlice({
                 state.signup.loading = false;
                 state.signup.success = false;
                 state.signup.error = action.error;
-              // console.log(action.error);
             })
             .addCase(signinAsync.pending, (state) => {
                 state.signin.loading = true;
+                state.signin.success = false;
+                state.signin.error = null;
             })
             .addCase(signinAsync.fulfilled, (state) => {
                 state.signin.loading = false;
