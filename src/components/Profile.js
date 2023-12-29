@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './Profile.css';
 
 const Profile = () => {
+
+  const { userId } = useParams();
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(`/api/user/${userId}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => setUser(data))
+      .catch((error) => setError(error));
+  }, [userId]);
+
+  if (!user) {
+    return <div style={{ margin: "100px" }}>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>An error occurred: {error.message}</div>;
+  }
+
   return (
     <>
       <html lang="en">
@@ -16,13 +42,13 @@ const Profile = () => {
               <br />
               <div className="con1">
                 <div className="om-text">
-                  <b>Om Buddhadev</b>
+                  <b>{user.name}</b>
                 </div>
                 <div className="circle2">
-                  <div id="om-text-1"><font size="1" color="#794bd0"> &nbsp;&nbsp;TRUSTWORTHY</font></div>
+                  <div id="om-text-1"><font size="1" color="#794bd0"> &nbsp;&nbsp;{user.status}</font></div>
                 </div>
               </div>
-              <div className="om-id">0m-Budsman</div>
+              <div className="om-id">{user.username}</div>
               <div><hr id="om-hr" /></div>
               <br />
               <div className="om-rep">
@@ -31,7 +57,7 @@ const Profile = () => {
             </div>
             <div className="container2">
               <div>
-                    <input id="con2-in" type='text' placeholder='Find the scoop'></input>
+                <input id="con2-in" type='text' placeholder='Find the scoop'></input>
               </div>
               <br />
               <div className="container2-hr"><hr /></div>
@@ -112,7 +138,7 @@ const Profile = () => {
             </div>
           </div>
         </body>
-    </html>
+      </html>
     </>
   );
 };
