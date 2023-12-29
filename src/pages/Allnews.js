@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTopNewsAsync, fetchCredibleNewsAsync, fetchLatestNewsAsync } from "../redux/scoopSlice";
+
 
 const containerStyle = {
   display: "flex",
@@ -92,126 +95,142 @@ const cardArray = [
 ];
 
 export const Allnews = () => {
+
   const isMobile = useMediaQuery("(max-width: 658px)");
   const isFull = useMediaQuery("(min-width: 1400px)");
-  console.log(isMobile);
-  return (
-    <div style={containerStyle}>
-      <header style={headerStyle}>
-        <h1 style={headerH1Style}>LIST OF SCOOPS</h1>
-        <div style={headerDivStyle}>
-          <div style={{
-            display: "flex",
-            flexDirection: "row",
-            gap: "1.5rem",
-            padding: "0.5rem",
-          }}>
-            <label style={{
-              position: "relative",
-              top: "0.1rem",
-              color: "#656462",
-              fontFamily: "Mark Pro",
-              fontSize: "140%",
-              fontStyle: "normal",
-              fontWeight: "700",
-              letterSpacing: "0.0175rem"
+  
+  const dispatch = useDispatch();
+  const topNews = useSelector((state) => state.scoop.topNews);
+  const credibleNews = useSelector((state) => state.scoop.credibleNews);
+  const latestNews = useSelector((state) => state.scoop.latestNews);
 
-            }}>Sort by</label>
-            <select style={{
-               background: "transparent",
-               color: "#E7E6E3",
-               fontFamily: "Mark Pro",
-               fontSize: "140%",
-               fontStyle: "normal",
-               fontWeight: "700",
-               lineHeight: "2.375rem",
+
+  useEffect(() => {
+    dispatch(fetchTopNewsAsync());
+  }, [dispatch]);
+    
+  return (
+    
+    <>
+   
+      <div style={containerStyle}>
+        <header style={headerStyle}>
+          <h1 style={headerH1Style}>LIST OF SCOOPS</h1>
+          <div style={headerDivStyle}>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "1.5rem",
+              padding: "0.5rem",
             }}>
-              <option>Date</option>
-              <option>Upvotes</option>
-            </select>
+              <label style={{
+                position: "relative",
+                top: "0.1rem",
+                color: "#656462",
+                fontFamily: "Mark Pro",
+                fontSize: "140%",
+                fontStyle: "normal",
+                fontWeight: "700",
+                letterSpacing: "0.0175rem"
+
+              }}>Sort by</label>
+              <select style={{
+                background: "transparent",
+                color: "#E7E6E3",
+                fontFamily: "Mark Pro",
+                fontSize: "140%",
+                fontStyle: "normal",
+                fontWeight: "700",
+                lineHeight: "2.375rem",
+              }}>
+                <option>Date</option>
+                <option>Upvotes</option>
+              </select>
+            </div>
           </div>
-        </div>
-      </header>
-      <section style={cardSectionStyle}>
-        <div
-          style={{
-            ...cardContainerStyle,
-            padding: isFull ? "6rem 14rem 5rem 16rem" : "2rem",
-          }}
-        >
-          {cardArray.map((card, index) => (
-            <div
-              style={{
-                marginBottom: "50px",
-                flex: isMobile ? "1 0 100%" : "1 0 48%",
-              }}
-            >
-              <Card
-                sx={{
-                  backgroundColor: "transparent",
-                  boxShadow: "none",
+        </header>
+        <section style={cardSectionStyle}>
+          <div
+            style={{
+              ...cardContainerStyle,
+              padding: isFull ? "6rem 14rem 5rem 16rem" : "2rem",
+            }}
+          >
+            {cardArray.map((card, index) => (
+              <div
+                style={{
+                  marginBottom: "50px",
+                  flex: isMobile ? "1 0 100%" : "1 0 48%",
                 }}
               >
-                <CardMedia
-                  component="img"
-                  style={{ width: "40rem", height: "22.5rem" }}
-                  image={card.img}
-                />
-                <CardContent>
-                  <Button
-                    style={{
-                      background: "#D1363A",
-                      transform: "rotate(0.5deg)",
-                      color: "#E7E6E3",
-                      fontFamily: "Mark Pro",
-                      fontWeight: "bold",
-                      fontStyle: "normal",
-                      lineHeight: "0.93rem",
-                      letterSpacing: "0.082rem",
-                      textTransform: "uppercase",
-                      marginTop: "0.5rem",
-                    }}
-                  >
-                    News
-                  </Button>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    style={{
-                      fontFamily: "Mark Pro",
-                      color: "#2B2A29",
-                      fontSize: "1.75rem",
-                      fontStyle: "normal",
-                      fontWeight: "700",
-                      lineHeight: "2.37rem",
-                      letterSpacing: "0.0175rem",
-                      marginTop: "0.5rem",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {card.title}
-                  </Typography>
-                  <Typography
-                    style={{
-                      color: "#656462",
-                      fontFamily: "Mark Pro",
-                      fontSize: "1.125rem",
-                      fontWeight: 400,
-                      lineHeight: "1.87rem",
-                      letterSpacing: "-0.01125rem",
-                      marginTop: "0.5rem",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {card.body}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+                <Card
+                  sx={{
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    style={{ width: "40rem", height: "22.5rem" }}
+                    image={card.img}
+                  />
+                  <CardContent>
+                    <Button
+                      style={{
+                        background: "#D1363A",
+                        transform: "rotate(0.5deg)",
+                        color: "#E7E6E3",
+                        fontFamily: "Mark Pro",
+                        fontWeight: "bold",
+                        fontStyle: "normal",
+                        lineHeight: "0.93rem",
+                        letterSpacing: "0.082rem",
+                        textTransform: "uppercase",
+                        marginTop: "0.5rem",
+                      }}
+                    >
+                      News
+                    </Button>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      style={{
+                        fontFamily: "Mark Pro",
+                        color: "#2B2A29",
+                        fontSize: "1.75rem",
+                        fontStyle: "normal",
+                        fontWeight: "700",
+                        lineHeight: "2.37rem",
+                        letterSpacing: "0.0175rem",
+                        marginTop: "0.5rem",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
+                      {card.title}
+                    </Typography>
+                    <Typography
+                      style={{
+                        color: "#656462",
+                        fontFamily: "Mark Pro",
+                        fontSize: "1.125rem",
+                        fontWeight: 400,
+                        lineHeight: "1.87rem",
+                        letterSpacing: "-0.01125rem",
+                        marginTop: "0.5rem",
+                        marginBottom: "0.5rem",
+                      }}
+                    >
+                      {card.body}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </div>
+    </>
   );
 };
