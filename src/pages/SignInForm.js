@@ -3,6 +3,7 @@ import arrowImage from "../components/arrowicon.png";
 import { useDispatch } from "react-redux";
 //import "./signinform_style.css";
 import { signinAsync } from "../redux/authSlice";
+import ScoopForm from "../ScoopForm";
 
 const Signinform = () => {
   const [formData, setFormData] = useState({
@@ -121,6 +122,7 @@ const Signinform = () => {
       </div>
     </div>
     </body>
+   
   );
 };
 
