@@ -49,7 +49,7 @@ const Signinform = () => {
   const handleSignIn = () => {
     setSignInError(true);
     try {
-      const input = {UserName: formData.email, Password: formData.password};
+      const input = {Email: formData.email, Password: formData.password};
       console.log(input)
       dispatch(signinAsync(input));
       setSignInError(false);
