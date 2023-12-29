@@ -24,10 +24,9 @@ import DrawerComp from "./Drawer";
 import "./font.css";
 import { useSelector } from "react-redux";
 
-const selectUserLoggedInStatus = (state) => [
-    state.auth.user.isLoggedIn,
-    state.auth.user.isLoggedIn ? state.auth.user.data.UserName : "",
-];
+const selectUserLoggedInStatus = (state) => 
+   state
+;
 
 const Navbar = () => {
     const [value, setValue] = useState();
@@ -46,12 +45,10 @@ const Navbar = () => {
 
     // }, [selectUserLoggedInStatus])
 
-    const [isLoggedIn, userName] = useSelector(selectUserLoggedInStatus);
+    //const [isLoggedIn, userName] = useSelector(selectUserLoggedInStatus);
+    console.log(useSelector(selectUserLoggedInStatus));
 
-    useEffect(() => {
-        console.log("isLoggedIn: ", isLoggedIn);
-        console.log("userName: ", userName);
-    }, [selectUserLoggedInStatus]);
+   
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -204,10 +201,10 @@ const Navbar = () => {
 
 
                     <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
-                        {/* {
-                            isLoggedIn ? userName : 'Login'
-                        } */}
-                        Login
+                        {
+                            useSelector(selectUserLoggedInStatus).auth.user.isLoggedin?"OM": "Login"
+                        }
+                       
                     </Typography>
                    
                 </Toolbar>
