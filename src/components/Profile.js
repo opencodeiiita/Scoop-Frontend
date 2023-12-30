@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUserById } from './userSlice';
 import './Profile.css';
 
 const Profile = () => {
-
   const { userId } = useParams();
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+  const status = useSelector((state) => state.user.status);
+  const error = useSelector((state) => state.user.error);
 
   useEffect(() => {
-    fetch(`/api/user/${userId}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => setUser(data))
-      .catch((error) => setError(error));
-  }, [userId]);
+    if (status === 'idle') {
+      dispatch(fetchUserById(userId));
+    }
+  }, [status, dispatch, userId]);
 
-  if (!user) {
-    return <div style={{ margin: "100px" }}>Loading...</div>;
+  if (status === 'loading') {
+    return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>An error occurred: {error.message}</div>;
+  if (status === 'failed') {
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -35,7 +32,7 @@ const Profile = () => {
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
-        <body style={{backgroundColor:"#080404"}}>
+        <body style={{ backgroundColor: "#080404" }}>
           <div className="container">
             <div className="container1">
               <div className="circle"></div>
