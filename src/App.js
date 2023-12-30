@@ -19,8 +19,6 @@ import Scoop from './pages/Scoop.js';
 import { Allnews } from './pages/Allnews.js';
 
 
-function App() {
-
   return (
     <>
       <ThemeProvider theme={theme}>

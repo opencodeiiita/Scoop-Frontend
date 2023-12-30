@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     AppBar,
     Button,
@@ -22,10 +22,33 @@ import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DrawerComp from "./Drawer";
 import "./font.css";
+import { useSelector } from "react-redux";
+
+const selectUserLoggedInStatus = (state) => 
+   state
+;
+
 const Navbar = () => {
     const [value, setValue] = useState();
     const [search, setSearch] = useState("");
     const [anchorEl, setAnchorEl] = useState(null); // Added missing state
+
+
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [userName, setUserName] = useState("");
+
+
+    // useEffect(() => {
+    //     const [_login, _userName] = useSelector(selectUserLoggedInStatus);
+    //     setIsLoggedIn(_login);
+    //     setUserName(_userName);
+
+    // }, [selectUserLoggedInStatus])
+
+    //const [isLoggedIn, userName] = useSelector(selectUserLoggedInStatus);
+    console.log(useSelector(selectUserLoggedInStatus));
+
+   
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -48,6 +71,10 @@ const Navbar = () => {
         console.log(`Selected category: ${category}`);
         handleMenuClose();
     };
+
+    const ProfileImage = () => {
+        return (<img className="w-10 mx-5 rounded-full" src={useSelector(selectUserLoggedInStatus).auth.user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
+    }
 
     return (
         <React.Fragment>
@@ -172,12 +199,17 @@ const Navbar = () => {
                                    style: { color: 'white' },
                                 }}
                             />
-                            <Avatar sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT'     }}>P</Avatar>
+                            {/* {<Avatar sx={{ marginLeft: "10px", fontFamily: 'FF_MARK_FONT'     }}>P</Avatar> */}
+                            <ProfileImage />
                         </>
                     )}
 
 
-                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>Behzad</Typography>
+                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
+                        {
+                            useSelector(selectUserLoggedInStatus).auth.user.data?.UserName || "Login"
+                        }
+                    </Typography>
                    
                 </Toolbar>
             </AppBar>
