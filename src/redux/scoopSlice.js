@@ -15,12 +15,12 @@ const initialState = {
     },
     credibleNews: {
         loading: false,
-        data: null,
+        data: [],
         error: null,
     },
     latestNews: {
         loading: false,
-        data: null,
+        data: [],
         error: null,
     },
 
@@ -53,10 +53,10 @@ export const composeScoopAsync = createAsyncThunk(
 
 export const fetchTopNewsAsync = createAsyncThunk(
     "scoop/fetchTopNewsAsync",
-    async (_, { dispatch }) => {
+    async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/scoop/home/top");
-            dispatch(fetchTopNewsSuccess(response.data));
+             return response.data;
         } catch (error) {
             console.log(error);
             return Promise.reject(error)
@@ -65,10 +65,10 @@ export const fetchTopNewsAsync = createAsyncThunk(
 );
 export const fetchCredibleNewsAsync = createAsyncThunk(
     "scoop/fetchCredibleNewsAsync",
-    async (_, { dispatch }) => {
+    async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/scoop/home/credible");
-            dispatch(fetchCredibleNewsSuccess(response.data));
+            return response.data;
         } catch (error) {
             console.log(error);
             return Promise.reject(error);
@@ -78,10 +78,10 @@ export const fetchCredibleNewsAsync = createAsyncThunk(
 
 export const fetchLatestNewsAsync = createAsyncThunk(
     "scoop/fetchLatestNewsAsync",
-    async (_, { dispatch }) => {
+    async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/scoop/home/latest");
-            dispatch(fetchLatestNewsSuccess(response.data));
+            return response.data;
         } catch (error) {
             console.log(error);
             return Promise.reject(error);
@@ -101,22 +101,7 @@ const scoopSlice = createSlice({
             state.compose.loading = false;
             state.compose.success = false;
             state.compose.error = null;
-        },
-        fetchTopNewsSuccess: (state, action) => {
-            state.topNews.loading = false;
-            state.topNews.data = action.payload;
-            state.topNews.error = null;
-        },
-        fetchCredibleNewsSuccess: (state, action) => {
-            state.credibleNews.loading = false;
-            state.credibleNews.data = action.payload;
-            state.credibleNews.error = null;
-        },
-        fetchLatestNewsSuccess: (state, action) => {
-            state.latestNews.loading = false;
-            state.latestNews.data = action.payload;
-            state.latestNews.error = null;
-        },
+        },      
 
     },
     extraReducers: (builder) => {
@@ -136,17 +121,17 @@ const scoopSlice = createSlice({
             })
             .addCase(fetchTopNewsAsync.pending, (state) => {
                 state.topNews.loading = true;
-            })
-            .addCase(fetchTopNewsAsync.fulfilled, (state, action) => {
+              })
+              .addCase(fetchTopNewsAsync.fulfilled, (state, action) => {
+                console.log(action.payload);
                 state.topNews.loading = false;
-                state.topNews.data = action.payload;
+                state.topNews.data = action.payload; 
                 state.topNews.error = null;
-            })
-            .addCase(fetchTopNewsAsync.rejected, (state, action) => {
+              })
+              .addCase(fetchTopNewsAsync.rejected, (state, action) => {
                 state.topNews.loading = false;
-                state.topNews.data = null;
                 state.topNews.error = action.error;
-            })
+              })
             .addCase(fetchCredibleNewsAsync.pending, (state) => {
                 state.credibleNews.loading = true;
             })
@@ -178,9 +163,6 @@ const scoopSlice = createSlice({
 });
 
 export const {
-    fetchTopNewsSuccess,
-    fetchCredibleNewsSuccess,
-    fetchLatestNewsSuccess,
     composeScoopSuccess,
     composeScoopReset } = scoopSlice.actions;
 export default scoopSlice.reducer;
