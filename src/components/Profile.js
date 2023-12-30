@@ -7,9 +7,9 @@ import './Profile.css';
 const Profile = () => {
   const { userId } = useParams();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
-  const status = useSelector((state) => state.user.status);
-  const error = useSelector((state) => state.user.error);
+  const user = useSelector((state) => state.user?.user);
+  const status = useSelector((state) => state.user?.status);
+  const error = useSelector((state) => state.user?.error);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -17,9 +17,9 @@ const Profile = () => {
     }
   }, [status, dispatch, userId]);
 
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
+  if (status == null) {
+    return <div style={{padding: "20px", marginTop: '65px', fontWeight: "bold", fontSize: "20px"}}>Not Found</div>;
+   }
 
   if (status === 'failed') {
     return <div>Error: {error}</div>;
@@ -39,13 +39,13 @@ const Profile = () => {
               <br />
               <div className="con1">
                 <div className="om-text">
-                  <b>{user.name}</b>
+                  <b>{user?.name}</b>
                 </div>
                 <div className="circle2">
-                  <div id="om-text-1"><font size="1" color="#794bd0"> &nbsp;&nbsp;{user.status}</font></div>
+                  <div id="om-text-1"><font size="1" color="#794bd0"> &nbsp;&nbsp;{user?.status}</font></div>
                 </div>
               </div>
-              <div className="om-id">{user.username}</div>
+              <div className="om-id">{user?.username}</div>
               <div><hr id="om-hr" /></div>
               <br />
               <div className="om-rep">
