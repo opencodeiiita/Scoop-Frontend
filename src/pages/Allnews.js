@@ -260,7 +260,7 @@
                           marginBottom: "0.5rem",
                         }}
                       >
-                        {card.Description}
+                        
                       </Typography>
                     </CardContent>
                   </Card>
