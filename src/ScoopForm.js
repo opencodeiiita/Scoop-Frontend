@@ -1,71 +1,123 @@
 // ScoopForm.js
 import React from 'react';
 import { useFormik } from 'formik';
+import { useDispatch,useSelector } from 'react-redux';
+import { composeScoopAsync } from './redux/scoopSlice';
+
 import * as Yup from 'yup';
 import JoditEditor from 'jodit-react';
 import "./ScoopForm.css"
 
 const ScoopForm = ({ onSubmit }) => {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      headline: '',
-      location: '',
-      content: '', // Assuming you have a text editor for content
+      Headline: '',
+      Location: '',
+      Description: '',
+      headimage:'',
+      Tags:'',
+      
+    
     },
     validationSchema: Yup.object({
-      headline: Yup.string().required('Headline is required'),
-      location: Yup.string().required('Location is required'),
-      content: Yup.string().required('Content is required'),
+      Headline: Yup.string().required('Headline is required'),
+      Location: Yup.string().required('Location is required'),
+      Description: Yup.string().required('Description is required'),
+      Tags: Yup.string().required('Tags are required'),
+      headimage: Yup.mixed().required('headimage is required'),
+
+    
     }),
-    onSubmit: (values, { resetForm }) => {
-      onSubmit(values);
+    onSubmit: async (values, { resetForm }) => {
+
+      try{
+           
+       dispatch(composeScoopAsync(values));
+       
+
+      }catch(error){
+           console.log(error);
+      }
+      
       resetForm(); 
     },
   });
 
+
+ 
   return (
     <form onSubmit={formik.handleSubmit} id="container">
       <div>
-        <label htmlFor="headline">Headline</label>
+        <label htmlFor="Headline">Headline</label>
         <input
           type="text"
-          id="headline"
-          name="headline"
+          id="Headline"
+          name="Headline"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.headline}
+          value={formik.values.Headline}
         />
-        {formik.touched.headline && formik.errors.headline ? (
-          <div>{formik.errors.headline}</div>
+        {formik.touched.Headline && formik.errors.Headline ? (
+          <div>{formik.errors.Headline}</div>
         ) : null}
       </div>
 
       <div>
-        <label htmlFor="location">Location</label>
+        <label htmlFor="Location">Location</label>
         <input
           type="text"
-          id="location"
-          name="location"
+          id="Location"
+          name="Location"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.location}
+          value={formik.values.Location}
         />
-        {formik.touched.location && formik.errors.location ? (
-          <div>{formik.errors.location}</div>
+        {formik.touched.Location && formik.errors.Location ? (
+          <div>{formik.errors.Location}</div>
         ) : null}
       </div>
 
       <div>
-        <label htmlFor="content">Content</label>
+        <label htmlFor="Description">Description</label>
         <JoditEditor
-          id="content"
-          name="content"
-          value={formik.values.content}
-          onChange={(value) => formik.setFieldValue('content', value)}
+          id="Description"
+          name="Description"
+          value={formik.values.Description}
+          onChange={(value) => formik.setFieldValue('Description', value)}
           onBlur={formik.handleBlur}
         />
-        {formik.touched.content && formik.errors.content ? (
-          <div>{formik.errors.content}</div>
+        {formik.touched.Description && formik.errors.Description ? (
+          <div>{formik.errors.Description}</div>
+        ) : null}
+      </div>
+      <div>
+        <label htmlFor="Tags">Tags</label>
+        <input
+          type="text"
+          id="Tags"
+          name="Tags"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.Tags}
+        />
+        {formik.touched.Tags && formik.errors.Tags ? (
+          <div>{formik.errors.Tags}</div>
+        ) : null}
+      </div>
+      <div className='w-fit'> 
+        <label htmlFor="headimage">Header Image</label>
+        <input
+          type="file"
+          id="headimage"
+          name="headimage"
+          accept="image/*"
+          onChange={(e) => {
+            formik.setFieldValue('headimage', e.target.files[0]);
+          }}      
+        />
+        {formik.touched.headimage && formik.errors.headimage ? (
+          <div>{formik.errors.headimage}</div>
         ) : null}
       </div>
 
