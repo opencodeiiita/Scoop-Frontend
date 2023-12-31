@@ -31,7 +31,7 @@ export const composeScoopAsync = createAsyncThunk(
     async (scoopData, { dispatch, getState }) => {
         try {
 
-            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTgzMmM5OTFlN2FhNjU1YTA3YmJhMTIiLCJGaXJzdE5hbWUiOiJrYXJ0aGlrIiwiTGFzdE5hbWUiOiJyZWRkeSIsIlVzZXJOYW1lIjoia3IyNTE2MSIsIlByb2ZpbGVJbWFnZSI6ImZpbGVzL2FkbWluLW15RmlsZS0xNzAzMDk1NDQ5NDUxLmpwZWciLCJFbWFpbCI6ImtyMjUxNjFAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsIm15VXB2b3RlcyI6W10sIk5ld3MiOltdLCJpYXQiOjE3MDM4NDY3MzIsImV4cCI6MTcwNjQzODczMn0.5zgMiZZq8Oaa_iE0IRSHG3jOS9bNKkqUE9hH0EJMgxA'
+            const token = JSON.parse(localStorage.getItem('user')).token;
             const response = await axios.post(
                 'http://localhost:5000/api/scoop/post',
                 scoopData,

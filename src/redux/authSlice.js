@@ -88,6 +88,7 @@ const authSlice = createSlice({
             state.user.isLoggedin = true;
             state.user.token = action.payload.token;
             state.user.data = parseJwt(action.payload.token);
+            localStorage.setItem("user", JSON.stringify(state.user));
         },
         signinReset: (state) => {
             state.signin.loading = false;
