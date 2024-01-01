@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signupAsync } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -428,6 +428,8 @@ const Signup = () => {
     }
   };
 
+  const authState = useSelector((state) => state.auth);
+
   const handleToastOnClose = () => {
     console.log("onClose");
     navigate("/");
@@ -458,8 +460,8 @@ const Signup = () => {
             onClose: handleToastOnClose,
           });
         })
-        .catch((rejectedValueOrSerializedError) => {
-          toast.error(rejectedValueOrSerializedError.message, {
+        .catch(() => {
+          toast.error(authState.signup.error || "Unknown Error", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -469,7 +471,6 @@ const Signup = () => {
             progress: undefined,
             theme: "colored",
           });
-          console.log("then catch", rejectedValueOrSerializedError);
         });
     } catch (error) {
       console.log("try catch", error);
