@@ -46,6 +46,8 @@ function App() {
        <Route path='/scoop' element={<Scoop />} />
 
        <Route path="/allnews" element={<Allnews/>} />
+ 
+       <Route path="/profile/:profileId" element={<Profile />} />
        
 
        
