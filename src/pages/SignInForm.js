@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import arrowImage from "../components/arrowicon.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./signinform_style.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -49,6 +49,8 @@ const Signinform = () => {
     }
   };
 
+  const authStateError = useSelector((state) => state.auth.signin.error);
+
   const handleToastOnClose = () => {
     console.log("onClose");
     navigate("/");
@@ -57,7 +59,6 @@ const Signinform = () => {
   const handleSignIn = () => {
     try {
       const input = { Email: formData.email, Password: formData.password };
-      console.log(input);
       dispatch(signinAsync(input))
         .unwrap()
         .then(() => {
@@ -74,9 +75,10 @@ const Signinform = () => {
             onClose: handleToastOnClose,
           });
         })
-        .catch((rejectedValueOrSerializedError) => {
+        .catch(() => {
+          console.log("showing toast")
           setSignInError(true);
-          toast.error(rejectedValueOrSerializedError.message, {
+          toast.error(authStateError || "Unknown Error", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -86,7 +88,6 @@ const Signinform = () => {
             progress: undefined,
             theme: "colored",
           });
-          console.log("then catch", rejectedValueOrSerializedError);
         });
 
     } catch (error) {
