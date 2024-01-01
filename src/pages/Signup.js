@@ -428,7 +428,7 @@ const Signup = () => {
     }
   };
 
-  const authState = useSelector((state) => state.auth);
+  const authStateError = useSelector((state) => state.auth.signup.error);
 
   const handleToastOnClose = () => {
     console.log("onClose");
@@ -461,7 +461,7 @@ const Signup = () => {
           });
         })
         .catch(() => {
-          toast.error(authState.signup.error || "Unknown Error", {
+          toast.error(authStateError || "Unknown Error", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
