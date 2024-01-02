@@ -23,7 +23,7 @@ const Signinform = () => {
 
   const [signInError, setSignInError] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -76,18 +76,20 @@ const Signinform = () => {
           });
         })
         .catch(() => {
-          console.log("showing toast")
-          setSignInError(true);
-          toast.error(authStateError || "Unknown Error", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          console.log("first", authStateError)
+          setTimeout(() => {
+            console.log("second", authStateError)
+            toast.error(authStateError || "Unknown Error", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+         }, 5000);
         });
 
     } catch (error) {

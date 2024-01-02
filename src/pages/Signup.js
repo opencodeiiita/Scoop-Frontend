@@ -461,16 +461,18 @@ const Signup = () => {
           });
         })
         .catch(() => {
-          toast.error(authStateError || "Unknown Error", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          setTimeout(() => {
+            toast.error(authStateError || "Unknown Error", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+         }, 1500);
         });
     } catch (error) {
       console.log("try catch", error);
