@@ -4,6 +4,7 @@ import { signupAsync } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import store from "../store";
 
 // Components
 const Stepper = ({ currentInputField }) => {
@@ -433,7 +434,7 @@ const Signup = () => {
   const handleToastOnClose = () => {
     console.log("onClose");
     navigate("/");
-  }
+  };
 
   const handleSignUp = () => {
     try {
@@ -461,18 +462,16 @@ const Signup = () => {
           });
         })
         .catch(() => {
-          setTimeout(() => {
-            toast.error(authStateError || "Unknown Error", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-         }, 1500);
+          toast.error(store.getState().auth.signup.error || "Unknown Error", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         });
     } catch (error) {
       console.log("try catch", error);
