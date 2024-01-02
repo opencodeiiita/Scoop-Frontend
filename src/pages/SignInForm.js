@@ -3,6 +3,7 @@ import arrowImage from "../components/arrowicon.png";
 import { useDispatch, useSelector } from "react-redux";
 import "./signinform_style.css";
 import "react-toastify/dist/ReactToastify.css";
+import store from "../store";
 
 import { signinAsync } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const Signinform = () => {
 
   const [signInError, setSignInError] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -54,7 +55,7 @@ const Signinform = () => {
   const handleToastOnClose = () => {
     console.log("onClose");
     navigate("/");
-  }
+  };
 
   const handleSignIn = () => {
     try {
@@ -75,23 +76,18 @@ const Signinform = () => {
             onClose: handleToastOnClose,
           });
         })
-        .catch(() => {
-          console.log("first", authStateError)
-          setTimeout(() => {
-            console.log("second", authStateError)
-            toast.error(authStateError || "Unknown Error", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-         }, 5000);
+        .catch((error) => {
+          toast.error(store.getState().auth.signin.error || "Unknown Error", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         });
-
     } catch (error) {
       console.log("try catch", error);
       setSignInError(true);
@@ -107,6 +103,8 @@ const Signinform = () => {
       });
     }
   };
+
+  // store.subscribe(handleSignIn);
 
   const navigate = useNavigate();
 
@@ -189,7 +187,6 @@ const Signinform = () => {
         </div>
       </div>
     </body>
-   
   );
 };
 
