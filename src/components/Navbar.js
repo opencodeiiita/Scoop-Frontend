@@ -23,6 +23,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DrawerComp from "./Drawer";
 import "./font.css";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const selectUserLoggedInStatus = (state) => 
    state
@@ -31,28 +32,12 @@ const selectUserLoggedInStatus = (state) =>
 const Navbar = () => {
     const [value, setValue] = useState();
     const [search, setSearch] = useState("");
-    const [anchorEl, setAnchorEl] = useState(null); // Added missing state
-
-
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // const [userName, setUserName] = useState("");
-
-
-    // useEffect(() => {
-    //     const [_login, _userName] = useSelector(selectUserLoggedInStatus);
-    //     setIsLoggedIn(_login);
-    //     setUserName(_userName);
-
-    // }, [selectUserLoggedInStatus])
-
-    //const [isLoggedIn, userName] = useSelector(selectUserLoggedInStatus);
-    console.log(useSelector(selectUserLoggedInStatus));
-
-   
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
     const isMatchPhone = useMediaQuery(theme.breakpoints.down("sm"));
+    const navigate = useNavigate();
 
     const handleSearchChange = (event) => {
         setSearch(event.target.value);
@@ -72,8 +57,12 @@ const Navbar = () => {
         handleMenuClose();
     };
 
-    const ProfileImage = () => {
-        return (<img className="w-10 mx-5 rounded-full" src={useSelector(selectUserLoggedInStatus).auth.user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
+    const ProfileImage = () => { 
+        return (<img className="w-10 mx-5 rounded-full cursor-pointer" onClick={navigateToLoginPage} src={useSelector(selectUserLoggedInStatus).auth.user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
+    }
+
+    const navigateToLoginPage = () => {
+        navigate("/signin");
     }
 
     return (
@@ -125,7 +114,7 @@ const Navbar = () => {
                                     ),
                                 }}
                             />
-                            <Avatar sx={{ marginLeft: "10px" }}>P</Avatar>
+                            <ProfileImage />
                         </>
                     ) : (
                         <>
@@ -205,7 +194,7 @@ const Navbar = () => {
                     )}
 
 
-                    <Typography sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
+                    <Typography className="cursor-pointer" onClick={navigateToLoginPage} sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
                         {
                             useSelector(selectUserLoggedInStatus).auth.user.data?.UserName || "Login"
                         }

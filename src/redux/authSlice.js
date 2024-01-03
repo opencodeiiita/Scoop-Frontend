@@ -20,19 +20,6 @@ const initialState = {
     },
 };
 
-export const signupAsync = createAsyncThunk(
-    "auth/signupAsync",
-    async (userData, { dispatch }) => {
-        try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', userData)
-            dispatch(signupSuccess(response.data));
-        } catch (error) {
-            console.log(error);
-            return Promise.reject(error); 
-        };
-    }
-);
-
 // Source: https://stackoverflow.com/a/38552302/8096928
 // Help: Github ID: @revosw
 export function parseJwt(token) {
@@ -51,17 +38,36 @@ export function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
+export const signupAsync = createAsyncThunk(
+    "auth/signupAsync",
+    async (userData, { dispatch }) => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/register', userData)
+            dispatch(signupSuccess(response.data));
+        } catch (error) {
+            console.log("before signupError")
+            dispatch(signupError(error.response.data.msg))
+                .then(() => {
+                    console.log("After signupError")
+                    return Promise.reject(error)
+                })
+        };
+    }
+);
+
 export const signinAsync = createAsyncThunk(
     "auth/signinAsync",
     async (userData, { dispatch }) => {
         try {
-            console.log("signinAsync");
-            console.log(userData);
             const response = await axios.post('http://localhost:5000/api/auth/login', userData)
             dispatch(signinSuccess(response.data));
         } catch (error) {
-            console.log(error);
-            return Promise.reject(error); 
+            console.log("before signinError")
+            dispatch(signinError(error.response.data.msg))
+                .then(() => {
+                    console.log("After signinError")
+                    return Promise.reject(error)
+                })
         };
     }
 );
@@ -83,6 +89,10 @@ const authSlice = createSlice({
             state.user.token = null;
             state.user.data = null;
         },
+        signupError: (state, action) => {
+            console.log("action.payload", action.payload)
+            state.signup.error = action.payload;
+        },
         
         signinSuccess: (state, action) => {
             state.user.isLoggedin = true;
@@ -97,6 +107,12 @@ const authSlice = createSlice({
             state.user.isLoggedin = false;
             state.user.token = null;
             state.user.data = null;
+        },
+        signinError: (state, action) => {
+            console.log("before inside signinError")
+            console.log("action.payload", action.payload)
+            state.signin.error = action.payload;
+            console.log("after inside signinError")
         },
     },
     extraReducers: (builder) => {
@@ -114,7 +130,6 @@ const authSlice = createSlice({
             .addCase(signupAsync.rejected, (state, action) => {
                 state.signup.loading = false;
                 state.signup.success = false;
-                state.signup.error = action.error;
             })
             .addCase(signinAsync.pending, (state) => {
                 state.signin.loading = true;
@@ -129,7 +144,6 @@ const authSlice = createSlice({
             .addCase(signinAsync.rejected, (state, action) => {
                 state.signin.loading = false;
                 state.signin.success = false;
-                state.signin.error = action.error;
             });
     }
 });
@@ -137,8 +151,10 @@ const authSlice = createSlice({
 export const {
     signupSuccess,
     signupReset,
+    signupError,
     signinSuccess,
     signinReset,
+    signinError,
 } = authSlice.actions;
 
 export default authSlice.reducer;
