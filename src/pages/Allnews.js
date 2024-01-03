@@ -15,8 +15,7 @@
   };
 
   const headerStyle = {
-    backgroundImage:
-      "url(https://s3-alpha-sig.figma.com/img/11d5/5fbd/5de3439046ac21aa390b03d1cffcdb97?Expires=1704067200&Signature=GAaen-QYC535jSzMt~2wLJdmr3u8p~sSZ8hHmx2K2V7i-ZP~G9n9SMwK90OjT6YHfrnTWhCFPH36lI0iCy-jrOtkQxgPlZ~4byWuGtMjVqMIb9h1hCCc5dNMr-UaE6JmOvD0zU-XbdYwP8QtGPk228RkY7aSJAaO6YPHzG2fLU6gneITKoGTmrizL5rPYYWHJGIZBh9E~BI10E03w9Xgh9mCm5uCdEY6QyokKodbEGz61u3TU7DLmmmAFE00yb1smj-vWmDwU1KuLsOQc-ezb570OFD6GlJSOmfayIG14vgr3tJEaYFkMfYhtcLt9HlBILmFcENh2BAwLjVxfU6CQA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4)",
+    backgroundImage: `url(${require("../assets/bg.png")})`,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -120,6 +119,7 @@
     };
 
     const dispatch = useDispatch();
+    dispatch(fetchLatestNewsAsync());
     const topNews = useSelector((state) => {
       console.log(state.scoop.topNews)
       return state.scoop.topNews
@@ -170,11 +170,10 @@
                     fontWeight: "700",
                     lineHeight: "2.375rem",
                   }}>
-                  <option value="date">Date</option>
-                  <option value="upvotes">Upvotes</option>
+                   <option value="latest">Latest</option>
                   <option value="top">Top</option>
                   <option value="credible">Credible</option>
-                  <option value="latest">Latest</option>
+                 
                 </select>
               </div>
             </div>
@@ -193,7 +192,7 @@
                     ? latestNews.data?.data?.news 
                     :selectedCategory === "top" 
                     ? topNews.data?.data?.news 
-                    : cardArray
+                    : latestNews.data?.data?.news 
                     )?.map((card, index) => (
 
                 <div
