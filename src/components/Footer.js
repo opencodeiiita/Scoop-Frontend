@@ -227,7 +227,6 @@ const part3 = {
 const Footer = () => {
   const isMobile = useMediaQuery("(max-width: 700px)");
   const isTablet = useMediaQuery("(min-width: 701px) and (max-width: 1450px)");
-  console.log(isTablet);
   if (!isMobile) {
     return (
       <div

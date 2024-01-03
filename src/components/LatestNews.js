@@ -1,8 +1,70 @@
-import React from "react";
 import "./index.css";
 import { Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { fetchLatestNewsAsync } from "../redux/scoopSlice";
+import store from "../store";
+import { useEffect, useState } from "react";
 
 const LatestNews = () => {
+  const dispatch = useDispatch();
+  const [latestNews, setLatestNews] = useState(store.getState().scoop.latestNews.data);
+
+
+  useEffect(() => {
+    updateLatestNewsSection();
+  }, [dispatch]);
+
+  const updateLatestNewsSection = () => {
+    dispatch(fetchLatestNewsAsync())
+      .then(() => {
+        console.log("updating")
+        setLatestNews(store.getState().scoop.latestNews.data)
+      });
+  }
+
+  const MainLastestNews = () => {
+    return (<div>
+              <img
+                src={latestNews[0]?.Headimage || "/news-1.png"}
+                alt="News Image"
+                className="w-screen md:w-[50vw] p-4"
+              />
+              <div className="px-6">
+                <h1 className="font-black text-3xl text-white">{latestNews[0]?.Headline || "Loading..."}</h1>
+                <h4 className="flex items-center text-gray-500">
+                  <div className="w-10 h-10 rounded-full font-semibold bg-news-gray mr-3"></div>
+                  {latestNews[0]?.Location || "Loading..."}
+                </h4>
+              </div>
+            </div>)
+  }
+
+  const SideLatestNewsOne = (num) => {
+    return (<div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
+    <div className="p-8">
+      <h1 className="font-bold">{latestNews[num]?.Headline || "Loading..."}</h1>
+      <h4 className="flex items-center">
+        <div className="w-10 h-10 rounded-full bg-black mr-3"></div>
+        {latestNews[num]?.Location || "Loading..."}
+      </h4>
+    </div>
+    <img
+      src={latestNews[num]?.Headimage || "/news-1.png"}
+      alt="News Image"
+      className="h-full w-full"
+    />
+  </div>)
+  }
+
+  const SideLatestNews = () => {
+
+    return (<>
+      {SideLatestNewsOne(1)}
+      {SideLatestNewsOne(2)}
+      {SideLatestNewsOne(3)}
+    </>)
+  }
+
   return (
     <div className="bg-black p-10">
       <div className="flex flex-col">
@@ -32,66 +94,11 @@ const LatestNews = () => {
         </div>
         <div className="">
           <div className="flex flex-col md:flex-row justify-between">
-            <div>
-              <img
-                src="/news-1.png"
-                alt="News Image"
-                className="w-screen md:w-[50vw] p-4"
-              />
-              <div className="px-6">
-                <h1 className="font-black text-3xl text-white">Heading</h1>
-                <h4 className="flex items-center text-gray-500">
-                  <div className="w-10 h-10 rounded-full font-semibold bg-news-gray mr-3"></div>
-                  NEWS
-                </h4>
-              </div>
-            </div>
+            <MainLastestNews />
             <div className="overflow-scroll">
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
-                <div className="p-8">
-                  <h1 className="font-bold">Heading</h1>
-                  <h4 className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-black mr-3"></div>
-                    News
-                  </h4>
-                </div>
-                <img
-                  src="/news-1.png"
-                  alt="News Image"
-                  className="h-full w-full"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
-                <div className="p-8">
-                  <h1 className="font-bold">Heading</h1>
-                  <h4 className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-black mr-3"></div>
-                    News
-                  </h4>
-                </div>
-                <img
-                  src="/news-1.png"
-                  alt="News Image"
-                  className="h-full w-full"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
-                <div className="p-8">
-                  <h1 className="font-bold">Heading</h1>
-                  <h4 className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-black mr-3"></div>
-                    News
-                  </h4>
-                </div>
-                <img
-                  src="/news-1.png"
-                  alt="News Image"
-                  className="h-full w-full"
-                />
-              </div>
+              <SideLatestNews />
             </div>
+            
           </div>
         </div>
       </div>
