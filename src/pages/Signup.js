@@ -462,7 +462,8 @@ const Signup = () => {
           });
         })
         .catch(() => {
-          toast.error(store.getState().auth.signup.error || "Unknown Error", {
+          console.log(store.getState().auth.signup.error.response.data.error);
+          toast.error(store.getState().auth.signup.error.response.data.error || "Unknown Error", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
