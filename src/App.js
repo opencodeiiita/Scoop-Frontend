@@ -15,6 +15,8 @@ import ComposeScoopPage from './ComposeScoopPage.js'
 
 import Signup from './pages/Signup.js';
 import Profile from './components/Profile.js'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -33,23 +35,16 @@ function App() {
      <CssBaseline>
        {/* <Navbar />  */}
       <BrowserRouter>
-      
+      <ToastContainer />
       <Routes>
        
        <Route path="/" element={<><Home /><Footer /></>} />
        <Route path="*" element={<NotFound></NotFound>} />
        <Route path="/compose" element={<ComposeScoopPage></ComposeScoopPage>}/>
        <Route path="/signin" element={<Signinform></Signinform>}/>
-
-
-    
+       <Route path='/scoop/:scoopId' element={<Scoop />} />
        <Route path='/scoop' element={<Scoop />} />
-
        <Route path="/allnews" element={<Allnews/>} />
-       
-
-       
-
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<AccountManagementPage/>} />
       </Routes>
