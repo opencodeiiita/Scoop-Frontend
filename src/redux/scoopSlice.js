@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -28,9 +27,8 @@ const initialState = {
 
 export const composeScoopAsync = createAsyncThunk(
     'scoop/composeScoopAsync',
-    async (scoopData, { dispatch, getState }) => {
+    async (scoopData, { dispatch }) => {
         try {
-
             const token = JSON.parse(localStorage.getItem('user')).token;
             const response = await axios.post(
                 'http://localhost:5000/api/scoop/post',
@@ -56,7 +54,7 @@ export const fetchTopNewsAsync = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/scoop/home/top");
-             return response.data;
+            return response.data;
         } catch (error) {
             console.log(error);
             return Promise.reject(error)
@@ -80,7 +78,9 @@ export const fetchLatestNewsAsync = createAsyncThunk(
     "scoop/fetchLatestNewsAsync",
     async () => {
         try {
+            console.log("lastest................")
             const response = await axios.get("http://localhost:5000/api/scoop/home/latest");
+            console.log("lastest................", response)
             return response.data;
         } catch (error) {
             console.log(error);
@@ -123,7 +123,7 @@ const scoopSlice = createSlice({
                 state.topNews.loading = true;
               })
               .addCase(fetchTopNewsAsync.fulfilled, (state, action) => {
-                console.log(action.payload);
+                console.log("top news", action.payload);
                 state.topNews.loading = false;
                 state.topNews.data = action.payload; 
                 state.topNews.error = null;
@@ -136,6 +136,7 @@ const scoopSlice = createSlice({
                 state.credibleNews.loading = true;
             })
             .addCase(fetchCredibleNewsAsync.fulfilled, (state, action) => {
+                console.log("credible news", action.payload);
                 state.credibleNews.loading = false;
                 state.credibleNews.data = action.payload;
                 state.credibleNews.error = null;
@@ -149,8 +150,9 @@ const scoopSlice = createSlice({
                 state.latestNews.loading = true;
             })
             .addCase(fetchLatestNewsAsync.fulfilled, (state, action) => {
+                console.log("latest news scoopSlice", action.payload.data.news);
                 state.latestNews.loading = false;
-                state.latestNews.data = action.payload;
+                state.latestNews.data = action.payload.data.news;
                 state.latestNews.error = null;
             })
             .addCase(fetchLatestNewsAsync.rejected, (state, action) => {

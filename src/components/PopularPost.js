@@ -7,15 +7,18 @@ import { Avatar, dividerClasses, Box } from "@mui/material";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import "./index.css";
+import { useDispatch } from "react-redux";
+import { fetchTopNewsAsync } from "../redux/scoopSlice";
+import store from "../store";
+import { useEffect, useState } from "react";
+
 //assume this data is coming from the backend
 const postsdata = [
   {
     headline: "Opening Day of Boating Season, Seattle WA",
     location: "Seattle, WA",
-    image: "https://picsum.photos/300",
+    image: "https://picsum.photos/301",
     explaination:
       "The Grand Opening of Boating Season when traffic gets stalled in the University District (UW)  ",
     description: "<h1> Some HTML code for news content</h1>", //not to be used for popular news' cards
@@ -33,7 +36,7 @@ const postsdata = [
   {
     headline: "How to choose the right laptop for programming",
     location: "Prayagraj, India",
-    image: "https://picsum.photos/300",
+    image: "https://picsum.photos/302",
     explaination:
       "Choosing the right laptop for programming can be a tough process. It’s easy to get confused while researching the various options. There are many different laptop models out there, each with a different set of trade-offs",
     description: "<h1> Some HTML code for news content</h1>", //not to be used for popular news' cards
@@ -44,7 +47,7 @@ const postsdata = [
   {
     headline: "How we built the world's first self driving car",
     location: "San Francisco, CA",
-    image: "https://picsum.photos/300",
+    image: "https://picsum.photos/303",
     explaination:
       "Electric self-driving cars will save millions of lives and significantly accelerate the world’s transition to sustainable energy, but only when",
     description: "<h1> Some HTML code for news content</h1>", //not to be used for popular news' cards
@@ -55,7 +58,7 @@ const postsdata = [
   {
     headline: "How to Persuade Your Parents to Buy Fast Food",
     location: "New York, NY",
-    image: "https://picsum.photos/300",
+    image: "https://picsum.photos/304",
     explaination:
       "Parents often don’t want to buy fast food. They may be worried that it’s too expensive, unhealthy, or not worth the effort and time.",
     description: "<h1> Some HTML code for news content</h1>", //not to be used for popular news' cards
@@ -114,6 +117,7 @@ const userArray = [
     News: [],
   },
 ];
+
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -137,6 +141,22 @@ const responsive = {
   },
 };
 const PopularPost = () => {
+  const dispatch = useDispatch();
+  const [topNews, setTopNews] = useState(store.getState().scoop.topNews.data);
+  const [postData, setPostData] = useState([]);
+
+  useEffect(() => {
+    updateTopNewsSection();
+  }, [dispatch]);
+
+  const updateTopNewsSection = () => {
+    dispatch(fetchTopNewsAsync())
+      .then(() => {
+        console.log("updating top news")
+        setTopNews(store.getState().scoop.latestNews.data)
+      });
+  }
+
   return (
     <Box sx={{paddingTop: {xs: "50px", md:"20px"}}}>
       <div className="head-div" >
@@ -189,7 +209,7 @@ const PopularPost = () => {
                   margin: 2,
                   objectFit: "cover",
                 }}
-                image="https://picsum.photos/300"
+                image={news.image}
                 title="news thumbnail"
               />
               <CardContent>
