@@ -49,12 +49,37 @@ export const composeScoopAsync = createAsyncThunk(
     }
 );
 
+const addUserToData = async (data) => {
+    const len = data.length;
+
+    for (let i = 0; i < len; i++) {
+        try {
+            let item = data[i];
+            const response = await axios.get(`http://localhost:5000/api/user/${item.User}`);
+            const user = response.data.data;
+
+            const userDetail = {
+                pfpImage: user.ProfileImage,
+                name: user.FirstName + " " + user.LastName,
+            }
+
+            item.User = userDetail;
+
+            data[i] = item;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
 export const fetchTopNewsAsync = createAsyncThunk(
     "scoop/fetchTopNewsAsync",
     async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/scoop/home/top");
-            return response.data;
+            let data = response.data.data.news;
+            await addUserToData(data);
+            return data;
         } catch (error) {
             console.log(error);
             return Promise.reject(error)
@@ -78,9 +103,7 @@ export const fetchLatestNewsAsync = createAsyncThunk(
     "scoop/fetchLatestNewsAsync",
     async () => {
         try {
-            console.log("lastest................")
             const response = await axios.get("http://localhost:5000/api/scoop/home/latest");
-            console.log("lastest................", response)
             return response.data;
         } catch (error) {
             console.log(error);
@@ -123,7 +146,6 @@ const scoopSlice = createSlice({
                 state.topNews.loading = true;
               })
               .addCase(fetchTopNewsAsync.fulfilled, (state, action) => {
-                console.log("top news", action.payload);
                 state.topNews.loading = false;
                 state.topNews.data = action.payload; 
                 state.topNews.error = null;
@@ -150,7 +172,6 @@ const scoopSlice = createSlice({
                 state.latestNews.loading = true;
             })
             .addCase(fetchLatestNewsAsync.fulfilled, (state, action) => {
-                console.log("latest news scoopSlice", action.payload.data.news);
                 state.latestNews.loading = false;
                 state.latestNews.data = action.payload.data.news;
                 state.latestNews.error = null;

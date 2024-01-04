@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {Box, Card, CardMedia, Typography } from '@mui/material';
+
+
+
 export default class Carousell extends Component {
   render() {
     const cardDetails =[{

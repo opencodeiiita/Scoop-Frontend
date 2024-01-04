@@ -17,7 +17,6 @@ const LatestNews = () => {
   const updateLatestNewsSection = () => {
     dispatch(fetchLatestNewsAsync())
       .then(() => {
-        console.log("updating")
         setLatestNews(store.getState().scoop.latestNews.data)
       });
   }
