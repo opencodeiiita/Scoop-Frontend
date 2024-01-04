@@ -26,7 +26,7 @@ const LatestNews = () => {
               <img
                 src={latestNews[0]?.Headimage || "/news-1.png"}
                 alt="News Image"
-                className="w-screen md:w-[50vw] p-4"
+                className="w-screen lg:w-[50vw] p-4"
               />
               <div className="px-6">
                 <h1 className="font-black text-3xl text-white">{latestNews[0]?.Headline || "Loading..."}</h1>
@@ -39,7 +39,7 @@ const LatestNews = () => {
   }
 
   const SideLatestNewsOne = (num) => {
-    return (<div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 md:w-[30vw]">
+    return (<div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 lg:w-[30vw]">
     <div className="p-8">
       <h1 className="font-bold">{latestNews[num]?.Headline || "Loading..."}</h1>
       <h4 className="flex items-center">
@@ -92,7 +92,7 @@ const LatestNews = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col md:flex-row justify-between">
+          <div className="flex flex-col lg:flex-row justify-between">
             <MainLastestNews />
             <div className="overflow-scroll">
               <SideLatestNews />
