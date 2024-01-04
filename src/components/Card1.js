@@ -18,12 +18,15 @@ export default function Card1(props)
       }}>    
      <Box sx={{ position: 'relative',borderRadius: '15px', height: '300' }}>
      <CardMedia
-        sx={{ borderRadius: '15px' }}
+        sx={{ borderRadius: '15px', objectFit: 'cover', height: '300px' }}
         component="img"
         height="300"
         src={props.img}
         alt="Driving Tips"
       />
+      {/* <img src={props.img} style={{
+        height: '300px'
+      }} /> */}
      <Box
         sx={{
           position: 'absolute',

@@ -158,7 +158,7 @@ const PopularPost = () => {
   const updateTopNewsSection = () => {
     dispatch(fetchTopNewsAsync()).then(() => {
       console.log("updating top news");
-      setTopNews(store.getState().scoop.latestNews.data);
+      setTopNews(store.getState().scoop.topNews.data);
     });
   };
 
