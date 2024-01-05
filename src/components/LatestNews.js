@@ -24,15 +24,15 @@ const LatestNews = () => {
   const MainLastestNews = () => {
     return (<div>
               <img
-                src={latestNews[0]?.Headimage || "/news-1.png"}
+                src={latestNews?.at(0)?.Headimage || "/news-1.png"}
                 alt="News Image"
                 className="w-screen lg:w-[50vw] p-4"
               />
               <div className="px-6">
-                <h1 className="font-black text-3xl text-white">{latestNews[0]?.Headline || "Loading..."}</h1>
+                <h1 className="font-black text-3xl text-white">{latestNews?.at(0)?.Headline || "Loading..."}</h1>
                 <h4 className="flex items-center text-gray-500">
                   <div className="w-10 h-10 rounded-full font-semibold bg-news-gray mr-3"></div>
-                  {latestNews[0]?.Location || "Loading..."}
+                  {latestNews?.at(0)?.Location || "Loading..."}
                 </h4>
               </div>
             </div>)
@@ -41,14 +41,14 @@ const LatestNews = () => {
   const SideLatestNewsOne = (num) => {
     return (<div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 lg:w-[30vw]">
     <div className="p-8">
-      <h1 className="font-bold">{latestNews[num]?.Headline || "Loading..."}</h1>
+      <h1 className="font-bold">{latestNews?.at(num)?.Headline || "Loading..."}</h1>
       <h4 className="flex items-center">
         <div className="w-10 h-10 rounded-full bg-black mr-3"></div>
-        {latestNews[num]?.Location || "Loading..."}
+        {latestNews?.at(num)?.Location || "Loading..."}
       </h4>
     </div>
     <img
-      src={latestNews[num]?.Headimage || "/news-1.png"}
+      src={latestNews?.at(num)?.Headimage || "/news-1.png"}
       alt="News Image"
       className="h-full w-full"
     />
