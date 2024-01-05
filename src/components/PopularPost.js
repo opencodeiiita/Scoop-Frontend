@@ -260,7 +260,7 @@ const PopularPost = () => {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  {news.headline}
+                  {news.Headline || "Missing Headline"}
                 </Typography>
 
                 <Typography
