@@ -150,9 +150,9 @@ const PopularPost = () => {
 
   useEffect(() => {
     updateTopNewsSection();
-    if (topNews.length > 0) {
-      console.log("useEffect", topNews[0]);
-    }
+    // if (topNews.length > 0) {
+    //   console.log("useEffect", topNews[0]);
+    // }
   }, [dispatch]);
 
   const updateTopNewsSection = () => {
@@ -272,9 +272,9 @@ const PopularPost = () => {
                     textOverflow: "ellipsis",
                   }}
                 >
-                  {news.Description.length <= 100
-                    ? news.Description
-                    : news.Description.substring(0, 100) + "..."}
+                  {news?.Description?.length <= 100
+                    ? news?.Description
+                    : news?.Description?.substring(0, 100) + "..."}
                 </Typography>
               </CardContent>
               <Card
