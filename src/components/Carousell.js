@@ -90,11 +90,6 @@ const Carousell = () => {
 
   useEffect(() => {
     updateCredibleNewsSection();
-    if (credibleNews.length > 0) {
-      console.log("useEffect credible news", credibleNews[0]);
-    } else {
-      console.log("useEffect credible news empty");
-    }
   }, [dispatch]);
 
   const updateCredibleNewsSection = () => {
