@@ -25,9 +25,7 @@ import "./font.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const selectUserLoggedInStatus = (state) => 
-   state
-;
+const selectAuthUserLoggedInStatus = (state) => state.auth;
 
 const Navbar = () => {
     const [value, setValue] = useState();
@@ -58,7 +56,7 @@ const Navbar = () => {
     };
 
     const ProfileImage = () => { 
-        return (<img className="w-10 mx-5 rounded-full cursor-pointer" onClick={navigateToLoginPage} src={useSelector(selectUserLoggedInStatus).auth.user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
+        return (<img className="w-10 mx-5 rounded-full cursor-pointer" onClick={navigateToLoginPage} src={useSelector(selectAuthUserLoggedInStatus).user.data?.ProfileImage || "https://i.pinimg.com/736x/73/17/a5/7317a548844e0d0cccd211002e0abc45.jpg"} />)
     }
 
     const navigateToLoginPage = () => {
@@ -196,7 +194,7 @@ const Navbar = () => {
 
                     <Typography className="cursor-pointer" onClick={navigateToLoginPage} sx={{ marginLeft: "5px", color: "white", fontFamily: 'FF_MARK_FONT' }}>
                         {
-                            useSelector(selectUserLoggedInStatus).auth.user.data?.UserName || "Login"
+                            useSelector(selectAuthUserLoggedInStatus).user.data?.UserName || "Login"
                         }
                     </Typography>
                    

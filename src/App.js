@@ -38,6 +38,7 @@ function App() {
                 }
               />
               <Route path="*" element={<NotFound></NotFound>} />
+              <Route path="/404" element={<NotFound></NotFound>} />
               <Route path="/compose" element={<ComposeScoopPage />} />
               <Route path="/signin" element={<Signinform></Signinform>} />
               <Route path="/scoop" element={<Scoop />} />
