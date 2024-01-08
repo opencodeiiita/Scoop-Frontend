@@ -7,14 +7,15 @@ import axios from "axios";
 const Profile = () => {
   const navigate = useNavigate();
   const [totalNews, setTotalNews] = React.useState([]);
-  const [allNews, setAllNews] = React.useState([]);
+  const [showNews, setShowNews] = React.useState([]);
   const [profile, setProfile] = React.useState({});
+  const [search, setSearch] = React.useState("");
 
   // News Component
-  const News = (headline, description) => {
+  const News = (headline, description, index) => {
     return (
       <>
-        <div className="con2">
+        <div key={index} className="con2">
           <div className="con2-1">{headline}</div>
           <p className="con2-2">
             <u>
@@ -30,12 +31,12 @@ const Profile = () => {
   // Add news
   const addNews = (news, index) => {
     console.log("addNews", index, news.Headline, news.Description);
-    setAllNews((prev) => [...prev, {
+    setTotalNews((prev) => [...prev, {
       Headline: news.Headline,
       Description: news.Description
     }]);
 
-    // setAllNews((prev) => [...prev, news]);
+    // setTotalNews((prev) => [...prev, news]);
   };
 
   const { profileId } = useParams();
@@ -45,9 +46,8 @@ const Profile = () => {
     setProfile(data.data);
 
     // log the no. of news this person has
-    console.log("No. of news", data.data?.News?.length);
     if (data.data?.News?.length == 0) {
-      setAllNews([{
+      setTotalNews([{
         Headline: "No news yet",
         Description: "..."
       }]);
@@ -72,10 +72,9 @@ const Profile = () => {
   //   console.log("profile", profile);
   // }, [profile]);
 
-  // // Debug news data
-  // useEffect(() => {
-  //   console.log("news", allNews);
-  // }, [allNews]);
+  useEffect(() => {
+    setShowNews(totalNews);
+  }, [totalNews]);
 
   // Get data
   useEffect(() => {
@@ -134,6 +133,10 @@ const Profile = () => {
                   id="con2-in"
                   type="text"
                   placeholder="Find the scoop"
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setShowNews(totalNews.filter((news) => news.Headline.toLowerCase().includes(e.target.value.toLowerCase())));
+                  }}
                 ></input>
               </div>
               <br />
@@ -141,7 +144,7 @@ const Profile = () => {
                 <hr />
               </div>
               <br />
-              {allNews.map((news) => {return News(news.Headline, news.Description);})}
+              {showNews.map((news, index) => {return News(news.Headline, news.Description, index);})}
             </div>
           </div>
         </div>
