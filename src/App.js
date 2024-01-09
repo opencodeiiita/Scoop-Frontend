@@ -15,8 +15,6 @@ import ComposeScoopPage from "./ComposeScoopPage.js";
 import Signup from "./pages/Signup.js";
 import Profile from "./components/Profile.js";
 
-import LatestNews from "./components/LatestNews.js";
-
 import Scoop from "./pages/Scoop.js";
 
 import { Allnews } from "./pages/Allnews.js";
@@ -46,6 +44,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/account" element={<AccountManagementPage />} />
               <Route path="/profile/:profileId" element={<Profile />} />
+              <Route path="/scoop/:scoopId" element={<Scoop />} />
             </Routes>
           </BrowserRouter>
         </CssBaseline>
