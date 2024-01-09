@@ -45,8 +45,8 @@ export const signupAsync = createAsyncThunk(
             const response = await axios.post('http://localhost:5000/api/auth/register', userData)
             dispatch(signupSuccess(response.data));
         } catch (error) {
-            console.log("before signupError")
-            dispatch(signupError(error.response.data.msg))
+            console.log("before signupError"); console.log(error)
+            dispatch(signupError(error))
                 .then(() => {
                     console.log("After signupError")
                     return Promise.reject(error)
@@ -90,7 +90,7 @@ const authSlice = createSlice({
             state.user.data = null;
         },
         signupError: (state, action) => {
-            console.log("action.payload", action.payload)
+            console.log("action.payload", action)
             state.signup.error = action.payload;
         },
         
