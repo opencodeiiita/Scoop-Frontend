@@ -1,66 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import store from "../store";
 import { fetchLatestNewsAsync } from "../redux/scoopSlice";
 import { useDispatch } from "react-redux";
-
-const scoops = [
-  {
-    label: "news",
-    date: "Dec 13, 2023",
-    img: "https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blt35a9c1355e1316d1/6573accb9c56812d4c786859/Worlds-Viewer-Guide--Banner.jpg",
-    text: "The Winners of the 2023 Charity Voting Campaign",
-  },
-  {
-    label: "news",
-    date: "Dec 11, 2023",
-    img: "https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blt35a9c1355e1316d1/6573accb9c56812d4c786859/Worlds-Viewer-Guide--Banner.jpg",
-    text: "A View to Worlds",
-  },
-  {
-    label: "news",
-    date: "Dec 4, 2023",
-    img: "https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blt35a9c1355e1316d1/6573accb9c56812d4c786859/Worlds-Viewer-Guide--Banner.jpg",
-    text: "TFT Vegas Open: Everything You Need to Know",
-  },
-  {
-    label: "news",
-    date: "Nov 29, 2023",
-    img: "https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blt35a9c1355e1316d1/6573accb9c56812d4c786859/Worlds-Viewer-Guide--Banner.jpg",
-    text: "Marc Merrill Takes on New Role as Chief Product Officer at Riot Games ",
-  },
-  {
-    label: "inside riot",
-    date: "Dec 28, 2023",
-    img: "https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blt35a9c1355e1316d1/6573accb9c56812d4c786859/Worlds-Viewer-Guide--Banner.jpg",
-    text: "Riot Games Soical Impact Fund Crosses $50M Raised",
-  },
-];
-
-const commentsData = [
-  {
-    pfp: "https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg",
-    username: "amyrobson",
-    time: "1 month ago",
-    comment:
-      "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-  },
-  {
-    pfp: "https://i.pinimg.com/564x/f2/30/85/f230852fd4dbbb96ae5e5abd8ef405df.jpg",
-    username: "MApoorv",
-    time: "2 weeks ago",
-    comment:
-      "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-  },
-  {
-    pfp: "https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg",
-    username: "amyrobson",
-    time: "1 month ago",
-    comment:
-      "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-  },
-];
 
 const CommentCard = ({ pfp, username, time, comment }) => {
   return (
@@ -115,7 +58,7 @@ const ScoopCard = ({ label, img, date, text }) => {
   );
 };
 
-const loadScoop = async (scoopId, setNews, setUser, setComments) => {
+const loadScoop = async (scoopId, setNews, setUser, setComments, navigate) => {
   const handleScoopData = (scoopData) => {
     const date = new Date(scoopData?.createdAt);
 
@@ -142,7 +85,7 @@ const loadScoop = async (scoopId, setNews, setUser, setComments) => {
   await axios
     .get(`http://localhost:5000/api/scoop/${scoopId}`)
     .then((newsData) => handleScoopData(newsData.data.data))
-    .catch((error) => console.log("loadScoopError", error));
+    .catch((error) => navigate("/404"));
 };
 
 const loadLatestNews = async (dispatch, setLatestNews) => {
@@ -161,7 +104,7 @@ const loadComments = async (scoopId, setComments) => {
   const _comments = response.data?.data?.comments;
 
   let newComments = [];
-  for (let i = 0; i < _comments.length; i++) {
+  for (let i = 0; i < _comments?.length; i++) {
     const comment = _comments[i];
     const _date = new Date(comment?.Date);
 
@@ -203,6 +146,7 @@ const loadUser = async (userId, setUser) => {
 const Scoop = () => {
   const { scoopId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [news, setNews] = useState({
     headline: "Loading...",
@@ -218,18 +162,17 @@ const Scoop = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    loadScoop(scoopId, setNews, setUser, setComments);
+    loadScoop(scoopId, setNews, setUser, setComments, navigate);
     loadLatestNews(dispatch, setLatestNews);
   }, []);
 
-  const handleUpvote = async (scoopId) => {
+  const handleUpvote = async () => {
     const _token = JSON.parse(localStorage.getItem("user"))?.token;
-    console.log("token", _token);
     const response = await axios.post(`http://localhost:5000/api/scoop/${scoopId}/upvote`, null, {
         headers: {
           "Authorization": "Bearer " + _token,
         }})
-        .then((data) => console.data(data))
+        .then((data) => console.log(data))
         .catch((error) => console.log(error));
   };
 
@@ -244,7 +187,7 @@ const Scoop = () => {
             {news?.headline}
             <button
               className="font-FF text-xs p-0 py-0.5 tracking-widest font-bold px-5 bg-green-600 absolute bottom-2 ml-5"
-              onClick={() => handleUpvote(scoopId)}
+              onClick={handleUpvote}
             >
               UPVOTE
             </button>
