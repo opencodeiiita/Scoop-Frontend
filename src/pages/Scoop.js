@@ -60,7 +60,7 @@ const Scoop = () => {
   return (
     <div className='font-FF flex justify-center items-center bg-[#DBD9D6] pt-16 pl-80 pr-64 max-lg:px-6'>
       <div className=' flex space-x-32 max-md:flex-col max-md:space-x-0 max-md:space-y-10'>
-        <section className='mt-9 grow'>
+        <section className='mt-9 w-3/5 max-md:w-full'>
           <span className='bg-red-500 text-white font-semibold tracking-widest text-xs pl-1 py-0.5 pr-10'>SCOOP</span>
           <h1 className='text-[43px] leading-[48px] max-sm:text-3xl text-text max-w-4xl font-extrabold mb-4 relative'>{news?.headline}
             <button className='font-FF text-xs p-0 py-0.5 tracking-widest font-bold px-5 bg-green-600 absolute bottom-2 ml-5'>UPVOTE</button>
@@ -113,7 +113,7 @@ const Scoop = () => {
           <NewComment pfp={"https://i.pinimg.com/236x/d9/21/4a/d9214ad661353dffe8846da342e1a004.jpg"} />
         </section>
 
-        <section className=''>
+        <section className='w-2/5 max-md:w-full'>
           <h1 className='text-text w-full text-[40px] font-FF font-extrabold max-sm:text-center'>Latest Scoop</h1>
           <ul className='space-y-9'>
             {scoops?.map((scoop,index)=>(
