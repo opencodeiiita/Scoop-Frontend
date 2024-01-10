@@ -2,20 +2,19 @@ body{
     background-color: #080404;    
     overflow-x: hidden;
 }
-.circle{
-    background-color: grey;
+.profile-img {
     border-radius: 50%;
     height: 10rem;
     width: 10rem;
 }
-.om-text{
+.profile-text{
     color:white;
 }
-.om-id{
+.profile-id{
     color:white;
     margin-top: -0.5%;
 }
-#om-hr{
+#profile-hr{
     width: 100%;
     margin-right: 84%;
 }
@@ -26,7 +25,7 @@ body{
     width: 5rem;
     margin-left: 1%;
 }
-#om-text-1{
+#profile-text-1{
     padding-bottom: 1%;
 }
 .con1{
