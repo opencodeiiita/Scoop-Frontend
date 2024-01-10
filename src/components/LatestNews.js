@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { fetchLatestNewsAsync } from "../redux/scoopSlice";
 import store from "../store";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 const LatestNews = () => {
   const dispatch = useDispatch();
   const [latestNews, setLatestNews] = useState(store.getState().scoop.latestNews.data);
@@ -22,7 +22,7 @@ const LatestNews = () => {
   }
 
   const MainLastestNews = () => {
-    return (<div>
+    return (<div><Link to={"/scoop/"+latestNews?.at(0)?._id}>
               <img
                 src={latestNews?.at(0)?.Headimage || "/news-1.png"}
                 alt="News Image"
@@ -35,11 +35,11 @@ const LatestNews = () => {
                   {latestNews?.at(0)?.Location || "Loading..."}
                 </h4>
               </div>
-            </div>)
+           </Link></div>)
   }
 
   const SideLatestNewsOne = (num) => {
-    return (<div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-5/6 lg:w-[30vw]">
+    return (<Link to={"/scoop/"+latestNews?.at(num)?._id}><div className="grid grid-cols-2 m-8 rounded-3xl overflow-hidden bg-news-gray text-white w-full">
     <div className="p-8">
       <h1 className="font-bold">{latestNews?.at(num)?.Headline || "Loading..."}</h1>
       <h4 className="flex items-center">
@@ -52,7 +52,7 @@ const LatestNews = () => {
       alt="News Image"
       className="h-full w-full"
     />
-  </div>)
+  </div></Link>)
   }
 
   const SideLatestNews = () => {
@@ -65,7 +65,7 @@ const LatestNews = () => {
   }
 
   return (
-    <div className="bg-black p-10">
+    <div className="bg-black p-10 hidden lg:block">
       <div className="flex flex-col">
         <div className="flex justify-between items-center ">
           <div>
@@ -92,9 +92,11 @@ const LatestNews = () => {
           </div>
         </div>
         <div className="">
-          <div className="flex flex-col lg:flex-row justify-between">
-            <MainLastestNews />
-            <div className="overflow-scroll">
+          <div className="flex flex-col lg:flex-row justify-between ">
+            <div className="w-3/6">
+            <MainLastestNews /></div>
+            
+            <div className="w-3/6">
               <SideLatestNews />
             </div>
             

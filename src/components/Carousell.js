@@ -7,7 +7,7 @@ import {Box, Card, CardMedia, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { fetchCredibleNewsAsync } from '../redux/scoopSlice.js';
 import store from '../store.js';
-
+import { Link } from "react-router-dom";
 
 
 const Carousell = () => {
@@ -109,14 +109,17 @@ const Carousell = () => {
       <Slider {...settings}>
       {
       credibleNews.map((item,index)=>(
+        
         <div key={index}>
+          <Link to={"scoop/"+item._id}>
         <Card1 
           img = {item.Headimage}
           // img = {"https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixlib=rb-4.0.3" || item.Headimage}
           Title = {item.Headline}
-          Desc = {item.Description} 
-        />
+          Desc = {''} 
+        /> </Link>
         </div>
+       
       ))
      }
     </Slider>

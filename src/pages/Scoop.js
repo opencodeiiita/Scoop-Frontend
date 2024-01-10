@@ -100,7 +100,7 @@ const loadScoop = async (
   };
 
   await axios
-    .get(`http://localhost:5000/api/scoop/${scoopId}`)
+    .get(`https://scoop-api-v1.onrender.com/api/scoop/${scoopId}`)
     .then((newsData) => handleScoopData(newsData.data.data))
     .catch((error) => {
       console.log(error);
@@ -118,7 +118,7 @@ const loadLatestNews = async (dispatch, setLatestNews) => {
 
 const loadComments = async (scoopId, setComments) => {
   const response = await axios.get(
-    `http://localhost:5000/api/scoop/${scoopId}/comments`
+    `https://scoop-api-v1.onrender.com/api/scoop/${scoopId}/comments`
   );
 
   const _comments = response.data?.data?.comments;
@@ -129,7 +129,7 @@ const loadComments = async (scoopId, setComments) => {
     const _date = new Date(comment?.Date);
 
     const user = await axios
-      .get(`http://localhost:5000/api/user/${comment?.User}`)
+      .get(`https://scoop-api-v1.onrender.com/api/user/${comment?.User}`)
       .then((data) => data.data.data);
 
     newComments.push({
@@ -158,7 +158,7 @@ const loadUser = async (userId, setUser) => {
     setUser(newUser);
   };
 
-  const response = await fetch(`http://localhost:5000/api/user/${userId}`)
+  const response = await fetch(`https://scoop-api-v1.onrender.com/api/user/${userId}`)
     .then((data) => data.json())
     .catch((error) => console.log(error));
 
@@ -185,7 +185,7 @@ const loadCurrentUser = async (
       console.log(tokenJSON);
 
       const response = await axios
-        .get(`http://localhost:5000/api/user/${tokenJSON?.userId}`)
+        .get(`https://scoop-api-v1.onrender.com/api/user/${tokenJSON?.userId}`)
         .then((data) => data.data.data);
 
       await setCurrentUser(response);
@@ -243,7 +243,7 @@ const Scoop = () => {
   const handleUpvote = async () => {
     const _token = JSON.parse(localStorage.getItem("user"))?.token;
     const response = await axios
-      .post(`http://localhost:5000/api/scoop/${scoopId}/upvote`, null, {
+      .post(`https://scoop-api-v1.onrender.com/api/scoop/${scoopId}/upvote`, null, {
         headers: {
           Authorization: "Bearer " + _token,
         },

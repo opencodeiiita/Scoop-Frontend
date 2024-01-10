@@ -11,7 +11,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Input from "@mui/material/Input";
-
+import { Link } from "react-router-dom";
 const ariaLabel = { "aria-label": "description" };
 
 const categories = [
@@ -266,10 +266,10 @@ const Footer = () => {
                 <div style={about}>
                   <div style={headline}>
                     <Pointer />
-                    <div style={heading}>Mega News</div>
+                    <div style={heading}>Scoop</div>
                   </div>
                   <p style={para}>
-                    Lorem ipsum dolor sit amet, 
+                     Revolutionising the way we consume news, Scoop is a one-stop destination for all your news needs. 
                   </p>
                 </div>
 
@@ -318,7 +318,8 @@ const Footer = () => {
                     <Pointer />
                     <div style={{ marginLeft: "8px", color: "#F9E8D9" }}>Social Network</div>
                   </div>
-                  <InstaButton />
+                  <Link to={"https://www.instagram.com/buddhdev.om_/"}>
+                  <InstaButton /></Link>
                 </div>
               </div>
             </div>
@@ -452,14 +453,10 @@ const Footer = () => {
         <div style={about}>
           <div style={headline}>
             <Pointer />
-            <div style={heading}>Mega News</div>
+            <div style={heading}>Scoop</div>
           </div>
           <p style={para}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            euismod, diam id aliquam ultrices, nisl nunc porta neque, in
-            pellentesque massa sem at tellus. Sed auctor, nisl quis tempor
-            ornare, nisl nunc porta neque, in pellentesque massa sem at tellus.
-            Sed auctor, nisl quis tempor ornare.
+           Revolutionising the way we consume news, Scoop is a one-stop destination for all your news needs.
           </p>
         </div>
 

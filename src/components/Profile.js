@@ -55,7 +55,7 @@ const Profile = () => {
 
     await data.data?.News?.forEach(async (news, index) => {
       console.log("News to be added", index, news);
-      await axios.get(`http://localhost:5000/api/scoop/${news}`)
+      await axios.get(`https://scoop-api-v1.onrender.com/api/scoop/${news}`)
       // .then((newsData) => () => {
       //   console.log(newsData)
       //   console.log("Hmmmm")
@@ -78,7 +78,7 @@ const Profile = () => {
 
   // Get data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/user/${profileId}`)
+    fetch(`https://scoop-api-v1.onrender.com/api/user/${profileId}`)
       .then((data) => {
         if (data.status == 204) {
           console.log("no user found");
