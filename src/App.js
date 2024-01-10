@@ -25,7 +25,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <BrowserRouter>
-          <Navbar />
+          
             <Routes>
               <Route
                 path="/"
