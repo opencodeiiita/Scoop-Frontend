@@ -8,7 +8,8 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-const pages = ["Categories", "Pages", "Contact Us", "About Us"];
+import { Link } from "react-router-dom";
+const pages = ["All News", "Compose Scoop"];
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -21,11 +22,12 @@ const DrawerComp = () => {
       >
         <List>
           {pages.map((page, index) => (
+            <Link to={page === "All news" ? "/allnews" : "/compose"}>
             <ListItemButton key={index}>
               <ListItemIcon>
                 <ListItemText>{page}</ListItemText>
               </ListItemIcon>
-            </ListItemButton>
+            </ListItemButton></Link>
           ))}
         </List>
       </Drawer>

@@ -78,7 +78,7 @@ const Navbar = () => {
                         <>
                             <DrawerComp />
                             <Typography sx={{ fontSize: "2rem", paddingLeft: "3%", marginRight: "10px" }}>
-                                MEGA.news
+                                SCOOP
                             </Typography>
 
                             <TextField
