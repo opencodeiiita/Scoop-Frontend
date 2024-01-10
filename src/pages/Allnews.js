@@ -7,7 +7,7 @@
   import useMediaQuery from "@mui/material/useMediaQuery";
   import { useDispatch, useSelector } from "react-redux";
   import { fetchTopNewsAsync, fetchCredibleNewsAsync, fetchLatestNewsAsync } from "../redux/scoopSlice";
-
+import { Link } from "react-router-dom";
 
   const containerStyle = {
     display: "flex",
@@ -187,12 +187,12 @@
             >  
             
                 {(selectedCategory === "credible" 
-                    ? credibleNews?.data?.data?.usersNews[0] 
+                    ? credibleNews?.data 
                     : selectedCategory === "latest" 
-                    ? latestNews.data?.data?.news 
+                    ? latestNews.data
                     :selectedCategory === "top" 
-                    ? topNews.data?.data?.news 
-                    : latestNews.data?.data?.news 
+                    ? topNews.data
+                    : latestNews.data
                     )?.map((card, index) => (
 
                 <div
@@ -200,7 +200,7 @@
                     marginBottom: "50px",
                     flex: isMobile ? "1 0 100%" : "1 0 48%",
                   }}
-                >
+                ><Link to={"/scoop/"+card._id}>
                   <Card
                     sx={{
                       backgroundColor: "transparent",
@@ -262,7 +262,7 @@
                         
                       </Typography>
                     </CardContent>
-                  </Card>
+                  </Card></Link>
                 </div>
               ))}
             </div>

@@ -13,7 +13,7 @@ import { fetchTopNewsAsync } from "../redux/scoopSlice";
 import store from "../store";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 // //assume this data is coming from the backend
 // const postsdata = [
 //   {
@@ -226,6 +226,7 @@ const PopularPost = () => {
         responsive={responsive}
       >
         {topNews.map((news, index) => (
+          <Link to={"scoop/"+news._id}>
           <div>
             <Card
               sx={{
@@ -263,19 +264,7 @@ const PopularPost = () => {
                   {news.Headline || "Missing Headline"}
                 </Typography>
 
-                <Typography
-                  variant="body2"
-                  fontSize={12}
-                  sx={{
-                    color: "white",
-                    opacity: 0.75,
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  {news?.Description?.length <= 100
-                    ? news?.Description
-                    : news?.Description?.substring(0, 100) + "..."}
-                </Typography>
+               
               </CardContent>
               <Card
                 sx={{
@@ -326,6 +315,7 @@ const PopularPost = () => {
               </Card>
             </Card>
           </div>
+          </Link>
         ))}
       </Carousel>
     </Box>

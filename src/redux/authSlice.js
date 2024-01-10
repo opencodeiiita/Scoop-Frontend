@@ -42,7 +42,7 @@ export const signupAsync = createAsyncThunk(
     "auth/signupAsync",
     async (userData, { dispatch }) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', userData)
+            const response = await axios.post('https://scoop-api-v1.onrender.com/api/auth/register', userData)
             dispatch(signupSuccess(response.data));
         } catch (error) {
             console.log("before signupError"); console.log(error)
@@ -59,7 +59,7 @@ export const signinAsync = createAsyncThunk(
     "auth/signinAsync",
     async (userData, { dispatch }) => {
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', userData)
+            const response = await axios.post('https://scoop-api-v1.onrender.com/api/auth/login', userData)
             dispatch(signinSuccess(response.data));
         } catch (error) {
             console.log("before signinError")

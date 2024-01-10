@@ -31,7 +31,7 @@ export const composeScoopAsync = createAsyncThunk(
         try {
             const token = JSON.parse(localStorage.getItem('user')).token;
             const response = await axios.post(
-                'http://localhost:5000/api/scoop/post',
+                'https://scoop-api-v1.onrender.com/api/scoop/post',
                 scoopData,
                 {
                     headers: {
@@ -55,7 +55,7 @@ const addUserToData = async (data) => {
     for (let i = 0; i < len; i++) {
         try {
             let item = data[i];
-            const response = await axios.get(`http://localhost:5000/api/user/${item.User}`);
+            const response = await axios.get(`https://scoop-api-v1.onrender.com/api/user/${item.User}`);
             const user = response.data.data;
 
             const userDetail = {
@@ -76,7 +76,7 @@ export const fetchTopNewsAsync = createAsyncThunk(
     "scoop/fetchTopNewsAsync",
     async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/scoop/home/top");
+            const response = await axios.get("https://scoop-api-v1.onrender.com/api/scoop/home/top");
             let data = response.data.data.news;
             await addUserToData(data);
             return data;
@@ -90,7 +90,7 @@ export const fetchCredibleNewsAsync = createAsyncThunk(
     "scoop/fetchCredibleNewsAsync",
     async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/scoop/home/credible");
+            const response = await axios.get("https://scoop-api-v1.onrender.com/api/scoop/home/credible");
             return response.data;
         } catch (error) {
             console.log(error);
@@ -103,7 +103,7 @@ export const fetchLatestNewsAsync = createAsyncThunk(
     "scoop/fetchLatestNewsAsync",
     async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/scoop/home/latest");
+            const response = await axios.get("https://scoop-api-v1.onrender.com/api/scoop/home/latest");
             return response.data;
         } catch (error) {
             console.log(error);

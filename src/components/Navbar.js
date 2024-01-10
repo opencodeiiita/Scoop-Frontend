@@ -24,7 +24,7 @@ import DrawerComp from "./Drawer";
 import "./font.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const selectAuthUserLoggedInStatus = JSON.parse(localStorage.getItem("user"));
 
 const Navbar = () => {
@@ -151,8 +151,9 @@ const Navbar = () => {
                                 value={value}
                                 onChange={(e, value) => setValue(value)}
                             >
-                                <Tab sx = {{fontFamily: 'FF_MARK_FONT'}}label="Contact Us" />
-                                <Tab sx={{fontFamily: 'FF_MARK_FONT'}} label="About Us" />
+                               <Link to={"/compose"}><Tab sx = {{fontFamily: 'FF_MARK_FONT'}}label="Compose Scoop" /></Link> 
+                               <Link to={"/allnews"}>
+                                <Tab sx={{fontFamily: 'FF_MARK_FONT'}} label="All News" /></Link>
                             </Tabs>
                             <TextField
                                 id="search-bar"
