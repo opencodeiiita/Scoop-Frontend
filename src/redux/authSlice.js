@@ -42,7 +42,9 @@ export const signupAsync = createAsyncThunk(
     "auth/signupAsync",
     async (userData, { dispatch }) => {
         try {
+            console.log(userData)
             const response = await axios.post('https://scoop-api-v1.onrender.com/api/auth/register', userData)
+
             dispatch(signupSuccess(response.data));
         } catch (error) {
             console.log("before signupError"); console.log(error)
@@ -80,6 +82,7 @@ const authSlice = createSlice({
             state.user.isLoggedin = true;
             state.user.token = action.payload.token;
             state.user.data = parseJwt(action.payload.token);
+            localStorage.setItem("user", JSON.stringify(state.user));
         },
         signupReset: (state) => {
             state.signup.loading = false;
