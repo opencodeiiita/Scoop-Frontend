@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Home = () => {
   return (
     <Box sx={{ bgcolor: "black", width: "100vw" }}>
-      <Navbar />
+     
       <ToastContainer
         position="top-right"
         autoClose={5000}
